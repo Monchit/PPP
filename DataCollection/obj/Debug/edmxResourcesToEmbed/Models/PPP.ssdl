@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="partnicsModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 9.1.7" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="partnicsModelStoreContainer">
+    <EntitySet Name="td_part_delivery" EntityType="partnicsModel.Store.td_part_delivery" store:Type="Tables" Schema="public" />
+    <EntitySet Name="td_part_progress" EntityType="partnicsModel.Store.td_part_progress" store:Type="Tables" Schema="public" />
+    <EntitySet Name="td_part_recdata" EntityType="partnicsModel.Store.td_part_recdata" store:Type="Tables" Schema="public" />
+    <EntitySet Name="td_part_result" EntityType="partnicsModel.Store.td_part_result" store:Type="Tables" Schema="public" />
+    <EntitySet Name="tm_metal_weight" EntityType="partnicsModel.Store.tm_metal_weight" store:Type="Tables" Schema="public" />
+    <EntitySet Name="tm_workcenter_bonding" EntityType="partnicsModel.Store.tm_workcenter_bonding" store:Type="Tables" Schema="public" />
+    <EntitySet Name="tm_workcenter_stamp" EntityType="partnicsModel.Store.tm_workcenter_stamp" store:Type="Tables" Schema="public" />
+    <EntitySet Name="tt_part_stat" EntityType="partnicsModel.Store.tt_part_stat" store:Type="Tables" Schema="public" />
+  </EntityContainer>
+  <EntityType Name="td_part_delivery">
+    <Key>
+      <PropertyRef Name="part_job_order_no" />
+      <PropertyRef Name="delivery_no" />
+    </Key>
+    <Property Name="part_job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="part_code" Type="varchar" MaxLength="20" />
+    <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+    <Property Name="finished_goods_code" Type="varchar" MaxLength="20" />
+    <Property Name="delivery_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="wc" Type="varchar" MaxLength="6" />
+    <Property Name="group_name" Type="varchar" MaxLength="6" />
+    <Property Name="plant" Type="char" MaxLength="5" />
+    <Property Name="qty" Type="int" />
+    <Property Name="truck_no" Type="char" MaxLength="6" />
+    <Property Name="cart_no" Type="char" MaxLength="6" />
+    <Property Name="working_shift" Type="char" MaxLength="1" />
+    <Property Name="print_status" Type="char" MaxLength="1" />
+    <Property Name="print_date" Type="char" MaxLength="8" />
+    <Property Name="print_time" Type="char" MaxLength="6" />
+    <Property Name="print_user" Type="varchar" MaxLength="25" />
+    <Property Name="loading_status" Type="char" MaxLength="1" />
+    <Property Name="loading_date" Type="char" MaxLength="8" />
+    <Property Name="loading_time" Type="char" MaxLength="6" />
+    <Property Name="loading_user" Type="varchar" MaxLength="25" />
+    <Property Name="receiving_status" Type="char" MaxLength="1" />
+    <Property Name="receiving_date" Type="char" MaxLength="8" />
+    <Property Name="receiving_time" Type="char" MaxLength="6" />
+    <Property Name="receiving_user" Type="varchar" MaxLength="25" />
+    <Property Name="incoming_date" Type="char" MaxLength="8" />
+    <Property Name="incoming_time" Type="char" MaxLength="6" />
+    <Property Name="qty_box" Type="int" />
+    <Property Name="tag_no" Type="char" MaxLength="5" />
+    <Property Name="machine_no" Type="int" />
+    <Property Name="part_type" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="td_part_progress">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="data_type" Type="char" MaxLength="3" />
+    <Property Name="item" Type="char" MaxLength="30" />
+    <Property Name="oper_num_00" Type="smallint" />
+    <Property Name="wc_00" Type="char" MaxLength="6" />
+    <Property Name="check_sign_00" Type="char" MaxLength="1" />
+    <Property Name="result_sign_00" Type="char" MaxLength="1" />
+    <Property Name="oper_num_01" Type="smallint" />
+    <Property Name="wc_01" Type="char" MaxLength="6" />
+    <Property Name="check_sign_01" Type="char" MaxLength="1" />
+    <Property Name="result_sign_01" Type="char" MaxLength="1" />
+    <Property Name="oper_num_02" Type="smallint" />
+    <Property Name="wc_02" Type="char" MaxLength="6" />
+    <Property Name="check_sign_02" Type="char" MaxLength="1" />
+    <Property Name="result_sign_02" Type="char" MaxLength="1" />
+    <Property Name="oper_num_03" Type="smallint" />
+    <Property Name="wc_03" Type="char" MaxLength="6" />
+    <Property Name="check_sign_03" Type="char" MaxLength="1" />
+    <Property Name="result_sign_03" Type="char" MaxLength="1" />
+    <Property Name="oper_num_04" Type="smallint" />
+    <Property Name="wc_04" Type="char" MaxLength="6" />
+    <Property Name="check_sign_04" Type="char" MaxLength="1" />
+    <Property Name="result_sign_04" Type="char" MaxLength="1" />
+    <Property Name="oper_num_05" Type="smallint" />
+    <Property Name="wc_05" Type="char" MaxLength="6" />
+    <Property Name="check_sign_05" Type="char" MaxLength="1" />
+    <Property Name="result_sign_05" Type="char" MaxLength="1" />
+    <Property Name="oper_num_06" Type="smallint" />
+    <Property Name="wc_06" Type="char" MaxLength="6" />
+    <Property Name="check_sign_06" Type="char" MaxLength="1" />
+    <Property Name="result_sign_06" Type="char" MaxLength="1" />
+    <Property Name="oper_num_07" Type="smallint" />
+    <Property Name="wc_07" Type="char" MaxLength="6" />
+    <Property Name="check_sign_07" Type="char" MaxLength="1" />
+    <Property Name="result_sign_07" Type="char" MaxLength="1" />
+    <Property Name="oper_num_08" Type="smallint" />
+    <Property Name="wc_08" Type="char" MaxLength="6" />
+    <Property Name="check_sign_08" Type="char" MaxLength="1" />
+    <Property Name="result_sign_08" Type="char" MaxLength="1" />
+    <Property Name="oper_num_09" Type="smallint" />
+    <Property Name="wc_09" Type="char" MaxLength="6" />
+    <Property Name="check_sign_09" Type="char" MaxLength="1" />
+    <Property Name="result_sign_09" Type="char" MaxLength="1" />
+    <Property Name="oper_num_10" Type="smallint" />
+    <Property Name="wc_10" Type="char" MaxLength="6" />
+    <Property Name="check_sign_10" Type="char" MaxLength="1" />
+    <Property Name="result_sign_10" Type="char" MaxLength="1" />
+    <Property Name="oper_num_11" Type="smallint" />
+    <Property Name="wc_11" Type="char" MaxLength="6" />
+    <Property Name="check_sign_11" Type="char" MaxLength="1" />
+    <Property Name="result_sign_11" Type="char" MaxLength="1" />
+    <Property Name="oper_num_12" Type="smallint" />
+    <Property Name="wc_12" Type="char" MaxLength="6" />
+    <Property Name="check_sign_12" Type="char" MaxLength="1" />
+    <Property Name="result_sign_12" Type="char" MaxLength="1" />
+    <Property Name="oper_num_13" Type="smallint" />
+    <Property Name="wc_13" Type="char" MaxLength="6" />
+    <Property Name="check_sign_13" Type="char" MaxLength="1" />
+    <Property Name="result_sign_13" Type="char" MaxLength="1" />
+    <Property Name="oper_num_14" Type="smallint" />
+    <Property Name="wc_14" Type="char" MaxLength="6" />
+    <Property Name="check_sign_14" Type="char" MaxLength="1" />
+    <Property Name="result_sign_14" Type="char" MaxLength="1" />
+    <Property Name="oper_num_15" Type="smallint" />
+    <Property Name="wc_15" Type="char" MaxLength="6" />
+    <Property Name="check_sign_15" Type="char" MaxLength="1" />
+    <Property Name="result_sign_15" Type="char" MaxLength="1" />
+    <Property Name="oper_num_16" Type="smallint" />
+    <Property Name="wc_16" Type="char" MaxLength="6" />
+    <Property Name="check_sign_16" Type="char" MaxLength="1" />
+    <Property Name="result_sign_16" Type="char" MaxLength="1" />
+    <Property Name="oper_num_17" Type="smallint" />
+    <Property Name="wc_17" Type="char" MaxLength="6" />
+    <Property Name="check_sign_17" Type="char" MaxLength="1" />
+    <Property Name="result_sign_17" Type="char" MaxLength="1" />
+    <Property Name="oper_num_18" Type="smallint" />
+    <Property Name="wc_18" Type="char" MaxLength="6" />
+    <Property Name="check_sign_18" Type="char" MaxLength="1" />
+    <Property Name="result_sign_18" Type="char" MaxLength="1" />
+    <Property Name="oper_num_19" Type="smallint" />
+    <Property Name="wc_19" Type="char" MaxLength="6" />
+    <Property Name="check_sign_19" Type="char" MaxLength="1" />
+    <Property Name="result_sign_19" Type="char" MaxLength="1" />
+    <Property Name="inspection_0" Type="char" MaxLength="10" />
+    <Property Name="judge_0" Type="char" MaxLength="1" />
+    <Property Name="inspection_1" Type="char" MaxLength="10" />
+    <Property Name="judge_1" Type="char" MaxLength="1" />
+    <Property Name="inspection_2" Type="char" MaxLength="10" />
+    <Property Name="judge_2" Type="char" MaxLength="1" />
+    <Property Name="inspection_3" Type="char" MaxLength="10" />
+    <Property Name="judge_3" Type="char" MaxLength="1" />
+    <Property Name="inspection_4" Type="char" MaxLength="10" />
+    <Property Name="judge_4" Type="char" MaxLength="1" />
+    <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="insert_time2" Type="time" />
+    <Property Name="update_time2" Type="time" />
+    <Property Name="insert_date" Type="int" />
+    <Property Name="update_date" Type="int" />
+    <Property Name="insert_time" Type="char" MaxLength="6" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="td_part_recdata">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="part_item" Type="char" MaxLength="20" />
+    <Property Name="qty_tag" Type="int" />
+    <Property Name="container_qty" Type="int" />
+    <Property Name="basket_num" Type="int" />
+    <Property Name="basket_qty" Type="int" />
+    <Property Name="user_id" Type="char" MaxLength="6" />
+    <Property Name="insert_time2" Type="time" />
+    <Property Name="wc" Type="char" MaxLength="10" />
+    <Property Name="stat" Type="char" MaxLength="1" />
+    <Property Name="job_order_no" Type="char" MaxLength="12" />
+    <Property Name="tag_no" Type="char" MaxLength="5" />
+    <Property Name="entry_user" Type="varchar" MaxLength="50" />
+    <Property Name="wc_cure" Type="char" MaxLength="5" />
+    <Property Name="mc_cure" Type="char" MaxLength="3" />
+    <Property Name="mc_part" Type="char" MaxLength="2" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="finished_goods_code" Type="char" MaxLength="20" />
+    <Property Name="update_time2" Type="time" />
+    <Property Name="insert_date" Type="int" />
+    <Property Name="update_date" Type="int" />
+    <Property Name="insert_time" Type="char" MaxLength="6" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="td_part_result">
+    <Key>
+      <PropertyRef Name="part_job_order_no" />
+      <PropertyRef Name="result_type" />
+    </Key>
+    <Property Name="part_job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="part_code" Type="varchar" MaxLength="20" />
+    <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+    <Property Name="finished_goods_code" Type="varchar" MaxLength="20" />
+    <Property Name="entry_time2" Type="time" />
+    <Property Name="entry_user" Type="varchar" MaxLength="50" />
+    <Property Name="result_type" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="result_time2" Type="time" />
+    <Property Name="result_user" Type="varchar" MaxLength="50" />
+    <Property Name="wc" Type="char" MaxLength="6" />
+    <Property Name="qty" Type="int" />
+    <Property Name="process_result" Type="char" MaxLength="1" />
+    <Property Name="entry_date" Type="int" />
+    <Property Name="result_date" Type="int" />
+    <Property Name="trans_sign" Type="char" MaxLength="1" />
+    <Property Name="entry_time" Type="char" MaxLength="6" />
+    <Property Name="result_time" Type="char" MaxLength="6" />
+    <Property Name="wc_part" Type="char" MaxLength="6" />
+    <Property Name="bonding_sign" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tm_metal_weight">
+    <Key>
+      <PropertyRef Name="finished_goods_code" />
+    </Key>
+    <Property Name="finished_goods_code" Type="char" Nullable="false" MaxLength="20" />
+    <Property Name="weight" Type="numeric" Precision="10" Scale="5" />
+    <Property Name="entry_date" Type="char" MaxLength="8" />
+    <Property Name="entry_time" Type="char" MaxLength="6" />
+    <Property Name="update_date" Type="char" MaxLength="8" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+    <Property Name="user_name" Type="char" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tm_workcenter_bonding">
+    <Key>
+      <PropertyRef Name="wc" />
+    </Key>
+    <Property Name="wc" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="wc_name" Type="text" />
+    <Property Name="location_cd" Type="char" MaxLength="10" />
+    <Property Name="scn_basket_sign" Type="char" MaxLength="1" />
+    <Property Name="entry_date" Type="char" MaxLength="8" />
+    <Property Name="entry_time" Type="char" MaxLength="6" />
+    <Property Name="update_date" Type="char" MaxLength="8" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+    <Property Name="user_name" Type="char" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tm_workcenter_stamp">
+    <Key>
+      <PropertyRef Name="wc" />
+      <PropertyRef Name="machine_no" />
+    </Key>
+    <Property Name="wc" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="wc_name" Type="text" />
+    <Property Name="location_cd" Type="char" MaxLength="10" />
+    <Property Name="machine_no" Type="char" Nullable="false" MaxLength="2" />
+    <Property Name="status" Type="int" />
+    <Property Name="scn_machine" Type="int" />
+    <Property Name="scn_job_part" Type="int" />
+    <Property Name="scn_spec" Type="int" />
+    <Property Name="scn_material" Type="int" />
+    <Property Name="entry_date" Type="char" MaxLength="8" />
+    <Property Name="entry_time" Type="char" MaxLength="6" />
+    <Property Name="entry_user" Type="char" MaxLength="50" />
+    <Property Name="update_date" Type="char" MaxLength="8" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+    <Property Name="update_user" Type="char" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tt_part_stat">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="wc" Type="char" Nullable="false" MaxLength="6" />
+    <Property Name="item" Type="char" MaxLength="30" />
+    <Property Name="stat" Type="int" />
+    <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="insert_date" Type="char" MaxLength="8" />
+    <Property Name="update_date" Type="char" MaxLength="8" />
+    <Property Name="insert_time" Type="char" MaxLength="6" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+  </EntityType>
+</Schema>

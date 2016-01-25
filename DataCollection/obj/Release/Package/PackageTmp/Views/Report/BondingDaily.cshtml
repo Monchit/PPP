@@ -1,0 +1,181 @@
+﻿@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#txtDateFrom").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtDateTo").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            // Submit Search
+            $("#btnSearch").click(function () {
+
+                // Check WC Part field is empty
+                if ($.trim($("#selWCPart").val()) == "") {
+                    alert("กรุณากรอกข้อมูล WC Part ให้ครบถ้วน!");
+                    return false;
+                }
+
+                // Chekc date field is empty
+                if ($.trim($("#txtDateFrom").val()) == "" || $.trim($("#txtDateTo").val()) == "") {
+                    alert("กรุณากรอกข้อมูลวันที่ให้ครบถ้วน!");
+                    return false;
+                }
+
+                // Check date from > date to
+                var from = $.trim($("#txtDateFrom").val()).split('/');
+                var dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                var to = $.trim($("#txtDateTo").val()).split('/');
+                var dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณากรอกข้อมูลวันที่ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Prepare query string
+                var QString = "datefrom=" + $("#txtDateFrom").val() + "&dateto=" + $("#txtDateTo").val()
+                    + "&mcno=" + $("#txtMachineNo").val() + "&mcname=" + $("#txtMachineName").val()
+                    + "&user=" + $("#txtEntryBy").val() + "&wc=" + $("#selWCPart").val()
+                    + "&basketno=" + $("#txtBarrelNo").val();
+
+                $("#divGrid").hide().fadeIn().html('<table id="DCGrid"></table><div id="pager"></div>');
+
+                $('#DCGrid').jqGrid({
+                    colNames: ['W/C', 'W/C Name', 'W/C No.', 'Item Code', 'Product Code', 'Job No.', 'Tag No.', 'Qty(Pcs)', 'Barrel No.', 'Date', 'Time', 'Operator Name'],
+                    colModel: [
+                                    {
+                                        name: 'wc_cure', index: 'wc_cure', align: 'left', width: '80px'
+                                    },
+                                    {
+                                        name: 'wc_name', index: 'wc_name', align: 'left'
+                                    },
+                                    {
+                                        name: 'mc_part', index: 'mc_part', align: 'left', width: '80px'
+                                    },
+                                    {
+                                        name: 'part_item', index: 'part_item', align: 'left'
+                                    },
+                                    {
+                                        name: 'finished_goods_code', index: 'finished_goods_code', align: 'left'
+                                    },
+                                    {
+                                        name: 'job_order_no', index: 'job_order_no', align: 'left'
+                                    },
+                                    {
+                                        name: 'tag_no', index: 'tag_no', align: 'left', width: '100px'
+                                    },
+                                    {
+                                        name: 'qty_tag', index: 'qty_tag', align: 'left', width: '100px', formatter: 'integer'
+                                    },
+                                    {
+                                        name: 'tag_no', index: 'tag_no', align: 'left', width: '80px'
+                                    },
+                                    {
+                                        name: 'insert_date', index: 'insert_date', align: 'center', width: '120px'
+                                    },
+                                    {
+                                        name: 'insert_time', index: 'insert_time', align: 'center', width: '100px'
+                                    },
+                                    {
+                                        name: 'entry_user', index: 'entry_user', align: 'left'
+                                    }
+                    ],
+
+                    sortname: 'job_order_no',
+                    pagerpos: 'left',
+                    autowidth: true,
+                    caption: 'Not Group',
+                    datatype: 'json',
+                    height: '100%',
+                    pager: '#pager',
+                    rowList: [15, 20, 30, 50, 100],
+                    rowNum: 15,
+                    url: '@Url.Action("GetBondingDailyRecord", "Report")?' + QString,
+                    mtype: 'GET',
+                    rownumbers: true,
+                    rownumWidth: '50px',
+                    viewrecords: true,
+                    excel: true
+                });
+
+                $(".ui-pg-input").css("width", "40px");
+                $("#frmExport").css("display", "inline");
+                return false;
+            });
+
+            $("#frmExport").submit(function () {
+                var grid = $('#DCGrid');
+                $('#sidx').val(grid.getGridParam('sortname'));
+                $('#sord').val(grid.getGridParam('sortorder'));
+                $('#edateFrom').val($("#txtDateFrom").val());
+                $('#edateTo').val($("#txtDateTo").val());
+                $('#emcno').val($("#txtMachineNo").val());
+                $('#emcname').val($("#txtMachineName").val());
+                $('#euser').val($("#txtEntryBy").val());
+                $('#ewc').val($("#selWCPart").val()); 
+                $('#ebasketno').val($("#txtBarrelNo").val());
+
+                return true;
+            });
+        });
+    </script>
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="advanceSearch">
+    <li class="title">WC Part *</li>
+    <li>
+        <select id="selWCPart" name="selWCPart">
+            <option value="">-- Please Select --</option>
+            @{
+                foreach (var item in ViewBag.WC)
+                {
+                    <text><option value="@item[0]">@item[1]</option></text>
+                }
+            }
+        </select>
+    </li>
+    <li class="title">Machine No.</li>
+    <li>
+        <input type="text" id="txtMachineNo" name="txtMachineNo" />
+    </li>
+    <li class="title">Operator Name</li>
+    <li><input type="text" id="txtEntryBy" name="txtEntryBy" /></li>
+    
+    <li class="title">
+        <br />
+        <button type="button" id="btnSearch">Search</button>
+        @using (Html.BeginForm("ExportToExcelBondingDailyRecord", "Report", FormMethod.Post, new { id = "frmExport", style = "display:none" }))
+        {
+            @Html.Hidden("sidx")
+            @Html.Hidden("sord")
+            @Html.Hidden("edateFrom")
+            @Html.Hidden("edateTo")
+            @Html.Hidden("emcno")
+            @Html.Hidden("emcname")
+            @Html.Hidden("euser")
+            @Html.Hidden("ewc")
+            @Html.Hidden("ebasketno")
+
+            <text><button type='submit' id='btnExport' style='padding:0'><img class='imgBtn' title='Export to Excel' src='@Url.Content("~/Images/excel.png")' /> Export</button></text>
+        }
+    </li>
+</ul>
+
+<ul class="advanceSearch">
+    <li class="title">Result Date *</li>
+    <li><input type="text" id="txtDateFrom" name="txtDateFrom" /> - <input type="text" id="txtDateTo" name="txtDateTo" /></li>
+    <li class="title">Barrel No.</li>
+    <li><input type="text" id="txtBarrelNo" name="txtBarrelNo" /></li>
+</ul>
+
+<div style="clear: both"></div>
+
+<br /><br />
+
+<div id="divGrid"></div>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rbstocknicsModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="rbstocknicsModelStoreContainer">
+    <EntitySet Name="td_job_information" EntityType="rbstocknicsModel.Store.td_job_information" store:Type="Tables" Schema="public" />
+  </EntityContainer>
+  <EntityType Name="td_job_information">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="job_no" Type="char" MaxLength="7" />
+    <Property Name="suffix" Type="smallint" />
+    <Property Name="tag_no" Type="char" MaxLength="5" />
+    <Property Name="item" Type="char" MaxLength="30" />
+    <Property Name="job_status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="location_cd" Type="char" Nullable="false" MaxLength="3" />
+    <Property Name="wc" Type="char" MaxLength="6" />
+    <Property Name="machine_no" Type="char" MaxLength="3" />
+    <Property Name="group_cd" Type="char" MaxLength="5" />
+    <Property Name="batch" Type="char" MaxLength="20" />
+    <Property Name="batch2" Type="char" MaxLength="20" />
+    <Property Name="batch3" Type="char" MaxLength="20" />
+    <Property Name="batch4" Type="char" MaxLength="20" />
+    <Property Name="batch5" Type="char" MaxLength="20" />
+    <Property Name="batch6" Type="char" MaxLength="20" />
+    <Property Name="batch7" Type="char" MaxLength="20" />
+    <Property Name="batch8" Type="char" MaxLength="20" />
+    <Property Name="compound" Type="char" MaxLength="30" />
+    <Property Name="weight" Type="double precision" />
+    <Property Name="expire_date" Type="char" MaxLength="8" />
+    <Property Name="order_box" Type="char" MaxLength="6" />
+    <Property Name="order_number" Type="smallint" />
+    <Property Name="order_date" Type="char" MaxLength="8" />
+    <Property Name="order_time" Type="char" MaxLength="8" />
+    <Property Name="order_user" Type="char" MaxLength="25" />
+    <Property Name="receive_box" Type="char" MaxLength="6" />
+    <Property Name="receive_number" Type="smallint" />
+    <Property Name="receive_date" Type="char" MaxLength="8" />
+    <Property Name="receive_time" Type="char" MaxLength="8" />
+    <Property Name="receive_user" Type="char" MaxLength="25" />
+    <Property Name="supply_box" Type="char" MaxLength="6" />
+    <Property Name="supply_number" Type="smallint" />
+    <Property Name="supply_date" Type="char" MaxLength="8" />
+    <Property Name="supply_time" Type="char" MaxLength="8" />
+    <Property Name="supply_user" Type="char" MaxLength="25" />
+    <Property Name="takeout_box1" Type="char" MaxLength="6" />
+    <Property Name="takeout_number1" Type="smallint" />
+    <Property Name="takeout_box2" Type="char" MaxLength="6" />
+    <Property Name="takeout_number2" Type="smallint" />
+    <Property Name="takeout_box3" Type="char" MaxLength="6" />
+    <Property Name="takeout_number3" Type="smallint" />
+    <Property Name="takeout_box4" Type="char" MaxLength="6" />
+    <Property Name="takeout_number4" Type="smallint" />
+    <Property Name="takeout_date" Type="char" MaxLength="8" />
+    <Property Name="takeout_time" Type="char" MaxLength="8" />
+    <Property Name="takeout_user" Type="char" MaxLength="25" />
+    <Property Name="compound_qty" Type="smallint" />
+    <Property Name="prepare_status" Type="smallint" />
+    <Property Name="plan_machine" Type="char" MaxLength="3" />
+    <Property Name="curing_time" Type="double precision" />
+    <Property Name="qc_inspection" Type="smallint" />
+    <Property Name="inspect_date" Type="char" MaxLength="8" />
+    <Property Name="inspect_time" Type="char" MaxLength="8" />
+    <Property Name="inspect_user" Type="char" MaxLength="25" />
+    <Property Name="item_master" Type="smallint" />
+    <Property Name="size" Type="smallint" />
+    <Property Name="size_desc" Type="char" MaxLength="30" />
+    <Property Name="spare_sign" Type="smallint" />
+    <Property Name="spare_box" Type="char" MaxLength="6" />
+    <Property Name="rubbertag1" Type="char" MaxLength="12" />
+    <Property Name="rubbertag2" Type="char" MaxLength="12" />
+    <Property Name="rubbertag3" Type="char" MaxLength="12" />
+    <Property Name="rubbertag4" Type="char" MaxLength="12" />
+    <Property Name="rubbertag5" Type="char" MaxLength="12" />
+    <Property Name="fifo_batch" Type="char" MaxLength="20" />
+    <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="kanban_no" Type="char" MaxLength="12" />
+    <Property Name="job_type" Type="char" MaxLength="3" />
+    <Property Name="pgm_mode" Type="char" MaxLength="3" />
+    <Property Name="unit" Type="char" MaxLength="3" />
+    <Property Name="trans_sign" Type="char" MaxLength="1" />
+  </EntityType>
+</Schema>

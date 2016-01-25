@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="qimnicsRefModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="qimnicsRefEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tr_rubber_job_nics" EntityType="qimnicsRefModel.tr_rubber_job_nics" />
+  </EntityContainer>
+  <EntityType Name="tr_rubber_job_nics">
+    <Key>
+      <PropertyRef Name="parts_job_order_no" />
+    </Key>
+    <Property Name="record_status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="entry_date" Type="Int32" />
+    <Property Name="entry_time" Type="Int32" />
+    <Property Name="update_date" Type="Int32" />
+    <Property Name="update_time" Type="Int32" />
+    <Property Name="entry_terminal_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="program_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="update_user_code" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="company_code" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="plant_code" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="parts_job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="data_transfer_complete_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="err_sign" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="divide_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="parts" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="parts_specification_file_id" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="finished_goods_code" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="customer_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="limitation_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="mps_no" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+    <Property Name="line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="vendor_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="sector" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="supply_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="capability_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="curing_date" Type="Int32" />
+    <Property Name="order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="curing_qty" Type="Double" />
+    <Property Name="good_item_qty" Type="Double" />
+    <Property Name="final_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="planned_stockin_date" Type="Int32" />
+    <Property Name="parts_order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="parts_issue_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="issue_place" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="issue_order_date" Type="Int32" />
+    <Property Name="issue_qty" Type="Double" />
+    <Property Name="issue_weight" Type="Double" />
+    <Property Name="parts_line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="number_of_unit" Type="Int32" />
+    <Property Name="partsqty" Type="Int32" />
+    <Property Name="sub_job_tag_qty" Type="Int32" />
+    <Property Name="include_qty" Type="Double" />
+    <Property Name="parts_material_code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="reschedule_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="parts_purchase_order_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="useful_limit" Type="Int32" />
+    <Property Name="remain_qty_before" Type="Double" />
+    <Property Name="remain_qty_after" Type="Double" />
+    <Property Name="purchase_order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="paper_type" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="update_request_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+</Schema>

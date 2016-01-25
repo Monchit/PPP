@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ekanbannicsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ekanbannicsEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="td_job_tps_info" EntityType="ekanbannicsModel.td_job_tps_info" />
+    <EntitySet Name="td_kanban_info" EntityType="ekanbannicsModel.td_kanban_info" />
+  </EntityContainer>
+  <EntityType Name="td_job_tps_info">
+    <Key>
+      <PropertyRef Name="supply_date" />
+      <PropertyRef Name="supply_time" />
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="supply_date" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="supply_time" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="parent_job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="tag_no" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="cure_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="kanban_no1" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="kanban_no2" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="kanban_no3" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="kanban_no4" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="kanban_qty" Type="Int16" />
+    <Property Name="company_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="location_cd" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="plant_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="data_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="part_item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="parent_item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="part_wc" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="fg_wc" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="group_cd" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="machine_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="job_status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="batch1" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch2" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch3" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch4" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch5" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch6" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch7" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch8" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="compound" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="qty" Type="Double" />
+    <Property Name="unit" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="supply_box" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="supply_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="job_type" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="pgm_mode" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="td_kanban_info">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="transection_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="file_sign" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="part_type" Type="Int16" />
+    <Property Name="job_no" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
+    <Property Name="suffix" Type="Int16" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="due_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="due_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="cure_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="description" Type="String" MaxLength="40" Unicode="false" FixedLength="true" />
+    <Property Name="total_tag_no" Type="Int32" />
+    <Property Name="qty_tag" Type="Double" />
+    <Property Name="container_qty" Type="Double" />
+    <Property Name="start_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="end_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="wc" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="parent_job" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
+    <Property Name="parent_suffix" Type="Int16" />
+    <Property Name="tag_no" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="parent_item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="location_cd" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="group_cd" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="parent_wc" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="parent_mc" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="rack_no" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="order_date" Type="String" />
+    <Property Name="order_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="order_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="receive_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="receive_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="receive_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="supply_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="supply_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="supply_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="complete_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="complete_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="complete_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="print_sign" Type="Int16" />
+    <Property Name="delay_sign" Type="Int16" />
+    <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="parent_job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="kanban_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+  </EntityType>
+</Schema>

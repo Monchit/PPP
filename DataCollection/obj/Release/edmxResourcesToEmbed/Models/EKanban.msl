@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ekanbannicsModelStoreContainer" CdmEntityContainer="ekanbannicsEntities">
+    <EntitySetMapping Name="td_job_tps_info">
+      <EntityTypeMapping TypeName="ekanbannicsModel.td_job_tps_info">
+        <MappingFragment StoreEntitySet="td_job_tps_info">
+          <ScalarProperty Name="supply_date" ColumnName="supply_date" />
+          <ScalarProperty Name="supply_time" ColumnName="supply_time" />
+          <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+          <ScalarProperty Name="parent_job_order_no" ColumnName="parent_job_order_no" />
+          <ScalarProperty Name="tag_no" ColumnName="tag_no" />
+          <ScalarProperty Name="cure_date" ColumnName="cure_date" />
+          <ScalarProperty Name="kanban_no1" ColumnName="kanban_no1" />
+          <ScalarProperty Name="kanban_no2" ColumnName="kanban_no2" />
+          <ScalarProperty Name="kanban_no3" ColumnName="kanban_no3" />
+          <ScalarProperty Name="kanban_no4" ColumnName="kanban_no4" />
+          <ScalarProperty Name="kanban_qty" ColumnName="kanban_qty" />
+          <ScalarProperty Name="company_code" ColumnName="company_code" />
+          <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+          <ScalarProperty Name="plant_code" ColumnName="plant_code" />
+          <ScalarProperty Name="data_no" ColumnName="data_no" />
+          <ScalarProperty Name="part_item" ColumnName="part_item" />
+          <ScalarProperty Name="parent_item" ColumnName="parent_item" />
+          <ScalarProperty Name="part_wc" ColumnName="part_wc" />
+          <ScalarProperty Name="fg_wc" ColumnName="fg_wc" />
+          <ScalarProperty Name="group_cd" ColumnName="group_cd" />
+          <ScalarProperty Name="machine_no" ColumnName="machine_no" />
+          <ScalarProperty Name="job_status" ColumnName="job_status" />
+          <ScalarProperty Name="batch1" ColumnName="batch1" />
+          <ScalarProperty Name="batch2" ColumnName="batch2" />
+          <ScalarProperty Name="batch3" ColumnName="batch3" />
+          <ScalarProperty Name="batch4" ColumnName="batch4" />
+          <ScalarProperty Name="batch5" ColumnName="batch5" />
+          <ScalarProperty Name="batch6" ColumnName="batch6" />
+          <ScalarProperty Name="batch7" ColumnName="batch7" />
+          <ScalarProperty Name="batch8" ColumnName="batch8" />
+          <ScalarProperty Name="compound" ColumnName="compound" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="supply_box" ColumnName="supply_box" />
+          <ScalarProperty Name="supply_user" ColumnName="supply_user" />
+          <ScalarProperty Name="job_type" ColumnName="job_type" />
+          <ScalarProperty Name="pgm_mode" ColumnName="pgm_mode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="td_kanban_info">
+      <EntityTypeMapping TypeName="ekanbannicsModel.td_kanban_info">
+        <MappingFragment StoreEntitySet="td_kanban_info">
+          <ScalarProperty Name="transection_no" ColumnName="transection_no" />
+          <ScalarProperty Name="file_sign" ColumnName="file_sign" />
+          <ScalarProperty Name="part_type" ColumnName="part_type" />
+          <ScalarProperty Name="job_no" ColumnName="job_no" />
+          <ScalarProperty Name="suffix" ColumnName="suffix" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="due_date" ColumnName="due_date" />
+          <ScalarProperty Name="due_time" ColumnName="due_time" />
+          <ScalarProperty Name="cure_date" ColumnName="cure_date" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="total_tag_no" ColumnName="total_tag_no" />
+          <ScalarProperty Name="qty_tag" ColumnName="qty_tag" />
+          <ScalarProperty Name="container_qty" ColumnName="container_qty" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="wc" ColumnName="wc" />
+          <ScalarProperty Name="parent_job" ColumnName="parent_job" />
+          <ScalarProperty Name="parent_suffix" ColumnName="parent_suffix" />
+          <ScalarProperty Name="tag_no" ColumnName="tag_no" />
+          <ScalarProperty Name="parent_item" ColumnName="parent_item" />
+          <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+          <ScalarProperty Name="group_cd" ColumnName="group_cd" />
+          <ScalarProperty Name="parent_wc" ColumnName="parent_wc" />
+          <ScalarProperty Name="parent_mc" ColumnName="parent_mc" />
+          <ScalarProperty Name="rack_no" ColumnName="rack_no" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="order_time" ColumnName="order_time" />
+          <ScalarProperty Name="order_user" ColumnName="order_user" />
+          <ScalarProperty Name="receive_date" ColumnName="receive_date" />
+          <ScalarProperty Name="receive_time" ColumnName="receive_time" />
+          <ScalarProperty Name="receive_user" ColumnName="receive_user" />
+          <ScalarProperty Name="supply_date" ColumnName="supply_date" />
+          <ScalarProperty Name="supply_time" ColumnName="supply_time" />
+          <ScalarProperty Name="supply_user" ColumnName="supply_user" />
+          <ScalarProperty Name="complete_date" ColumnName="complete_date" />
+          <ScalarProperty Name="complete_time" ColumnName="complete_time" />
+          <ScalarProperty Name="complete_user" ColumnName="complete_user" />
+          <ScalarProperty Name="print_sign" ColumnName="print_sign" />
+          <ScalarProperty Name="delay_sign" ColumnName="delay_sign" />
+          <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+          <ScalarProperty Name="parent_job_order_no" ColumnName="parent_job_order_no" />
+          <ScalarProperty Name="kanban_no" ColumnName="kanban_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

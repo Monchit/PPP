@@ -1,0 +1,169 @@
+﻿@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#txtDateFrom").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtDateTo").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            // Submit Search
+            $("#btnSearch").click(function () {
+
+                // Chekc date field is empty
+                if ($.trim($("#txtDateFrom").val()) == "" || $.trim($("#txtDateTo").val()) == "") {
+                    alert("กรุณากรอกข้อมูลให้ครบถ้วน!");
+                    return false;
+                }
+
+                // Check date from > date to
+                var from = $.trim($("#txtDateFrom").val()).split('/');
+                var dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                var to = $.trim($("#txtDateTo").val()).split('/');
+                var dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณากรอกข้อมูล Result Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Prepare query string
+                var QString = "datefrom=" + $("#txtDateFrom").val() + "&dateto=" + $("#txtDateTo").val()
+                    + "&incdatefrom=" + $("#txtIncDateFrom").val() + "&incdateto=" + $("#txtIncDateTo").val()
+                    + "&deliverNo=" + $("#deliverNo").val() + "&plant=" + $("#plant").val() + "&cartNo=" + $("#cartNo").val()
+                + "&truckNo=" + $("#truckNo").val() + "&jobNo=" + $("#jobNo").val();
+
+                $("#divGrid").hide().fadeIn().html('<table id="DCGrid"></table><div id="pager"></div>');
+
+                $('#DCGrid').jqGrid({
+                    colNames: ['Issue By', 'Issue Date', 'Issue Time', 'Shift', 'WC', 'Parent Item', 'Item', 'Delivery No.', 'Plant', 'Job No', 'Lot No.', 'Qty(pcs)'],
+                    colModel: [
+                                    {
+                                        name: 'print_user', index: 'print_user', align: 'left'
+                                    },
+                                    {
+                                        name: 'print_date', index: 'print_date', align: 'center'
+                                    },
+                                    {
+                                        name: 'print_time', index: 'print_time', align: 'center', width: '110px'
+                                    },
+                                    {
+                                        name: 'working_shift', index: 'working_shift', align: 'center', width: '60px'
+                                    },
+                                    {
+                                        name: 'wc', index: 'wc', align: 'left', width: '60px'
+                                    },
+                                    {
+                                        name: 'finished_goods_code', index: 'finished_goods_code', align: 'left'
+                                    },
+                                    {
+                                        name: 'part_code', index: 'part_code', align: 'left'
+                                    },
+                                    {
+                                        name: 'delivery_no', index: 'delivery_no', align: 'left'
+                                    },
+                                    {
+                                        name: 'plant', index: 'plant', align: 'left', width: '80px'
+                                    },
+                                    {
+                                        name: 'part_job_order_no', index: 'part_job_order_no', align: 'left'
+                                    },
+                                    {
+                                        name: 'tag_no', index: 'tag_no', align: 'left', width: '100px'
+                                    },
+                                    {
+                                        name: 'qty', index: 'qty', align: 'right', formatter: 'integer', width: '100px'
+                                    }
+                    ],
+
+                    sortname: 'print_date',
+                    pagerpos: 'left',
+                    autowidth: true,
+                    caption: 'Not Group',
+                    datatype: 'json',
+                    height: '100%',
+                    pager: '#pager',
+                    rowList: [15, 20, 30, 50, 100],
+                    rowNum: 15,
+                    url: '@Url.Action("GetSumDeliverSheet", "Report")?' + QString,
+                    mtype: 'GET',
+                    rownumbers: true,
+                    rownumWidth: '50px',
+                    viewrecords: true,
+                    excel: true
+                });
+
+                $(".ui-pg-input").css("width", "40px");
+                $("#frmExport").css("display", "inline");
+                return false;
+            });
+
+            $("#frmExport").submit(function () {
+                var grid = $('#DCGrid');
+                $('#sidx').val(grid.getGridParam('sortname'));
+                $('#sord').val(grid.getGridParam('sortorder'));
+                $('#edateFrom').val($("#txtDateFrom").val());
+                $('#edateTo').val($("#txtDateTo").val());
+                $('#eincdateFrom').val($("#txtIncDateFrom").val());
+                $('#eincdateTo').val($("#txtIncDateTo").val());
+                $('#edeliverNo').val($("#deliverNo").val());
+                $('#eplant').val($("#plant").val());
+                $('#ecartNo').val($("#cartNo").val());
+                $('#etruckNo').val($("#truckNo").val());
+                $('#ejobNo').val($("#jobNo").val());
+
+                return true;
+            });
+        });
+    </script>
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="advanceSearch">
+    <li class="title">Result Date *</li>
+    <li><input type="text" id="txtDateFrom" name="txtDateFrom" /> - <input type="text" id="txtDateTo" name="txtDateTo" /></li>
+    <li class="title">Delivery No.</li>
+    <li><input type="text" id="deliverNo" name="deliverNo" /></li>
+    <li class="title">Cart No.</li>
+    <li><input type="text" id="cartNo" name="cartNo" /></li>
+    <li class="title">Plant</li>
+    <li><input type="text" id="plant" name="plant" /></li>
+    
+    <li class="title">
+        <br />
+        <button type="button" id="btnSearch">Search</button>
+        @using (Html.BeginForm("ExportToExcelSumDelSheet", "Report", FormMethod.Post, new { id = "frmExport", style = "display:none" }))
+        {
+            @Html.Hidden("sidx")
+            @Html.Hidden("sord")
+            @Html.Hidden("edateFrom")
+            @Html.Hidden("edateTo")
+            @Html.Hidden("edeliverNo")
+            @Html.Hidden("eplant")
+            @Html.Hidden("ecartNo")
+            @Html.Hidden("etruckNo")
+            @Html.Hidden("ejobNo")
+
+            <text><button type='submit' id='btnExport' style='padding:0'><img class='imgBtn' title='Export to Excel' src='@Url.Content("~/Images/excel.png")' /> Export</button></text>
+        }
+    </li>
+</ul>
+
+<ul class="advanceSearch">
+    <li class="title">Incoming Date</li>
+    <li><input type="text" id="txtIncDateFrom" name="txtIncDateFrom" /> - <input type="text" id="txtIncDateTo" name="txtIncDateTo" /></li>
+    <li class="title">Job No.</li>
+    <li><input type="text" id="jobNo" name="jobNo" /></li>
+    <li class="title">Truck No.</li>
+    <li><input type="text" id="truckNo" name="truckNo" /></li>
+</ul>
+
+<div style="clear: both"></div>
+
+<br /><br />
+
+<div id="divGrid"></div>

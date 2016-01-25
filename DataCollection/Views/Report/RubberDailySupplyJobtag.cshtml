@@ -1,0 +1,150 @@
+﻿@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#txtODateFrom").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtODateTo").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            $("#txtSDateFrom").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtSDateTo").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtSuppTimeFrom").timepicker();
+            $("#txtSuppTimeTo").timepicker();
+
+            // Submit Search
+            $("#btnSearch").click(function () {
+
+                // Check order date from > date to
+                var from = $.trim($("#txtODateFrom").val()).split('/');
+                var dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                var to = $.trim($("#txtODateTo").val()).split('/');
+                var dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณาเลือก Order Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Check supply date from > date to
+                from = $.trim($("#txtSDateFrom").val()).split('/');
+                dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                to = $.trim($("#txtSDateTo").val()).split('/');
+                dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณาเลือก Supply Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Prepare query string
+                var QString = "plant=" + $("#txtPlant").val() + "&wc=" + $("#txtWC").val() + "&jobno=" + $("#txtJobNo").val() + "&odatefrom=" + $("#txtODateFrom").val() + "&odateto=" + $("#txtODateTo").val() + "&sdatefrom=" + $("#txtSDateFrom").val() + "&sdateto=" + $("#txtSDateTo").val();
+
+                $("#divGrid").hide().fadeIn().html('<table id="DCGrid"></table><div id="pager"></div>');
+
+                $('#DCGrid').jqGrid({
+                    colNames: ['Plant', 'WC', 'Machine', 'Item', 'Job No.', 'Lot no.', 'QTY', 'Batch1', 'Batch2', 'Cure Date', 'Order Date', 'Order User', 'Supply Date', 'Supply Time', 'Supply User'],
+                    colModel: [
+                                    { name: 'location_cd', index: 'location_cd', align: 'center', width: '70px' },
+                                    { name: 'parent_wc', index: 'parent_wc', align: 'center', width: '70px' },
+                                    { name: 'parent_mc', index: 'parent_mc', align: 'center', width: '70px' },
+                                    { name: 'item', index: 'item', align: 'left', width: '150px' },
+                                    { name: 'job_order_no', index: 'job_order_no', align: 'left' },
+                                    { name: 'tag_no', index: 'tag_no', align: 'center', width: '70px' },
+                                    { name: 'qty_tag', index: 'qty_tag', align: 'right', formatter: 'integer', width: '100px' },
+                                    //{ name: 'material_mark1', index: 'material_mark1', align: 'right', width: '100px' },
+                                    { name: 'batch1', index: 'batch1', align: 'center', width: '150px' },
+                                    { name: 'batch2', index: 'batch2', align: 'center', width: '150px' },
+                                    { name: 'cure_date', index: 'cure_date', align: 'center' },
+                                    { name: 'order_date', index: 'order_date', align: 'center' },
+                                    { name: 'order_user', index: 'order_user', align: 'right' },
+                                    { name: 'supply_date', index: 'supply_date', align: 'center' },
+                                    { name: 'supply_time', index: 'supply_time', align: 'center' },
+                                    { name: 'supply_user', index: 'supply_user', align: 'right' }
+                    ],
+
+                    sortname: 'item',
+                    pagerpos: 'left',
+                    autowidth: true,
+                    caption: 'Report',
+                    datatype: 'json',
+                    height: '100%',
+                    pager: '#pager',
+                    rowList: [15, 20, 30, 50, 100],
+                    rowNum: 15,
+                    url: '@Url.Action("GetRubberDailySupplyJobtag", "Report")?' + QString,
+                    mtype: 'GET',
+                    rownumbers: true,
+                    rownumWidth: '50px',
+                    viewrecords: true,
+                    excel: true,
+                    loadtext: ''
+                });
+
+                $(".ui-pg-input").css("width", "40px");
+                $("#frmExport").css("display", "inline");
+                return false;
+            });
+
+            $("#frmExport").submit(function () {
+                var grid = $('#DCGrid');
+                $('#sidx').val(grid.getGridParam('sortname'));
+                $('#sord').val(grid.getGridParam('sortorder'));
+                $('#plant').val($("#txtPlant").val());
+                $('#wc').val($("#txtWC").val());
+                $('#jobno').val($("#txtJobNo").val());
+                $('#odatefrom').val($("#txtODateFrom").val());
+                $('#odateto').val($("#txtODateTo").val());
+                $('#sdatefrom').val($("#txtSDateFrom").val());
+                $('#sdateto').val($("#txtSDateTo").val());
+
+                return true;
+            });
+        });
+    </script>
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="advanceSearch">
+    <li class="title">Plant</li>
+    <li><input type="text" id="txtPlant" name="txtPlant" /></li>
+    <li class="title">Job No</li>
+    <li><input type="text" id="txtJobNo" name="txtJobNo" /></li>
+    <li class="title">Supply From</li>
+    <li><input type="text" id="txtSDateFrom" name="txtSDateFrom" /> - <input type="text" id="txtSDateTo" name="txtSDateTo" /></li>
+</ul>
+<ul class="advanceSearch">
+    <li class="title">Work Center</li>
+    <li><input type="text" id="txtWC" name="txtWC" /></li>
+    <li class="title">Order Date</li>
+    <li><input type="text" id="txtODateFrom" name="txtODateFrom" /> - <input type="text" id="txtODateTo" name="txtODateTo" /></li>
+    <li><br />
+        <button type="button" id="btnSearch">Search</button>
+        @using (Html.BeginForm("ExportToExcelRubberDailyJobtag", "Report", FormMethod.Post, new { id = "frmExport", style = "display:none" }))
+        {
+            @Html.Hidden("sidx")
+            @Html.Hidden("sord")
+            @Html.Hidden("plant")
+            @Html.Hidden("wc")
+            @Html.Hidden("jobno")
+            @Html.Hidden("odatefrom")
+            @Html.Hidden("odateto")
+            @Html.Hidden("sdatefrom")
+            @Html.Hidden("sdateto")
+
+            <text><button type='submit' id='btnExport'><img class='imgBtn' title='Export to Excel' src='@Url.Content("~/Images/led_icons/page_excel.png")' /> Export</button></text>
+        }</li>
+</ul>
+<div style="clear: both"></div>
+
+<br /><br />
+
+<div id="divGrid"></div>

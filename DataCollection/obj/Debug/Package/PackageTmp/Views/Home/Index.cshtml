@@ -1,0 +1,379 @@
+﻿@{
+    ViewBag.Title = "Job Monitoring";
+}
+@section JQuery {
+    <script type="text/javascript">
+        $(function () {
+
+            $("#dateFrom").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#dateTo").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            $("#tabs").tabs({ active: 1 });
+
+            $("#dialog").dialog({
+                resizable: false,
+                width: '770',
+                height: 'auto',
+                modal: true,
+                autoOpen: false,
+                buttons: {
+                    Close: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+            $("#lnkAdvanceSearch").click(function () {
+                if ($("#divAVS").is(':hidden')) {
+                    $(".ui-icon-arrowthick-1-e").hide();
+                    $(".ui-icon-arrowthick-1-s").show();
+                    $("#divAVS").slideDown();
+                }
+                else {
+                    $(".ui-icon-arrowthick-1-s").hide();
+                    $(".ui-icon-arrowthick-1-e").show();
+                    $("#divAVS").slideUp();
+                }
+
+                return false;
+            });
+
+            // Get Job Details by Job Number
+            $(document).on("click", ".lnkJob_PassDue, .lnkJob_Normal, .lnkJob_Complete", function () {
+
+                // Load Partjob Link
+                $.get("@Url.Action("GetPartjobLink", "Home")", { parentjob: $(this).parent().parent().children().eq(3).text() }, function (data) {
+                    var strLink = '';
+                    for (var i = 0; i < data.length; i++) {
+                        strLink += "<a href='#' class='lnk-partjob' data-partjob='" + data[i] + "'>" + data[i] + "</a> &nbsp;&nbsp;";
+                    }
+
+                    $("#link-partjob").html(strLink);
+                });
+
+                // Load Default Jobs
+                displayJobStatus($(this).attr('data-jobNo'));
+
+                return false;
+            });
+
+            $(document).on("click", ".lnk-partjob", function () {
+                displayJobStatus($(this).attr('data-partjob'));
+            });
+
+            function displayJobStatus(partjobNo) {
+                $("#divLoader").show();
+
+                var htmlTabs1 = '';
+                var htmlTabs2 = '';
+                var htmlTabs4 = '';
+                $("#divProgressive").children().remove();
+
+                $.get("@Url.Action("GetJobDetails", "Home")/" + partjobNo, "", function (data) {
+                    // Get Last WC Process
+                    var tmpLastWCProcess = '';
+                    switch ("") {
+                        case $.trim(data.routing.oc_01): tmpLastWCProcess = data.routing.oc_00; break;
+                        case $.trim(data.routing.oc_02): tmpLastWCProcess = data.routing.oc_01; break;
+                        case $.trim(data.routing.oc_03): tmpLastWCProcess = data.routing.oc_02; break;
+                        case $.trim(data.routing.oc_04): tmpLastWCProcess = data.routing.oc_03; break
+                        case $.trim(data.routing.oc_05): tmpLastWCProcess = data.routing.oc_04; break;
+                        case $.trim(data.routing.oc_06): tmpLastWCProcess = data.routing.oc_05; break;
+                        case $.trim(data.routing.oc_07): tmpLastWCProcess = data.routing.oc_06; break;
+                        case $.trim(data.routing.oc_08): tmpLastWCProcess = data.routing.oc_07; break;
+                        case $.trim(data.routing.oc_09): tmpLastWCProcess = data.routing.oc_08; break;
+                        case $.trim(data.routing.oc_10): tmpLastWCProcess = data.routing.oc_09; break;
+                        case $.trim(data.routing.oc_11): tmpLastWCProcess = data.routing.oc_10; break;
+                        case $.trim(data.routing.oc_12): tmpLastWCProcess = data.routing.oc_11; break;
+                        case $.trim(data.routing.oc_13): tmpLastWCProcess = data.routing.oc_12; break;
+                        case $.trim(data.routing.oc_14): tmpLastWCProcess = data.routing.oc_13; break;
+                        case $.trim(data.routing.oc_15): tmpLastWCProcess = data.routing.oc_14; break;
+                        case $.trim(data.routing.oc_16): tmpLastWCProcess = data.routing.oc_15; break;
+                        case $.trim(data.routing.oc_17): tmpLastWCProcess = data.routing.oc_16; break;
+                        case $.trim(data.routing.oc_18): tmpLastWCProcess = data.routing.oc_17; break;
+                        case $.trim(data.routing.oc_19): tmpLastWCProcess = data.routing.oc_18; break;
+                        default: tmpLastWCProcess = data.routing.oc_00;
+                    }
+
+                    // Routing
+                    htmlTabs1 += (data.routing.oc_00 != null && $.trim(data.routing.oc_00) != "") ? '<span class="tabsItem">' + ((data.routing.oc_00 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_00) + '<br />' + $.trim(data.routing.oc_00_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_00) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_01 != null && $.trim(data.routing.oc_01) != "") ? '<span class="tabsItem">' + ((data.routing.oc_01 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_01) + '<br />' + $.trim(data.routing.oc_01_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_01) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_02 != null && $.trim(data.routing.oc_02) != "") ? '<span class="tabsItem">' + ((data.routing.oc_02 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_02) + '<br />' + $.trim(data.routing.oc_02_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_02) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_03 != null && $.trim(data.routing.oc_03) != "") ? '<span class="tabsItem">' + ((data.routing.oc_03 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_03) + '<br />' + $.trim(data.routing.oc_03_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_03) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_04 != null && $.trim(data.routing.oc_04) != "") ? '<span class="tabsItem">' + ((data.routing.oc_04 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_04) + '<br />' + $.trim(data.routing.oc_04_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_04) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_05 != null && $.trim(data.routing.oc_05) != "") ? '<span class="tabsItem">' + ((data.routing.oc_05 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_05) + '<br />' + $.trim(data.routing.oc_05_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_05) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_06 != null && $.trim(data.routing.oc_06) != "") ? '<span class="tabsItem">' + ((data.routing.oc_06 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_06) + '<br />' + $.trim(data.routing.oc_06_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_06) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_07 != null && $.trim(data.routing.oc_07) != "") ? '<span class="tabsItem">' + ((data.routing.oc_07 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_07) + '<br />' + $.trim(data.routing.oc_07_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_07) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_08 != null && $.trim(data.routing.oc_08) != "") ? '<span class="tabsItem">' + ((data.routing.oc_08 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_08) + '<br />' + $.trim(data.routing.oc_08_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_08) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_09 != null && $.trim(data.routing.oc_09) != "") ? '<span class="tabsItem">' + ((data.routing.oc_09 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_09) + '<br />' + $.trim(data.routing.oc_09_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_09) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_10 != null && $.trim(data.routing.oc_10) != "") ? '<span class="tabsItem">' + ((data.routing.oc_10 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_10) + '<br />' + $.trim(data.routing.oc_10_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_10) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_11 != null && $.trim(data.routing.oc_11) != "") ? '<span class="tabsItem">' + ((data.routing.oc_11 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_11) + '<br />' + $.trim(data.routing.oc_11_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_11) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_12 != null && $.trim(data.routing.oc_12) != "") ? '<span class="tabsItem">' + ((data.routing.oc_12 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_12) + '<br />' + $.trim(data.routing.oc_12_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_12) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_13 != null && $.trim(data.routing.oc_13) != "") ? '<span class="tabsItem">' + ((data.routing.oc_13 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_13) + '<br />' + $.trim(data.routing.oc_13_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_13) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_14 != null && $.trim(data.routing.oc_14) != "") ? '<span class="tabsItem">' + ((data.routing.oc_14 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_14) + '<br />' + $.trim(data.routing.oc_14_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_14) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_15 != null && $.trim(data.routing.oc_15) != "") ? '<span class="tabsItem">' + ((data.routing.oc_15 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_15) + '<br />' + $.trim(data.routing.oc_15_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_15) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_16 != null && $.trim(data.routing.oc_16) != "") ? '<span class="tabsItem">' + ((data.routing.oc_16 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_16) + '<br />' + $.trim(data.routing.oc_16_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_16) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_17 != null && $.trim(data.routing.oc_17) != "") ? '<span class="tabsItem">' + ((data.routing.oc_17 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_17) + '<br />' + $.trim(data.routing.oc_17_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_17) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_18 != null && $.trim(data.routing.oc_18) != "") ? '<span class="tabsItem">' + ((data.routing.oc_18 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_18) + '<br />' + $.trim(data.routing.oc_18_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_18) + '" /></span>' : '';
+                    htmlTabs1 += (data.routing.oc_19 != null && $.trim(data.routing.oc_19) != "") ? '<span class="tabsItem">' + ((data.routing.oc_19 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.routing.oc_19) + '<br />' + $.trim(data.routing.oc_19_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.routing.img_oc_19) + '" /></span>' : '';
+
+                    htmlTabs1 += '<div style="clear: both"></div>';
+                    $("#tabs-1").html(htmlTabs1);
+
+                    // Progressive
+                    if (data.job_progress.wc_00 != null) {
+                        htmlTabs2 += (data.job_progress.wc_00 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_00 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_00) + '<br />' + $.trim(data.job_progress.wc_00_detail) + '<br />' + data.job_progress.wc_00_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_00) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_01 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_01 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_01) + '<br />' + $.trim(data.job_progress.wc_01_detail) + '<br />' + data.job_progress.wc_01_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_01) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_02 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_02 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_02) + '<br />' + $.trim(data.job_progress.wc_02_detail) + '<br />' + data.job_progress.wc_02_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_02) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_03 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_03 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_03) + '<br />' + $.trim(data.job_progress.wc_03_detail) + '<br />' + data.job_progress.wc_03_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_03) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_04 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_04 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_04) + '<br />' + $.trim(data.job_progress.wc_04_detail) + '<br />' + data.job_progress.wc_04_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_04) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_05 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_05 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_05) + '<br />' + $.trim(data.job_progress.wc_05_detail) + '<br />' + data.job_progress.wc_05_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_05) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_06 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_06 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_06) + '<br />' + $.trim(data.job_progress.wc_06_detail) + '<br />' + data.job_progress.wc_06_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_06) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_07 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_07 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_07) + '<br />' + $.trim(data.job_progress.wc_07_detail) + '<br />' + data.job_progress.wc_07_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_07) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_08 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_08 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_08) + '<br />' + $.trim(data.job_progress.wc_08_detail) + '<br />' + data.job_progress.wc_08_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_08) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_09 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_09 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_09) + '<br />' + $.trim(data.job_progress.wc_09_detail) + '<br />' + data.job_progress.wc_09_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_09) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_10 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_10 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_10) + '<br />' + $.trim(data.job_progress.wc_10_detail) + '<br />' + data.job_progress.wc_10_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_10) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_11 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_11 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_11) + '<br />' + $.trim(data.job_progress.wc_11_detail) + '<br />' + data.job_progress.wc_11_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_11) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_12 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_12 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_12) + '<br />' + $.trim(data.job_progress.wc_12_detail) + '<br />' + data.job_progress.wc_12_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_12) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_13 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_13 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_13) + '<br />' + $.trim(data.job_progress.wc_13_detail) + '<br />' + data.job_progress.wc_13_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_13) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_14 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_14 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_14) + '<br />' + $.trim(data.job_progress.wc_14_detail) + '<br />' + data.job_progress.wc_14_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_14) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_15 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_15 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_15) + '<br />' + $.trim(data.job_progress.wc_15_detail) + '<br />' + data.job_progress.wc_15_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_15) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_16 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_16 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_16) + '<br />' + $.trim(data.job_progress.wc_16_detail) + '<br />' + data.job_progress.wc_16_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_16) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_17 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_17 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_17) + '<br />' + $.trim(data.job_progress.wc_17_detail) + '<br />' + data.job_progress.wc_17_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_17) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_18 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_18 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_18) + '<br />' + $.trim(data.job_progress.wc_18_detail) + '<br />' + data.job_progress.wc_18_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_18) + '" /></span>' : '';
+                        htmlTabs2 += (data.job_progress.wc_19 != null) ? '<span class="tabsItem">' + ((data.job_progress.wc_19 != tmpLastWCProcess) ? '<img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" />' : '') + '<br />Work Center: ' + $.trim(data.job_progress.wc_19) + '<br />' + $.trim(data.job_progress.wc_19_detail) + '<br />' + data.job_progress.wc_19_dt + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.job_progress.img_wc_19) + '" /></span>' : '';
+                    }
+                    else {
+                        htmlTabs2 += "<span class='na'>N/A</span>";
+                    }
+                    htmlTabs2 += '<div style="clear: both"></div>';
+                    $("#divProgressive").html(htmlTabs2);
+
+                    // Next Process
+                    if (data.next_progress.wc != null && $.trim(data.next_progress.wc) != '') {
+                        $("#tabs-3").html($.trim(data.next_progress.wc) != '' ? '<span class="tabsItem">Work Center: ' + $.trim(data.next_progress.wc) + '<br />' + $.trim(data.next_progress.wc_detail) + '<br /><image class="imgWC" src="@Url.Content("~/Images/WC_Images/")' + $.trim(data.next_progress.img_wc) + '" /></span><div style="clear: both"></div>' : '');
+                    }
+                    else {
+                        $("#tabs-3").children().remove();
+                        $("#tabs-3").html("<span class='na'>N/A</span>");
+                    }
+
+                    // Delivery
+                    if (data.delivery.print_status != null && data.delivery.print_status != 0) {
+                        htmlTabs4 += (data.delivery.print_status != null && data.delivery.print_status == '1') ? '<span class="tabsItem"><img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" /><br />Delivery Note: ' + data.delivery.deliver_note + '<br />' + data.delivery.print_date + '<br />User: ' + data.delivery.print_user + '<br /><image class="imgWC" src="@Url.Content("~/Images/Delivery_Images/")printing.png" /></span>' : '';
+                        htmlTabs4 += (data.delivery.loading_status != null && data.delivery.loading_status == '1') ? '<span class="tabsItem"><img class="imgRArrow" src="@Url.Content("~/Images/right-arrow.png")" /><br />Loading<br />' + data.delivery.loading_date + '<br />User: ' + data.delivery.loading_user + '<br /><image class="imgWC" src="@Url.Content("~/Images/Delivery_Images/")loading.png" /></span>' : '';
+                        htmlTabs4 += (data.delivery.receiving_status != null && data.delivery.receiving_status == '1') ? '<span class="tabsItem"><br />Receiving<br />' + data.delivery.receiving_date + '<br />User: ' + data.delivery.receiving_user + '<br /><image class="imgWC" src="@Url.Content("~/Images/Delivery_Images/")receiving.png" /></span>' : '';
+                    }
+                    else {
+                        htmlTabs4 += "<span class='na'>N/A</span>";
+                    }
+
+                    htmlTabs4 += '<div style="clear: both"></div>';
+                    $("#tabs-4").html(htmlTabs4);
+                });
+
+                $("#tabs").tabs("option", "active", 1);
+                $("#dialog")
+                    .dialog("option", "title", 'Job Number: ' + partjobNo)
+                    .dialog("option", "position", ['center', 40])
+                    .dialog("open");
+
+                $(this).ajaxComplete(function () {
+                    $("#divLoader").hide();
+                });
+            }
+
+            // Submit Search
+            $("#submit").click(function () {
+                // Check N - number
+                if (isNaN($("#nminus").val())) {
+                    alert("กรุณากรอกตัวเลขเท่านั้น ในช่อง N - x");
+                    $("#nminus").select();
+                    return false;
+                }
+                else if (parseInt($("#nminus").val()) < 0) {
+                    alert("กรุณากรอกข้อมูล N - x ให้ถูกต้อง (ตัวเลขที่มากกว่าหรือเท่ากับ 0 เท่านั้น)");
+                    $("#nminus").select();
+                    return false;
+                }
+
+                // Chekc date field is empty
+                if (($.trim($("#dateFrom").val()) == "" || $.trim($("#dateTo").val()) == "") && $("#jobNo").val() == "") {
+                    alert("กรุณากรอกข้อมูล Curing Date! ให้ครบถ้วน");
+                    return false;
+                }
+
+                // Check date from > date to
+                var from = $.trim($("#dateFrom").val()).split('/');
+                var dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                var to = $.trim($("#dateTo").val()).split('/');
+                var dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณากรอกข้อมูล Curing Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Prepare query string
+                var QString = "jobno=" + $("#jobNo").val() + "&lotno=" + $("#lotNo").val();
+                QString += "&datefrom=" + $("#dateFrom").val() + "&dateto=" + $("#dateTo").val() + "&minus=" + $("#nminus").val();
+                QString += "&wcCure=" + $("#wcCure").val() + "&wcPart=" + $("#wcPart").val();
+                QString += "&itemPart=" + $("#itemPart").val() + "&itemFG=" + $("#itemFG").val();
+                QString += "&status=" + $("#selStatus").val();
+
+                $("#divGrid").hide().fadeIn().html('<table id="DCGrid"></table><div id="pager"></div>');
+
+                $('#DCGrid').jqGrid({
+                    colNames: ['Line No.', 'FG Code', 'Job No', 'Lot No', 'Issue Qty', 'Product Code', 'Curing Date', ''],
+                    colModel: [
+                                { name: 'line_no_cure', index: 'line_no_cure', align: 'left' },
+                                { name: 'finished_goods_code', index: 'finished_goods_code', align: 'left' },
+                                { name: 'job_order_no', index: 'job_order_no', align: 'left' },
+                                { name: 'lotno', index: 'lotno', align: 'center' },
+                                { name: 'issue_qty', index: 'issue_qty', align: 'right', formatter: 'integer' },
+                                { name: 'parts', index: 'parts', align: 'left' },
+                                { name: 'curing_date', index: 'curing_date', align: 'center' },
+                                { sortable: false, width: '100px', align: 'center' }
+                    ],
+
+                    sortname: 'job_order_no',
+                    pagerpos: 'left',
+                    autowidth: true,
+                    caption: 'Completed Jobs: ',
+                    datatype: 'json',
+                    height: '100%',
+                    pager: '#pager',
+                    rowList: [15, 20, 30, 50, 100],
+                    rowNum: 30,
+                    url: '@Url.Action("GetData", "Home")?' + QString,
+                    mtype: 'GET',
+                    rownumbers: true,
+                    rownumWidth: '50px',
+                    viewrecords: true,
+                    loadtext: ''
+                    //loadComplete: function (data) {
+                    //    // Print completed percentage
+                    //    $(".ui-jqgrid-title").html("<span id='completedText'>Completed:</span> <span id='completedPercent'>" + data.completedPercent + " %</span><span> (All Qty: " + data.all + ", Completed Qty: " + data.comp + ")</span>");
+                    //}
+                });
+
+                $(".ui-pg-input").css("width", "40px");
+                return false;
+            });
+        });
+    </script>
+}
+<h2>Job Monitoring</h2>
+
+<div id="dialog" title="Dialog">
+    <p id="link-partjob"></p>
+
+    <div id="tabs">
+      <ul>
+        <li><a href="#tabs-1">Routing</a></li>
+        <li><a href="#tabs-2">Progressive</a></li>
+        <li><a href="#tabs-3">Next Process</a></li>
+        <li><a href="#tabs-4">Delivery</a></li>
+      </ul>
+      <div id="tabs-1"></div>
+      <div id="tabs-2">
+          <div id="divLoader" style="text-align: center; display: none"><img src="~/Images/ajax-loader.gif" /></div>
+          <div id="divProgressive"></div>
+      </div>
+      <div id="tabs-3"></div>
+        <div id="tabs-4"></div>
+    </div>
+</div>
+
+<div class="fixLeft">
+    <b>Legend:</b>
+    <div style="clear:both"></div>
+    <div class='div_Normal div_legend'></div> Normal
+    <div style="clear:both"></div>
+    <div class='div_Complete div_legend'></div> Complete
+    <div style="clear:both"></div>
+    <div class='div_PassDue div_legend'></div> Delay
+</div>
+
+<ul class="advanceSearch">
+    <li>
+        <ul>
+            <li class="title">Curing Date *</li>
+            <li><input type="text" id="dateFrom" /> - <input type="text" id="dateTo" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">Job No</li>
+            <li><input type="text" id="jobNo" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">WC (Curing)</li>
+            <li><input type="text" id="wcCure" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">Item (FG)</li>
+            <li><input type="text" id="itemFG" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">Status</li>
+            <li><select id="selStatus">
+                    <option value="0">-- Select --</option>
+                    <option value="1">Normal</option>
+                    <option value="2">Delay</option>
+                    <option value="3">Complete</option>
+                </select></li>
+        </ul>
+    </li>
+</ul>
+    
+<ul class="advanceSearch">
+    <li>
+        <ul>
+            <li class="title">N -</li>
+            <li><input type="text" id="nminus" value="1" style="width: 30px" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">Lot No</li>
+            <li><input type="text" id="lotNo" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">WC (Part)</li>
+            <li><input type="text" id="wcPart" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">Item (Part)</li>
+            <li><input type="text" id="itemPart" /></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li class="title">&nbsp;</li>
+            <li><button id="submit" name="submit">Search</button></li>
+        </ul>
+    </li>
+</ul>
+
+<div style="clear: both"></div>
+
+<br /><br />
+
+<div id="divGrid"></div>
+

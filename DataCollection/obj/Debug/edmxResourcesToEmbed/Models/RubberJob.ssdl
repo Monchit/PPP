@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="qimnicsModel1.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 9.1.7" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="qimnicsModel1StoreContainer">
+    <EntitySet Name="tr_rubber_job_nics" EntityType="qimnicsModel1.Store.tr_rubber_job_nics" store:Type="Tables" Schema="public" />
+  </EntityContainer>
+  <EntityType Name="tr_rubber_job_nics">
+    <Key>
+      <PropertyRef Name="parts_job_order_no" />
+    </Key>
+    <Property Name="record_status" Type="char" MaxLength="1" />
+    <Property Name="entry_date" Type="int" />
+    <Property Name="entry_time" Type="int" />
+    <Property Name="update_date" Type="int" />
+    <Property Name="update_time" Type="int" />
+    <Property Name="entry_terminal_id" Type="char" MaxLength="10" />
+    <Property Name="program_id" Type="char" MaxLength="10" />
+    <Property Name="update_user_code" Type="char" MaxLength="10" />
+    <Property Name="company_code" Type="char" Nullable="false" MaxLength="5" />
+    <Property Name="plant_code" Type="char" Nullable="false" MaxLength="4" />
+    <Property Name="parts_job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="data_transfer_complete_sign" Type="char" MaxLength="1" />
+    <Property Name="err_sign" Type="char" MaxLength="5" />
+    <Property Name="job_order_no" Type="char" MaxLength="12" />
+    <Property Name="divide_sign" Type="char" MaxLength="1" />
+    <Property Name="parts" Type="char" MaxLength="30" />
+    <Property Name="parts_specification_file_id" Type="char" MaxLength="2" />
+    <Property Name="finished_goods_code" Type="char" MaxLength="20" />
+    <Property Name="customer_code" Type="char" MaxLength="5" />
+    <Property Name="limitation_item_sign" Type="char" MaxLength="1" />
+    <Property Name="mps_no" Type="char" MaxLength="9" />
+    <Property Name="line_group" Type="char" MaxLength="3" />
+    <Property Name="line_no" Type="char" MaxLength="3" />
+    <Property Name="press_no" Type="char" MaxLength="3" />
+    <Property Name="vendor_code" Type="char" MaxLength="4" />
+    <Property Name="sector" Type="char" MaxLength="4" />
+    <Property Name="supply_type" Type="char" MaxLength="1" />
+    <Property Name="capability_sign" Type="char" MaxLength="1" />
+    <Property Name="curing_date" Type="int" />
+    <Property Name="order_type" Type="char" MaxLength="1" />
+    <Property Name="curing_qty" Type="double precision" />
+    <Property Name="good_item_qty" Type="double precision" />
+    <Property Name="final_sign" Type="char" MaxLength="1" />
+    <Property Name="planned_stockin_date" Type="int" />
+    <Property Name="parts_order_type" Type="char" MaxLength="1" />
+    <Property Name="parts_issue_type" Type="char" MaxLength="1" />
+    <Property Name="issue_place" Type="char" MaxLength="1" />
+    <Property Name="issue_order_date" Type="int" />
+    <Property Name="issue_qty" Type="double precision" />
+    <Property Name="issue_weight" Type="double precision" />
+    <Property Name="parts_line_group" Type="char" MaxLength="3" />
+    <Property Name="number_of_unit" Type="int" />
+    <Property Name="partsqty" Type="int" />
+    <Property Name="sub_job_tag_qty" Type="int" />
+    <Property Name="include_qty" Type="double precision" />
+    <Property Name="parts_material_code" Type="char" MaxLength="8" />
+    <Property Name="reschedule_sign" Type="char" MaxLength="1" />
+    <Property Name="parts_purchase_order_sign" Type="char" MaxLength="1" />
+    <Property Name="useful_limit" Type="int" />
+    <Property Name="remain_qty_before" Type="double precision" />
+    <Property Name="remain_qty_after" Type="double precision" />
+    <Property Name="purchase_order_type" Type="char" MaxLength="1" />
+    <Property Name="paper_type" Type="char" MaxLength="2" />
+    <Property Name="update_request_sign" Type="char" MaxLength="1" />
+    <Property Name="unit" Type="char" MaxLength="3" />
+    <Property Name="eng_code" Type="char" MaxLength="20" />
+    <Property Name="cancel_sign" Type="char" MaxLength="1" />
+    <Property Name="tnc_tag_no" Type="char" MaxLength="2" />
+    <Property Name="tnc_total_tag_no" Type="char" MaxLength="2" />
+    <Property Name="trans_sign" Type="char" MaxLength="1" />
+    <Property Name="product_code" Type="char" MaxLength="4" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ekanbannicsModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ekanbannicsModelStoreContainer">
+    <EntitySet Name="td_job_tps_info" EntityType="ekanbannicsModel.Store.td_job_tps_info" store:Type="Tables" Schema="public" />
+    <EntitySet Name="td_kanban_info" EntityType="ekanbannicsModel.Store.td_kanban_info" store:Type="Tables" Schema="public" />
+  </EntityContainer>
+  <EntityType Name="td_job_tps_info">
+    <Key>
+      <PropertyRef Name="supply_date" />
+      <PropertyRef Name="supply_time" />
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="supply_date" Type="char" Nullable="false" MaxLength="8" />
+    <Property Name="supply_time" Type="char" Nullable="false" MaxLength="8" />
+    <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+    <Property Name="tag_no" Type="char" MaxLength="5" />
+    <Property Name="cure_date" Type="char" MaxLength="8" />
+    <Property Name="kanban_no1" Type="char" MaxLength="12" />
+    <Property Name="kanban_no2" Type="char" MaxLength="12" />
+    <Property Name="kanban_no3" Type="char" MaxLength="12" />
+    <Property Name="kanban_no4" Type="char" MaxLength="12" />
+    <Property Name="kanban_qty" Type="smallint" />
+    <Property Name="company_code" Type="char" MaxLength="5" />
+    <Property Name="location_cd" Type="char" MaxLength="3" />
+    <Property Name="plant_code" Type="char" MaxLength="4" />
+    <Property Name="data_no" Type="char" MaxLength="3" />
+    <Property Name="part_item" Type="char" MaxLength="30" />
+    <Property Name="parent_item" Type="char" MaxLength="30" />
+    <Property Name="part_wc" Type="char" MaxLength="6" />
+    <Property Name="fg_wc" Type="char" MaxLength="6" />
+    <Property Name="group_cd" Type="char" MaxLength="5" />
+    <Property Name="machine_no" Type="char" MaxLength="3" />
+    <Property Name="job_status" Type="char" MaxLength="1" />
+    <Property Name="batch1" Type="char" MaxLength="20" />
+    <Property Name="batch2" Type="char" MaxLength="20" />
+    <Property Name="batch3" Type="char" MaxLength="20" />
+    <Property Name="batch4" Type="char" MaxLength="20" />
+    <Property Name="batch5" Type="char" MaxLength="20" />
+    <Property Name="batch6" Type="char" MaxLength="20" />
+    <Property Name="batch7" Type="char" MaxLength="20" />
+    <Property Name="batch8" Type="char" MaxLength="20" />
+    <Property Name="compound" Type="char" MaxLength="30" />
+    <Property Name="qty" Type="double precision" />
+    <Property Name="unit" Type="char" MaxLength="3" />
+    <Property Name="supply_box" Type="char" MaxLength="10" />
+    <Property Name="supply_user" Type="char" MaxLength="25" />
+    <Property Name="job_type" Type="char" MaxLength="3" />
+    <Property Name="pgm_mode" Type="char" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="td_kanban_info">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="transection_no" Type="char" MaxLength="12" />
+    <Property Name="file_sign" Type="char" MaxLength="3" />
+    <Property Name="part_type" Type="smallint" />
+    <Property Name="job_no" Type="char" MaxLength="7" />
+    <Property Name="suffix" Type="smallint" />
+    <Property Name="status" Type="char" Nullable="false" MaxLength="3" />
+    <Property Name="due_date" Type="char" MaxLength="8" />
+    <Property Name="due_time" Type="char" MaxLength="8" />
+    <Property Name="cure_date" Type="char" MaxLength="8" />
+    <Property Name="item" Type="char" MaxLength="30" />
+    <Property Name="description" Type="char" MaxLength="40" />
+    <Property Name="total_tag_no" Type="int" />
+    <Property Name="qty_tag" Type="double precision" />
+    <Property Name="container_qty" Type="double precision" />
+    <Property Name="start_date" Type="char" MaxLength="8" />
+    <Property Name="end_date" Type="char" MaxLength="8" />
+    <Property Name="wc" Type="char" MaxLength="6" />
+    <Property Name="parent_job" Type="char" MaxLength="7" />
+    <Property Name="parent_suffix" Type="smallint" />
+    <Property Name="tag_no" Type="char" MaxLength="5" />
+    <Property Name="parent_item" Type="char" MaxLength="30" />
+    <Property Name="location_cd" Type="char" MaxLength="3" />
+    <Property Name="group_cd" Type="char" MaxLength="5" />
+    <Property Name="parent_wc" Type="char" MaxLength="6" />
+    <Property Name="parent_mc" Type="char" MaxLength="3" />
+    <Property Name="rack_no" Type="char" MaxLength="20" />
+    <Property Name="order_date" Type="char" MaxLength="8" />
+    <Property Name="order_time" Type="char" MaxLength="8" />
+    <Property Name="order_user" Type="char" MaxLength="25" />
+    <Property Name="receive_date" Type="char" MaxLength="8" />
+    <Property Name="receive_time" Type="char" MaxLength="8" />
+    <Property Name="receive_user" Type="char" MaxLength="25" />
+    <Property Name="supply_date" Type="char" MaxLength="8" />
+    <Property Name="supply_time" Type="char" MaxLength="8" />
+    <Property Name="supply_user" Type="char" MaxLength="25" />
+    <Property Name="complete_date" Type="char" MaxLength="8" />
+    <Property Name="complete_time" Type="char" MaxLength="8" />
+    <Property Name="complete_user" Type="char" MaxLength="25" />
+    <Property Name="print_sign" Type="smallint" />
+    <Property Name="delay_sign" Type="smallint" />
+    <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+    <Property Name="kanban_no" Type="char" MaxLength="12" />
+  </EntityType>
+</Schema>

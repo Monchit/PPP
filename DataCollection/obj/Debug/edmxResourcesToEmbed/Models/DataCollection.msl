@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PPModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="td_part_progress">
+      <EntityTypeMapping TypeName="PPModel.td_part_progress">
+        <MappingFragment StoreEntitySet="td_part_progress">
+          <ScalarProperty Name="data_type" ColumnName="data_type" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="time_stamp" ColumnName="time_stamp" />
+          <ScalarProperty Name="oper_num_00" ColumnName="oper_num_00" />
+          <ScalarProperty Name="wc_00" ColumnName="wc_00" />
+          <ScalarProperty Name="check_sign_00" ColumnName="check_sign_00" />
+          <ScalarProperty Name="result_sign_00" ColumnName="result_sign_00" />
+          <ScalarProperty Name="oper_num_01" ColumnName="oper_num_01" />
+          <ScalarProperty Name="wc_01" ColumnName="wc_01" />
+          <ScalarProperty Name="check_sign_01" ColumnName="check_sign_01" />
+          <ScalarProperty Name="result_sign_01" ColumnName="result_sign_01" />
+          <ScalarProperty Name="oper_num_02" ColumnName="oper_num_02" />
+          <ScalarProperty Name="wc_02" ColumnName="wc_02" />
+          <ScalarProperty Name="check_sign_02" ColumnName="check_sign_02" />
+          <ScalarProperty Name="result_sign_02" ColumnName="result_sign_02" />
+          <ScalarProperty Name="oper_num_03" ColumnName="oper_num_03" />
+          <ScalarProperty Name="wc_03" ColumnName="wc_03" />
+          <ScalarProperty Name="check_sign_03" ColumnName="check_sign_03" />
+          <ScalarProperty Name="result_sign_03" ColumnName="result_sign_03" />
+          <ScalarProperty Name="oper_num_04" ColumnName="oper_num_04" />
+          <ScalarProperty Name="wc_04" ColumnName="wc_04" />
+          <ScalarProperty Name="check_sign_04" ColumnName="check_sign_04" />
+          <ScalarProperty Name="result_sign_04" ColumnName="result_sign_04" />
+          <ScalarProperty Name="oper_num_05" ColumnName="oper_num_05" />
+          <ScalarProperty Name="wc_05" ColumnName="wc_05" />
+          <ScalarProperty Name="check_sign_05" ColumnName="check_sign_05" />
+          <ScalarProperty Name="result_sign_05" ColumnName="result_sign_05" />
+          <ScalarProperty Name="oper_num_06" ColumnName="oper_num_06" />
+          <ScalarProperty Name="wc_06" ColumnName="wc_06" />
+          <ScalarProperty Name="check_sign_06" ColumnName="check_sign_06" />
+          <ScalarProperty Name="result_sign_06" ColumnName="result_sign_06" />
+          <ScalarProperty Name="oper_num_07" ColumnName="oper_num_07" />
+          <ScalarProperty Name="wc_07" ColumnName="wc_07" />
+          <ScalarProperty Name="check_sign_07" ColumnName="check_sign_07" />
+          <ScalarProperty Name="result_sign_07" ColumnName="result_sign_07" />
+          <ScalarProperty Name="oper_num_08" ColumnName="oper_num_08" />
+          <ScalarProperty Name="wc_08" ColumnName="wc_08" />
+          <ScalarProperty Name="check_sign_08" ColumnName="check_sign_08" />
+          <ScalarProperty Name="result_sign_08" ColumnName="result_sign_08" />
+          <ScalarProperty Name="oper_num_09" ColumnName="oper_num_09" />
+          <ScalarProperty Name="wc_09" ColumnName="wc_09" />
+          <ScalarProperty Name="check_sign_09" ColumnName="check_sign_09" />
+          <ScalarProperty Name="result_sign_09" ColumnName="result_sign_09" />
+          <ScalarProperty Name="oper_num_10" ColumnName="oper_num_10" />
+          <ScalarProperty Name="wc_10" ColumnName="wc_10" />
+          <ScalarProperty Name="check_sign_10" ColumnName="check_sign_10" />
+          <ScalarProperty Name="result_sign_10" ColumnName="result_sign_10" />
+          <ScalarProperty Name="oper_num_11" ColumnName="oper_num_11" />
+          <ScalarProperty Name="wc_11" ColumnName="wc_11" />
+          <ScalarProperty Name="check_sign_11" ColumnName="check_sign_11" />
+          <ScalarProperty Name="result_sign_11" ColumnName="result_sign_11" />
+          <ScalarProperty Name="oper_num_12" ColumnName="oper_num_12" />
+          <ScalarProperty Name="wc_12" ColumnName="wc_12" />
+          <ScalarProperty Name="check_sign_12" ColumnName="check_sign_12" />
+          <ScalarProperty Name="result_sign_12" ColumnName="result_sign_12" />
+          <ScalarProperty Name="oper_num_13" ColumnName="oper_num_13" />
+          <ScalarProperty Name="wc_13" ColumnName="wc_13" />
+          <ScalarProperty Name="check_sign_13" ColumnName="check_sign_13" />
+          <ScalarProperty Name="result_sign_13" ColumnName="result_sign_13" />
+          <ScalarProperty Name="oper_num_14" ColumnName="oper_num_14" />
+          <ScalarProperty Name="wc_14" ColumnName="wc_14" />
+          <ScalarProperty Name="check_sign_14" ColumnName="check_sign_14" />
+          <ScalarProperty Name="result_sign_14" ColumnName="result_sign_14" />
+          <ScalarProperty Name="oper_num_15" ColumnName="oper_num_15" />
+          <ScalarProperty Name="wc_15" ColumnName="wc_15" />
+          <ScalarProperty Name="check_sign_15" ColumnName="check_sign_15" />
+          <ScalarProperty Name="result_sign_15" ColumnName="result_sign_15" />
+          <ScalarProperty Name="oper_num_16" ColumnName="oper_num_16" />
+          <ScalarProperty Name="wc_16" ColumnName="wc_16" />
+          <ScalarProperty Name="check_sign_16" ColumnName="check_sign_16" />
+          <ScalarProperty Name="result_sign_16" ColumnName="result_sign_16" />
+          <ScalarProperty Name="oper_num_17" ColumnName="oper_num_17" />
+          <ScalarProperty Name="wc_17" ColumnName="wc_17" />
+          <ScalarProperty Name="check_sign_17" ColumnName="check_sign_17" />
+          <ScalarProperty Name="result_sign_17" ColumnName="result_sign_17" />
+          <ScalarProperty Name="oper_num_18" ColumnName="oper_num_18" />
+          <ScalarProperty Name="wc_18" ColumnName="wc_18" />
+          <ScalarProperty Name="check_sign_18" ColumnName="check_sign_18" />
+          <ScalarProperty Name="result_sign_18" ColumnName="result_sign_18" />
+          <ScalarProperty Name="oper_num_19" ColumnName="oper_num_19" />
+          <ScalarProperty Name="wc_19" ColumnName="wc_19" />
+          <ScalarProperty Name="check_sign_19" ColumnName="check_sign_19" />
+          <ScalarProperty Name="result_sign_19" ColumnName="result_sign_19" />
+          <ScalarProperty Name="inspection_0" ColumnName="inspection_0" />
+          <ScalarProperty Name="judge_0" ColumnName="judge_0" />
+          <ScalarProperty Name="inspection_1" ColumnName="inspection_1" />
+          <ScalarProperty Name="judge_1" ColumnName="judge_1" />
+          <ScalarProperty Name="inspection_2" ColumnName="inspection_2" />
+          <ScalarProperty Name="judge_2" ColumnName="judge_2" />
+          <ScalarProperty Name="inspection_3" ColumnName="inspection_3" />
+          <ScalarProperty Name="judge_3" ColumnName="judge_3" />
+          <ScalarProperty Name="inspection_4" ColumnName="inspection_4" />
+          <ScalarProperty Name="judge_4" ColumnName="judge_4" />
+          <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tm_workcenter_bonding">
+      <EntityTypeMapping TypeName="PPModel.tm_workcenter_bonding">
+        <MappingFragment StoreEntitySet="tm_workcenter_bonding">
+          <ScalarProperty Name="wc" ColumnName="wc" />
+          <ScalarProperty Name="wc_name" ColumnName="wc_name" />
+          <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tm_workcenter_stamp">
+      <EntityTypeMapping TypeName="PPModel.tm_workcenter_stamp">
+        <MappingFragment StoreEntitySet="tm_workcenter_stamp">
+          <ScalarProperty Name="wc" ColumnName="wc" />
+          <ScalarProperty Name="wc_name" ColumnName="wc_name" />
+          <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+          <ScalarProperty Name="machine_no" ColumnName="machine_no" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="scn_machine" ColumnName="scn_machine" />
+          <ScalarProperty Name="scn_job_part" ColumnName="scn_job_part" />
+          <ScalarProperty Name="scn_spec" ColumnName="scn_spec" />
+          <ScalarProperty Name="scn_material" ColumnName="scn_material" />
+          <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+          <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+          <ScalarProperty Name="entry_user" ColumnName="entry_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tt_part_stat">
+      <EntityTypeMapping TypeName="PPModel.tt_part_stat">
+        <MappingFragment StoreEntitySet="tt_part_stat">
+          <ScalarProperty Name="wc" ColumnName="wc" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="stat" ColumnName="stat" />
+          <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

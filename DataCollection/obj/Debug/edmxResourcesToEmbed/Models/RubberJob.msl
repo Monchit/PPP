@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="qimnicsModel1StoreContainer" CdmEntityContainer="rubberEntities">
+    <EntitySetMapping Name="tr_rubber_job_nics">
+      <EntityTypeMapping TypeName="qimnicsModel1.tr_rubber_job_nics">
+        <MappingFragment StoreEntitySet="tr_rubber_job_nics">
+          <ScalarProperty Name="record_status" ColumnName="record_status" />
+          <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+          <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+          <ScalarProperty Name="entry_terminal_id" ColumnName="entry_terminal_id" />
+          <ScalarProperty Name="program_id" ColumnName="program_id" />
+          <ScalarProperty Name="update_user_code" ColumnName="update_user_code" />
+          <ScalarProperty Name="company_code" ColumnName="company_code" />
+          <ScalarProperty Name="plant_code" ColumnName="plant_code" />
+          <ScalarProperty Name="parts_job_order_no" ColumnName="parts_job_order_no" />
+          <ScalarProperty Name="data_transfer_complete_sign" ColumnName="data_transfer_complete_sign" />
+          <ScalarProperty Name="err_sign" ColumnName="err_sign" />
+          <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+          <ScalarProperty Name="divide_sign" ColumnName="divide_sign" />
+          <ScalarProperty Name="parts" ColumnName="parts" />
+          <ScalarProperty Name="parts_specification_file_id" ColumnName="parts_specification_file_id" />
+          <ScalarProperty Name="finished_goods_code" ColumnName="finished_goods_code" />
+          <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+          <ScalarProperty Name="limitation_item_sign" ColumnName="limitation_item_sign" />
+          <ScalarProperty Name="mps_no" ColumnName="mps_no" />
+          <ScalarProperty Name="line_group" ColumnName="line_group" />
+          <ScalarProperty Name="line_no" ColumnName="line_no" />
+          <ScalarProperty Name="press_no" ColumnName="press_no" />
+          <ScalarProperty Name="vendor_code" ColumnName="vendor_code" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="supply_type" ColumnName="supply_type" />
+          <ScalarProperty Name="capability_sign" ColumnName="capability_sign" />
+          <ScalarProperty Name="curing_date" ColumnName="curing_date" />
+          <ScalarProperty Name="order_type" ColumnName="order_type" />
+          <ScalarProperty Name="curing_qty" ColumnName="curing_qty" />
+          <ScalarProperty Name="good_item_qty" ColumnName="good_item_qty" />
+          <ScalarProperty Name="final_sign" ColumnName="final_sign" />
+          <ScalarProperty Name="planned_stockin_date" ColumnName="planned_stockin_date" />
+          <ScalarProperty Name="parts_order_type" ColumnName="parts_order_type" />
+          <ScalarProperty Name="parts_issue_type" ColumnName="parts_issue_type" />
+          <ScalarProperty Name="issue_place" ColumnName="issue_place" />
+          <ScalarProperty Name="issue_order_date" ColumnName="issue_order_date" />
+          <ScalarProperty Name="issue_qty" ColumnName="issue_qty" />
+          <ScalarProperty Name="issue_weight" ColumnName="issue_weight" />
+          <ScalarProperty Name="parts_line_group" ColumnName="parts_line_group" />
+          <ScalarProperty Name="number_of_unit" ColumnName="number_of_unit" />
+          <ScalarProperty Name="partsqty" ColumnName="partsqty" />
+          <ScalarProperty Name="sub_job_tag_qty" ColumnName="sub_job_tag_qty" />
+          <ScalarProperty Name="include_qty" ColumnName="include_qty" />
+          <ScalarProperty Name="parts_material_code" ColumnName="parts_material_code" />
+          <ScalarProperty Name="reschedule_sign" ColumnName="reschedule_sign" />
+          <ScalarProperty Name="parts_purchase_order_sign" ColumnName="parts_purchase_order_sign" />
+          <ScalarProperty Name="useful_limit" ColumnName="useful_limit" />
+          <ScalarProperty Name="remain_qty_before" ColumnName="remain_qty_before" />
+          <ScalarProperty Name="remain_qty_after" ColumnName="remain_qty_after" />
+          <ScalarProperty Name="purchase_order_type" ColumnName="purchase_order_type" />
+          <ScalarProperty Name="paper_type" ColumnName="paper_type" />
+          <ScalarProperty Name="update_request_sign" ColumnName="update_request_sign" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="eng_code" ColumnName="eng_code" />
+          <ScalarProperty Name="cancel_sign" ColumnName="cancel_sign" />
+          <ScalarProperty Name="tnc_tag_no" ColumnName="tnc_tag_no" />
+          <ScalarProperty Name="tnc_total_tag_no" ColumnName="tnc_total_tag_no" />
+          <ScalarProperty Name="trans_sign" ColumnName="trans_sign" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

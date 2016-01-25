@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ekanbannicsModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ekanbannicsModelStoreContainer">
+          <EntitySet Name="td_job_tps_info" EntityType="ekanbannicsModel.Store.td_job_tps_info" store:Type="Tables" Schema="public" />
+          <EntitySet Name="td_kanban_info" EntityType="ekanbannicsModel.Store.td_kanban_info" store:Type="Tables" Schema="public" />
+        </EntityContainer>
+        <EntityType Name="td_job_tps_info">
+          <Key>
+            <PropertyRef Name="tcs_no" />
+          </Key>
+          <Property Name="rack_no" Type="char" MaxLength="20" />
+          <Property Name="order_date" Type="char" MaxLength="8" />
+          <Property Name="order_time" Type="char" MaxLength="8" />
+          <Property Name="order_user" Type="char" MaxLength="25" />
+          <Property Name="receive_date" Type="char" MaxLength="8" />
+          <Property Name="receive_time" Type="char" MaxLength="8" />
+          <Property Name="receive_user" Type="char" MaxLength="25" />
+          <Property Name="supply_date" Type="char" MaxLength="8" />
+          <Property Name="supply_time" Type="char" MaxLength="8" />
+          <Property Name="supply_user" Type="char" MaxLength="25" />
+          <Property Name="takeout_date" Type="char" MaxLength="8" />
+          <Property Name="takeout_time" Type="char" MaxLength="8" />
+          <Property Name="takeout_user" Type="char" MaxLength="25" />
+          <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+          <Property Name="tag_no" Type="char" MaxLength="5" />
+          <Property Name="cure_date" Type="char" MaxLength="8" />
+          <Property Name="kanban_no" Type="char" MaxLength="12" />
+          <Property Name="kanban_qty" Type="smallint" />
+          <Property Name="company_code" Type="char" MaxLength="5" />
+          <Property Name="location_cd" Type="char" MaxLength="3" />
+          <Property Name="plant_code" Type="char" MaxLength="4" />
+          <Property Name="data_no" Type="char" MaxLength="3" />
+          <Property Name="part_item" Type="char" MaxLength="30" />
+          <Property Name="parent_item" Type="char" MaxLength="30" />
+          <Property Name="part_wc" Type="char" MaxLength="6" />
+          <Property Name="fg_wc" Type="char" MaxLength="6" />
+          <Property Name="group_cd" Type="char" MaxLength="5" />
+          <Property Name="machine_no" Type="char" MaxLength="3" />
+          <Property Name="job_status" Type="char" MaxLength="1" />
+          <Property Name="batch1" Type="char" MaxLength="20" />
+          <Property Name="batch2" Type="char" MaxLength="20" />
+          <Property Name="batch3" Type="char" MaxLength="20" />
+          <Property Name="batch4" Type="char" MaxLength="20" />
+          <Property Name="batch5" Type="char" MaxLength="20" />
+          <Property Name="batch6" Type="char" MaxLength="20" />
+          <Property Name="batch7" Type="char" MaxLength="20" />
+          <Property Name="batch8" Type="char" MaxLength="20" />
+          <Property Name="compound" Type="char" MaxLength="30" />
+          <Property Name="qty" Type="double precision" />
+          <Property Name="unit" Type="char" MaxLength="3" />
+          <Property Name="job_type" Type="char" MaxLength="3" />
+          <Property Name="pgm_mode" Type="char" MaxLength="3" />
+          <Property Name="tcs_no" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="trans_sign" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="td_kanban_info">
+          <Key>
+            <PropertyRef Name="job_order_no" />
+          </Key>
+          <Property Name="transection_no" Type="char" MaxLength="12" />
+          <Property Name="file_sign" Type="char" MaxLength="3" />
+          <Property Name="part_type" Type="smallint" />
+          <Property Name="job_no" Type="char" MaxLength="7" />
+          <Property Name="suffix" Type="smallint" />
+          <Property Name="status" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="due_date" Type="char" MaxLength="8" />
+          <Property Name="due_time" Type="char" MaxLength="8" />
+          <Property Name="cure_date" Type="char" MaxLength="8" />
+          <Property Name="item" Type="char" MaxLength="30" />
+          <Property Name="description" Type="char" MaxLength="40" />
+          <Property Name="total_tag_no" Type="int" />
+          <Property Name="qty_tag" Type="double precision" />
+          <Property Name="container_qty" Type="double precision" />
+          <Property Name="start_date" Type="char" MaxLength="8" />
+          <Property Name="end_date" Type="char" MaxLength="8" />
+          <Property Name="wc" Type="char" MaxLength="6" />
+          <Property Name="parent_job" Type="char" MaxLength="7" />
+          <Property Name="parent_suffix" Type="smallint" />
+          <Property Name="tag_no" Type="char" MaxLength="5" />
+          <Property Name="parent_item" Type="char" MaxLength="30" />
+          <Property Name="location_cd" Type="char" MaxLength="3" />
+          <Property Name="group_cd" Type="char" MaxLength="5" />
+          <Property Name="parent_wc" Type="char" MaxLength="6" />
+          <Property Name="parent_mc" Type="char" MaxLength="3" />
+          <Property Name="rack_no" Type="char" MaxLength="20" />
+          <Property Name="order_date" Type="char" MaxLength="8" />
+          <Property Name="order_time" Type="char" MaxLength="8" />
+          <Property Name="order_user" Type="char" MaxLength="25" />
+          <Property Name="receive_date" Type="char" MaxLength="8" />
+          <Property Name="receive_time" Type="char" MaxLength="8" />
+          <Property Name="receive_user" Type="char" MaxLength="25" />
+          <Property Name="supply_date" Type="char" MaxLength="8" />
+          <Property Name="supply_time" Type="char" MaxLength="8" />
+          <Property Name="supply_user" Type="char" MaxLength="25" />
+          <Property Name="complete_date" Type="char" MaxLength="8" />
+          <Property Name="complete_time" Type="char" MaxLength="8" />
+          <Property Name="complete_user" Type="char" MaxLength="25" />
+          <Property Name="print_sign" Type="smallint" />
+          <Property Name="delay_sign" Type="smallint" />
+          <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+          <Property Name="kanban_no" Type="char" MaxLength="12" />
+          <Property Name="trans_sign" Type="char" MaxLength="1" />
+          <Property Name="batch1" Type="char" MaxLength="20" />
+          <Property Name="batch2" Type="char" MaxLength="20" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ekanbannicsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ekanbannicsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="td_kanban_info" EntityType="ekanbannicsModel.td_kanban_info" />
+          <EntitySet Name="td_job_tps_info" EntityType="ekanbannicsModel.td_job_tps_info" />
+        </EntityContainer>
+        <EntityType Name="td_kanban_info">
+          <Key>
+            <PropertyRef Name="job_order_no" />
+          </Key>
+          <Property Name="transection_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="file_sign" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="part_type" Type="Int16" />
+          <Property Name="job_no" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
+          <Property Name="suffix" Type="Int16" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="due_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="due_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="cure_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+          <Property Name="description" Type="String" MaxLength="40" Unicode="false" FixedLength="true" />
+          <Property Name="total_tag_no" Type="Int32" />
+          <Property Name="qty_tag" Type="Double" />
+          <Property Name="container_qty" Type="Double" />
+          <Property Name="start_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="end_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="wc" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="parent_job" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
+          <Property Name="parent_suffix" Type="Int16" />
+          <Property Name="tag_no" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="parent_item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+          <Property Name="location_cd" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="group_cd" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="parent_wc" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="parent_mc" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="rack_no" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="order_date" Type="String" />
+          <Property Name="order_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="order_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+          <Property Name="receive_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="receive_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="receive_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+          <Property Name="supply_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="supply_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="supply_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+          <Property Name="complete_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="complete_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="complete_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+          <Property Name="print_sign" Type="Int16" />
+          <Property Name="delay_sign" Type="Int16" />
+          <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="parent_job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="kanban_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Type="String" Name="trans_sign" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch1" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch2" MaxLength="20" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="td_job_tps_info">
+          <Key>
+            <PropertyRef Name="tcs_no" />
+          </Key>
+          <Property Type="String" Name="rack_no" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="order_date" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="order_time" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="order_user" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="receive_date" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="receive_time" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="receive_user" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="supply_date" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="supply_time" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="supply_user" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="takeout_date" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="takeout_time" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="takeout_user" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="job_order_no" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="parent_job_order_no" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="tag_no" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="cure_date" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="kanban_no" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Type="Int16" Name="kanban_qty" />
+          <Property Type="String" Name="company_code" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="location_cd" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="plant_code" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="data_no" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="part_item" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="parent_item" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="part_wc" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="fg_wc" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="group_cd" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="machine_no" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="job_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch1" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch2" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch3" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch4" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch5" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch6" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch7" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="batch8" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="compound" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Type="Double" Name="qty" />
+          <Property Type="String" Name="unit" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="job_type" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pgm_mode" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="tcs_no" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="trans_sign" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ekanbannicsModelStoreContainer" CdmEntityContainer="ekanbannicsEntities">
+          <EntitySetMapping Name="td_kanban_info">
+            <EntityTypeMapping TypeName="ekanbannicsModel.td_kanban_info">
+              <MappingFragment StoreEntitySet="td_kanban_info">
+                <ScalarProperty Name="batch2" ColumnName="batch2" />
+                <ScalarProperty Name="batch1" ColumnName="batch1" />
+                <ScalarProperty Name="trans_sign" ColumnName="trans_sign" />
+                <ScalarProperty Name="transection_no" ColumnName="transection_no" />
+                <ScalarProperty Name="file_sign" ColumnName="file_sign" />
+                <ScalarProperty Name="part_type" ColumnName="part_type" />
+                <ScalarProperty Name="job_no" ColumnName="job_no" />
+                <ScalarProperty Name="suffix" ColumnName="suffix" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="due_date" ColumnName="due_date" />
+                <ScalarProperty Name="due_time" ColumnName="due_time" />
+                <ScalarProperty Name="cure_date" ColumnName="cure_date" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="total_tag_no" ColumnName="total_tag_no" />
+                <ScalarProperty Name="qty_tag" ColumnName="qty_tag" />
+                <ScalarProperty Name="container_qty" ColumnName="container_qty" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="wc" ColumnName="wc" />
+                <ScalarProperty Name="parent_job" ColumnName="parent_job" />
+                <ScalarProperty Name="parent_suffix" ColumnName="parent_suffix" />
+                <ScalarProperty Name="tag_no" ColumnName="tag_no" />
+                <ScalarProperty Name="parent_item" ColumnName="parent_item" />
+                <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+                <ScalarProperty Name="group_cd" ColumnName="group_cd" />
+                <ScalarProperty Name="parent_wc" ColumnName="parent_wc" />
+                <ScalarProperty Name="parent_mc" ColumnName="parent_mc" />
+                <ScalarProperty Name="rack_no" ColumnName="rack_no" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="order_time" ColumnName="order_time" />
+                <ScalarProperty Name="order_user" ColumnName="order_user" />
+                <ScalarProperty Name="receive_date" ColumnName="receive_date" />
+                <ScalarProperty Name="receive_time" ColumnName="receive_time" />
+                <ScalarProperty Name="receive_user" ColumnName="receive_user" />
+                <ScalarProperty Name="supply_date" ColumnName="supply_date" />
+                <ScalarProperty Name="supply_time" ColumnName="supply_time" />
+                <ScalarProperty Name="supply_user" ColumnName="supply_user" />
+                <ScalarProperty Name="complete_date" ColumnName="complete_date" />
+                <ScalarProperty Name="complete_time" ColumnName="complete_time" />
+                <ScalarProperty Name="complete_user" ColumnName="complete_user" />
+                <ScalarProperty Name="print_sign" ColumnName="print_sign" />
+                <ScalarProperty Name="delay_sign" ColumnName="delay_sign" />
+                <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+                <ScalarProperty Name="parent_job_order_no" ColumnName="parent_job_order_no" />
+                <ScalarProperty Name="kanban_no" ColumnName="kanban_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_job_tps_info">
+            <EntityTypeMapping TypeName="ekanbannicsModel.td_job_tps_info">
+              <MappingFragment StoreEntitySet="td_job_tps_info">
+                <ScalarProperty Name="trans_sign" ColumnName="trans_sign" />
+                <ScalarProperty Name="tcs_no" ColumnName="tcs_no" />
+                <ScalarProperty Name="pgm_mode" ColumnName="pgm_mode" />
+                <ScalarProperty Name="job_type" ColumnName="job_type" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="compound" ColumnName="compound" />
+                <ScalarProperty Name="batch8" ColumnName="batch8" />
+                <ScalarProperty Name="batch7" ColumnName="batch7" />
+                <ScalarProperty Name="batch6" ColumnName="batch6" />
+                <ScalarProperty Name="batch5" ColumnName="batch5" />
+                <ScalarProperty Name="batch4" ColumnName="batch4" />
+                <ScalarProperty Name="batch3" ColumnName="batch3" />
+                <ScalarProperty Name="batch2" ColumnName="batch2" />
+                <ScalarProperty Name="batch1" ColumnName="batch1" />
+                <ScalarProperty Name="job_status" ColumnName="job_status" />
+                <ScalarProperty Name="machine_no" ColumnName="machine_no" />
+                <ScalarProperty Name="group_cd" ColumnName="group_cd" />
+                <ScalarProperty Name="fg_wc" ColumnName="fg_wc" />
+                <ScalarProperty Name="part_wc" ColumnName="part_wc" />
+                <ScalarProperty Name="parent_item" ColumnName="parent_item" />
+                <ScalarProperty Name="part_item" ColumnName="part_item" />
+                <ScalarProperty Name="data_no" ColumnName="data_no" />
+                <ScalarProperty Name="plant_code" ColumnName="plant_code" />
+                <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+                <ScalarProperty Name="company_code" ColumnName="company_code" />
+                <ScalarProperty Name="kanban_qty" ColumnName="kanban_qty" />
+                <ScalarProperty Name="kanban_no" ColumnName="kanban_no" />
+                <ScalarProperty Name="cure_date" ColumnName="cure_date" />
+                <ScalarProperty Name="tag_no" ColumnName="tag_no" />
+                <ScalarProperty Name="parent_job_order_no" ColumnName="parent_job_order_no" />
+                <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+                <ScalarProperty Name="takeout_user" ColumnName="takeout_user" />
+                <ScalarProperty Name="takeout_time" ColumnName="takeout_time" />
+                <ScalarProperty Name="takeout_date" ColumnName="takeout_date" />
+                <ScalarProperty Name="supply_user" ColumnName="supply_user" />
+                <ScalarProperty Name="supply_time" ColumnName="supply_time" />
+                <ScalarProperty Name="supply_date" ColumnName="supply_date" />
+                <ScalarProperty Name="receive_user" ColumnName="receive_user" />
+                <ScalarProperty Name="receive_time" ColumnName="receive_time" />
+                <ScalarProperty Name="receive_date" ColumnName="receive_date" />
+                <ScalarProperty Name="order_user" ColumnName="order_user" />
+                <ScalarProperty Name="order_time" ColumnName="order_time" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="rack_no" ColumnName="rack_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

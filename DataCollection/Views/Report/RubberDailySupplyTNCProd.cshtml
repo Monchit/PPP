@@ -1,0 +1,130 @@
+﻿@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+
+            $("#txtSendFrom").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtSendTo").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            // Submit Search
+            $("#btnSearch").click(function () {
+
+                // Check supply date from > date to
+                from = $.trim($("#txtSendFrom").val()).split('/');
+                dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                to = $.trim($("#txtSendTo").val()).split('/');
+                dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณาเลือก Send Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Prepare query string
+                var QString = "plant=" + $("#txtPlant").val() + "&wc=" + $("#txtWC").val() + "&jobno=" + $("#txtJobNo").val() + "&group=" + $("#txtGroup").val() + "&mc=" + $("#txtMc").val() + "&sdatefrom=" + $("#txtSendFrom").val() + "&sdateto=" + $("#txtSendTo").val();
+
+                $("#divGrid").hide().fadeIn().html('<table id="DCGrid"></table><div id="pager"></div>');
+
+                $('#DCGrid').jqGrid({
+                    colNames: ['Plant', 'WC', 'MC', 'Group', 'Job No.', 'Lot no.', 'Part Item', 'Compound', 'Batch1', 'Batch2', 'Sent Date', 'Sent Time', 'Sent User'],
+                    colModel: [
+                                { name: 'location_cd', index: 'location_cd', align: 'center', width: '100px' },
+                                { name: 'wc', index: 'wc', align: 'center', width: '60px' },
+                                { name: 'machine_no', index: 'machine_no', align: 'center', width: '110px' },
+                                { name: 'group_cd', index: 'group_cd', align: 'center',width: '100px' },
+                                { name: 'job_order_no', index: 'job_order_no', align: 'left', width: '220px' },
+                                { name: 'lot_no', index: 'lot_no', align: 'center',width: '100px' },
+                                { name: 'parts_item', index: 'parts_item', align: 'right', width: '280px' },
+                                { name: 'compound', index: 'compound', align: 'center', width: '100px' },
+                                { name: 'batch1', index: 'batch1', align: 'center', width: '250px' },
+                                { name: 'batch2', index: 'batch2', align: 'right', width: '250px' },
+                                { name: 'loading_date', index: 'loading_date', align: 'center', width: '180px' },
+                                { name: 'loading_time', index: 'loading_time', align: 'center', width: '150px' },
+                                { name: 'loading_user', index: 'loading_user', align: 'left', width: '150px' }
+                    ],
+
+                    sortname: 'job_order_no',
+                    pagerpos: 'left',
+                    autowidth: true,
+                    caption: 'Report',
+                    datatype: 'json',
+                    height: '100%',
+                    pager: '#pager',
+                    rowList: [15, 20, 30, 50, 100],
+                    rowNum: 15,
+                    url: '@Url.Action("GetRubberDailySupplyTNCProd", "Report")?' + QString,
+                    mtype: 'GET',
+                    rownumbers: true,
+                    rownumWidth: '50px',
+                    viewrecords: true,
+                    excel: true,
+                    loadtext: ''
+                });
+
+                $(".ui-pg-input").css("width", "40px");
+                $("#frmExport").css("display", "inline");
+                return false;
+            });
+            
+            $("#frmExport").submit(function () {
+                var grid = $('#DCGrid');
+                $('#sidx').val(grid.getGridParam('sortname'));
+                $('#sord').val(grid.getGridParam('sortorder'));
+                $('#plant').val($("#txtPlant").val());
+                $('#wc').val($("#txtWC").val());
+                $('#jobno').val($("#txtJobNo").val());
+                $('#group').val($("#txtGroup").val());
+                $('#mc').val($("#txtMc").val());
+                $('#sdatefrom').val($("#txtSendFrom").val());
+                $('#sdateto').val($("#txtSendTo").val());
+                
+                return true;
+            });
+        });
+    </script>
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="advanceSearch">
+    <li class="title">Plant</li>
+    <li><input type="text" id="txtPlant" name="txtPlant" /></li>
+    <li class="title">Job No</li>
+    <li><input type="text" id="txtJobNo" name="txtJobNo" /></li>
+    <li class="title">Machine</li>
+    <li><input type="text" id="txtMc" name="txtMc" /></li>
+    <li><br />
+        <button type="button" id="btnSearch">Search</button>
+        @using (Html.BeginForm("ExportToExcelRubberDailyTNCProd", "Report", FormMethod.Post, new { id = "frmExport", style = "display:none" }))
+        {
+            @Html.Hidden("sidx")
+            @Html.Hidden("sord")
+            @Html.Hidden("plant")
+            @Html.Hidden("wc")
+            @Html.Hidden("jobno")
+            @Html.Hidden("group")
+            @Html.Hidden("mc")
+            @Html.Hidden("sdatefrom")
+            @Html.Hidden("sdateto")
+
+            <text><button type='submit' id='btnExport'><img class='imgBtn' title='Export to Excel' src='@Url.Content("~/Images/led_icons/page_excel.png")' /> Export</button></text>
+        }</li>
+</ul>
+<ul class="advanceSearch">
+    <li class="title">Work Center</li>
+    <li><input type="text" id="txtWC" name="txtWC" /></li>
+    <li class="title">Group</li>
+    <li><input type="text" id="txtGroup" name="txtGroup" /></li>
+    <li class="title">Send from</li>
+    <li><input type="text" id="txtSendFrom" name="txtSendFrom" /> to <input type="text" id="txtSendTo" name="txtSendTo" /></li>
+    
+</ul>
+<div style="clear: both"></div>
+
+<br /><br />
+
+<div id="divGrid"></div>

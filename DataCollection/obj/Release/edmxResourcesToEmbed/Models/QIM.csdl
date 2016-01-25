@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="qimnicsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="qimnicsEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tm_workcenter" EntityType="qimnicsModel.tm_workcenter" />
+    <EntitySet Name="tr_curing_nics" EntityType="qimnicsModel.tr_curing_nics" />
+    <EntitySet Name="tr_job_progress_nics" EntityType="qimnicsModel.tr_job_progress_nics" />
+    <EntitySet Name="tr_metal_job_nics" EntityType="qimnicsModel.tr_metal_job_nics" />
+  </EntityContainer>
+  <EntityType Name="tm_workcenter">
+    <Key>
+      <PropertyRef Name="wc" />
+    </Key>
+    <Property Name="file_sign" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="active_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="entry_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="update_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="update_time" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="update_wsid" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="update_pgm" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="update_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="wc" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="wc_name" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="group_name" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="product_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="tr_curing_nics">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="record_status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="entry_date" Type="Int32" />
+    <Property Name="entry_time" Type="Int32" />
+    <Property Name="update_date" Type="Int32" />
+    <Property Name="update_time" Type="Int32" />
+    <Property Name="entry_terminal_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="program_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="update_user_code" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="company_code" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="plant_code" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="data_transfer_complete_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="err_sign" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="parent_job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="divide_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="manufactured_curing" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="list_type_rubber" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="list_type_parts" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="purchase_order" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="process_sign7" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="process_sign8" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="process_sign9" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="process_sign10" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="urgent_schedule_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="machine_set_up_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="final_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="jis_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="set_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="finished_goods_code" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="customer_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="limitation_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="mp_code" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="enterprise_code" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="press_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="data_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="mps_no" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+    <Property Name="co_qty" Type="Double" />
+    <Property Name="co_due_date" Type="Int32" />
+    <Property Name="customer_order_no" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="set_item_co_line_no" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="round_unit" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="packing_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="packing_package_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="packing_label_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="packing_label_type_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="pack_qty" Type="Double" />
+    <Property Name="box_label_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="box_label_print_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="box_qty" Type="Double" />
+    <Property Name="vendor_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="external_fabrication_po_no" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+    <Property Name="nickname_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="material_mark1" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="compound_mark1" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="material_mark2" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="compound_mark2" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="metal_case_material_code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="spring_material_code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="other_material_type" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="partial_shipment_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="delivery_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="internal_order_from_plant_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="cost_accounting_division" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="internal_order_from_sector" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="stock_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="cavity_qty" Type="Int32" />
+    <Property Name="mold_plate_qty" Type="Int32" />
+    <Property Name="rotation" Type="Int32" />
+    <Property Name="curing_qty" Type="Double" />
+    <Property Name="good_item_qty" Type="Double" />
+    <Property Name="carry_over_good_item_qty" Type="Double" />
+    <Property Name="capability_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="curing_date" Type="Int32" />
+    <Property Name="order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="box_label_qty" Type="Int32" />
+    <Property Name="stock_in_order1" Type="Double" />
+    <Property Name="inspection_card_print_qty" Type="Int32" />
+    <Property Name="latest_label_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="latest_stock_in_order" Type="Double" />
+    <Property Name="re_schedule_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="parts_purchase_order_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="planned_stock_in_date" Type="Int32" />
+    <Property Name="stock_in_order_qty" Type="Double" />
+    <Property Name="special_specification_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="internal_important_sign1" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="first_mass_production_route" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="coating_material_type" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="mold" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="pre_process_days" Type="Double" />
+    <Property Name="post_process_day" Type="Double" />
+    <Property Name="mold_divide_sign" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="special_process_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="job_tag_divide_qty" Type="Int32" />
+    <Property Name="extensive_job_scheduling_job_tag_qty" Type="Int32" />
+    <Property Name="good_item_control_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="press_no_2" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no_3" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no_4" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no_5" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no_6" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no_7" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no_8" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="lot_no" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="paper_verification_mark" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="paper_verification_no" Type="Int32" />
+    <Property Name="update_request_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="disposal_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="tnc_tag_no" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="tnc_total_tag_no" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="stock_data_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="tr_job_progress_nics">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="parent_job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="finished_goods_code" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="customer_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_00" Type="Int16" />
+    <Property Name="line_group_00" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_00" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_00" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_00" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_01" Type="Int16" />
+    <Property Name="line_group_01" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_01" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_01" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_01" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_02" Type="Int16" />
+    <Property Name="line_group_02" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_02" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_02" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_02" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_03" Type="Int16" />
+    <Property Name="line_group_03" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_03" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_03" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_03" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_04" Type="Int16" />
+    <Property Name="line_group_04" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_04" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_04" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_04" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_05" Type="Int16" />
+    <Property Name="line_group_05" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_05" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_05" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_05" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_06" Type="Int16" />
+    <Property Name="line_group_06" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_06" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_06" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_06" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_07" Type="Int16" />
+    <Property Name="line_group_07" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_07" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_07" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_07" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_08" Type="Int16" />
+    <Property Name="line_group_08" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_08" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_08" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_08" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_09" Type="Int16" />
+    <Property Name="line_group_09" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_09" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_09" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_09" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_10" Type="Int16" />
+    <Property Name="line_group_10" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_10" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_10" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_10" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_11" Type="Int16" />
+    <Property Name="line_group_11" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_11" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_11" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_11" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_12" Type="Int16" />
+    <Property Name="line_group_12" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_12" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_12" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_12" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_13" Type="Int16" />
+    <Property Name="line_group_13" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_13" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_13" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_13" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_14" Type="Int16" />
+    <Property Name="line_group_14" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_14" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_14" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_14" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_15" Type="Int16" />
+    <Property Name="line_group_15" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_15" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_15" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_15" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_16" Type="Int16" />
+    <Property Name="line_group_16" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_16" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_16" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_16" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_17" Type="Int16" />
+    <Property Name="line_group_17" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_17" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_17" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_17" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_18" Type="Int16" />
+    <Property Name="line_group_18" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_18" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_18" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_18" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="operation_sequence_19" Type="Int16" />
+    <Property Name="line_group_19" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no_19" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="operation_code_19" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="control_point_19" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="greasing_sign" Type="Int16" />
+    <Property Name="entry_day" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="entry_time" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+    <Property Name="update_day" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="update_time" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+    <Property Name="transaction_no" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="disposal_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="tr_metal_job_nics">
+    <Key>
+      <PropertyRef Name="parts_job_order_no" />
+    </Key>
+    <Property Name="record_status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="entry_date" Type="Int32" />
+    <Property Name="entry_time" Type="Int32" />
+    <Property Name="update_date" Type="Int32" />
+    <Property Name="update_time" Type="Int32" />
+    <Property Name="entry_terminal_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="program_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="update_user_code" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="company_code" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="plant_code" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="parts_job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="data_transfer_complete_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="err_sign" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="divide_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="parts" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="parts_specification_file_id" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="finished_goods_code" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="customer_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="limitation_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="mps_no" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+    <Property Name="line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="line_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="press_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="vendor_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="sector" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+    <Property Name="supply_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="capability_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="curing_date" Type="Int32" />
+    <Property Name="order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="curing_qty" Type="Int32" />
+    <Property Name="good_item_qty" Type="Int32" />
+    <Property Name="final_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="planned_stockin_date" Type="Int32" />
+    <Property Name="parts_order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="parts_issue_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="issue_place" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="issue_order_date" Type="Int32" />
+    <Property Name="issue_qty" Type="Int32" />
+    <Property Name="issue_weight" Type="Int32" />
+    <Property Name="parts_line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="number_of_unit" Type="Int32" />
+    <Property Name="partsqty" Type="Int32" />
+    <Property Name="sub_job_tag_qty" Type="Int32" />
+    <Property Name="include_qty" Type="Int32" />
+    <Property Name="parts_material_code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="reschedule_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="parts_purchase_order_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="useful_limit" Type="Int32" />
+    <Property Name="remain_qty_before" Type="Int32" />
+    <Property Name="remain_qty_after" Type="Int32" />
+    <Property Name="purchase_order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="paper_type" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="update_request_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+</Schema>

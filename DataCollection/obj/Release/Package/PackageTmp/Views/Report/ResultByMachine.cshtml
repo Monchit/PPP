@@ -1,0 +1,132 @@
+﻿@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#txtDateFrom").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtDateTo").datepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            // Submit Search
+            $("#btnSearch").click(function () {
+
+                // Chekc date field is empty
+                if (($.trim($("#txtDateFrom").val()) == "" || $.trim($("#txtDateTo").val()) == "") || $("#selType").val() == "") {
+                    alert("กรุณากรอกข้อมูลให้ครบถ้วน!");
+                    return false;
+                }
+
+                // Check date from > date to
+                var from = $.trim($("#txtDateFrom").val()).split('/');
+                var dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                var to = $.trim($("#txtDateTo").val()).split('/');
+                var dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณากรอกข้อมูล Result Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Prepare query string
+                var QString = "datefrom=" + $("#txtDateFrom").val() + "&dateto=" + $("#txtDateTo").val() + "&wcfg=" + $("#WCFG").val();
+
+                $("#divGrid").hide().fadeIn().html('<table id="DCGrid"></table><div id="pager"></div>');
+
+                $('#DCGrid').jqGrid({
+                    colNames: ['Result Date', 'Result Time', 'WC', 'Parent Item', 'Parent Job No.', 'Item', 'Job No.', 'Qty(pcs)', 'User'],
+                    colModel: [
+                                    {
+                                        name: 'result_date', index: 'result_date', align: 'center'
+                                    },
+                                    {
+                                        name: 'result_time', index: 'result_time', align: 'center'
+                                    },
+                                    {
+                                        name: 'wc', index: 'wc', align: 'left'
+                                    },
+                                    {
+                                        name: 'finished_goods_code', index: 'finished_goods_code', align: 'left'
+                                    },
+                                    {
+                                        name: 'parent_job_order_no', index: 'parent_job_order_no', align: 'left'
+                                    },
+                                    {
+                                        name: 'part_code', index: 'part_code', align: 'left'
+                                    },
+                                    {
+                                        name: 'part_job_order_no', index: 'part_job_order_no', align: 'left'
+                                    },
+                                    {
+                                        name: 'qty', index: 'qty', align: 'right', formatter: 'integer'
+                                    },
+                                    {
+                                        name: 'entry_user', index: 'entry_user', align: 'left'
+                                    }
+                    ],
+
+                    sortname: 'result_date',
+                    pagerpos: 'left',
+                    autowidth: true,
+                    caption: 'Not Group',
+                    datatype: 'json',
+                    height: '100%',
+                    pager: '#pager',
+                    rowList: [15, 20, 30, 50, 100],
+                    rowNum: 15,
+                    url: '@Url.Action("GetResultByMachine", "Report")?' + QString,
+                    mtype: 'GET',
+                    rownumbers: true,
+                    rownumWidth: '50px',
+                    viewrecords: true,
+                    excel: true
+                });
+
+                $(".ui-pg-input").css("width", "40px");
+                $("#frmExport").css("display", "inline");
+                return false;
+            });
+
+            $("#frmExport").submit(function () {
+                var grid = $('#DCGrid');
+                $('#sidx').val(grid.getGridParam('sortname'));
+                $('#sord').val(grid.getGridParam('sortorder'));
+                $('#edatefrom').val($("#txtDateFrom").val());
+                $('#edateto').val($("#txtDateTo").val());
+                $('#ewcfg').val($("#WCFG").val());
+
+                return true;
+            });
+        });
+    </script>
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="advanceSearch">
+    <li class="title">Result Date *</li>
+    <li><input type="text" id="txtDateFrom" name="txtDateFrom" /> - <input type="text" id="txtDateTo" name="txtDateTo" /></li>
+    <li class="title">WC (FG)</li>
+    <li><input type="text" id="WCFG" name="WCFG" /></li>
+    <li class="title">
+        <br />
+        
+        <button type="button" id="btnSearch">Search</button>
+        @using (Html.BeginForm("ExportToExcelResultByMachine", "Report", FormMethod.Post, new { id = "frmExport", style = "display:none" }))
+        {
+            @Html.Hidden("sidx")
+            @Html.Hidden("sord")
+            @Html.Hidden("edatefrom")
+            @Html.Hidden("edateto")
+            @Html.Hidden("ewcfg")
+
+            <text><button type='submit' id='btnExport' style='padding:0'><img class='imgBtn' title='Export to Excel' src='@Url.Content("~/Images/excel.png")' /> Export</button></text>
+        }
+    </li>
+</ul>
+<div style="clear: both"></div>
+
+<br /><br />
+
+<div id="divGrid"></div>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rbstocknicsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="rbstocknicsEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="td_job_information" EntityType="rbstocknicsModel.td_job_information" />
+  </EntityContainer>
+  <EntityType Name="td_job_information">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="job_no" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
+    <Property Name="suffix" Type="Int16" />
+    <Property Name="tag_no" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="job_status" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="location_cd" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="wc" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="machine_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="group_cd" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="batch" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch2" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch3" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch4" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch5" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch6" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch7" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="batch8" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="compound" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="weight" Type="Double" />
+    <Property Name="expire_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="order_box" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="order_number" Type="Int16" />
+    <Property Name="order_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="order_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="order_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="receive_box" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="receive_number" Type="Int16" />
+    <Property Name="receive_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="receive_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="receive_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="supply_box" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="supply_number" Type="Int16" />
+    <Property Name="supply_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="supply_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="supply_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="takeout_box1" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="takeout_number1" Type="Int16" />
+    <Property Name="takeout_box2" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="takeout_number2" Type="Int16" />
+    <Property Name="takeout_box3" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="takeout_number3" Type="Int16" />
+    <Property Name="takeout_box4" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="takeout_number4" Type="Int16" />
+    <Property Name="takeout_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="takeout_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="takeout_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="compound_qty" Type="Int16" />
+    <Property Name="prepare_status" Type="Int16" />
+    <Property Name="plan_machine" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="curing_time" Type="Double" />
+    <Property Name="qc_inspection" Type="Int16" />
+    <Property Name="inspect_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="inspect_time" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="inspect_user" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="item_master" Type="Int16" />
+    <Property Name="size" Type="Int16" />
+    <Property Name="size_desc" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="spare_sign" Type="Int16" />
+    <Property Name="spare_box" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="rubbertag1" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="rubbertag2" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="rubbertag3" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="rubbertag4" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="rubbertag5" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="fifo_batch" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="kanban_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="job_type" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="pgm_mode" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="unit" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="trans_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+</Schema>

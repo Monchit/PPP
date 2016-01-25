@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Part Production</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
+        @Styles.Render("~/Content/jqGrid")
+        @Styles.Render("~/Content/dcmegamenu")
+        @Styles.Render("~/Content/timepicker")
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jqGrid")
+        @Scripts.Render("~/bundles/dcmegamenu")
+        @Scripts.Render("~/bundles/timepicker")
+
+        <script type="text/javascript">
+            $(function () {
+
+                $('#mega-menu-9').dcMegaMenu({
+                    rowItems: '3',
+                    speed: 'fast'
+                });
+
+                $(".menu_disable").click(function () {
+                    return false;
+                });
+            });
+        </script>
+
+        @RenderSection("scripts", required: false)
+        @RenderSection("JQuery", required: false)
+
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("PPP Report", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @*@Html.Partial("_LoginPartial")*@
+                        <br />
+                    </section>
+                    <section>
+
+                        <div class="white">  
+                            <ul id="mega-menu-9" class="mega-menu">
+	                            <li>@Html.ActionLink("Job Monitoring", "Index", "Home")</li>
+	                            <li><a href="#" class="menu_disable">Report</a>
+		                            <ul>
+			                            <li><a href="#" class="menu_disable">Production Result</a>
+				                            <ul>
+                                                <li><a href="#" class="menu_disable menutitle">Stamping</a>
+                                                    <ul>
+                                                        <li><a href="@Url.Action("SBGroup/Stamping", "Report")" class="leaf">Grouping (Parent Job)</a></li>
+                                                        <li><a href="@Url.Action("SBNGroup/Stamping", "Report")" class="leaf">Non Grouping (Parent Job)</a></li>
+                                                    </ul>
+                                                </li>
+					                            <li><a href="#" class="menu_disable menutitle">Bonding</a>
+                                                    <ul>
+                                                        <li><a href="@Url.Action("SBGroup/Bonding", "Report")" class="leaf">Grouping (Parent Job)</a></li>
+                                                        <li><a href="@Url.Action("SBNGroup/Bonding", "Report")" class="leaf">Non Grouping (Parent Job)</a></li>
+                                                    </ul>
+					                            </li>
+					                            <li><a href="#" class="menu_disable menutitle">Rubber</a>
+                                                    <ul>
+                                                        <li><a href="@Url.Action("RubberDailySupplyJobtag", "Report")" class="leaf">Daily Supply (Jobtag)</a></li>
+                                                        <li><a href="@Url.Action("RubberDailySupplyKanban", "Report")" class="leaf">Daily Supply (Kanban)</a></li>
+                                                        <li><a href="@Url.Action("RubberDailySupplyTPS", "Report")" class="leaf">Daily Supply (TPS)</a></li>
+                                                    </ul>
+					                            </li>
+					                            <li><a href="#" class="menu_disable menutitle">Spring</a>
+                                                    <ul>
+                                                        <li><a href="@Url.Action("SpringDailySupplyJobtag", "Report")" class="leaf">Daily Supply (Jobtag)</a></li>
+                                                        <li><a href="@Url.Action("SpringDailySupplyKanban", "Report")" class="leaf">Daily Supply (Kanban)</a></li>
+                                                    </ul>
+					                            </li>
+				                            </ul>
+			                            </li>
+			                            <li><a href="#" class="menu_disable">Production Result Process by Machine</a>
+			                                <ul>
+					                            <li><a href="@Url.Action("ResultByMachine", "Report")" class="italic">Result by Machine</a></li>
+				                            </ul>
+			                            </li>
+			                            <li><a href="#" class="menu_disable">Summary Delivery Sheet</a>
+			                                <ul>
+					                            <li><a href="@Url.Action("SumDeliverSheet", "Report")" class="italic">Summary Delivery Sheet</a></li>
+				                            </ul>
+			                            </li>
+			                            <li><a href="#" class="menu_disable">Work In Process</a>
+			                                <ul>
+					                            <li><a href="#" class="italic">Stock In</a></li>
+					                            <li><a href="#" class="italic">Waiting for Bonding</a></li>
+				                            </ul>
+			                            </li>
+			                            <li><a href="#" class="menu_disable">Pass Due Report</a>
+			                              <ul>
+				                                <li><a href="#" class="italic">Pass Due Report</a></li>
+			                              </ul>
+			                            </li>
+                                        <li><a href="#" class="menu_disable">Daily Report</a>
+			                                <ul>
+					                            <li><a href="@Url.Action("StampingDaily", "Report")" class="italic">Stamping Dailly Report</a></li>
+				                            </ul>
+                                            <ul>
+					                            <li><a href="@Url.Action("BondingDaily", "Report")" class="italic">Bonding Dailly Report</a></li>
+				                            </ul>
+			                            </li>
+		                            </ul>
+	                            </li>
+                                <li><a href="#" class="menu_disable">Data Collection</a></li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - Part Production Plant Report</p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PPModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="td_part_progress" EntityType="PPModel.td_part_progress" />
+    <EntitySet Name="tm_workcenter_bonding" EntityType="PPModel.tm_workcenter_bonding" />
+    <EntitySet Name="tm_workcenter_stamp" EntityType="PPModel.tm_workcenter_stamp" />
+    <EntitySet Name="tt_part_stat" EntityType="PPModel.tt_part_stat" />
+  </EntityContainer>
+  <EntityType Name="td_part_progress">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="data_type" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="item" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+    <Property Name="time_stamp" Type="String" MaxLength="14" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_00" Type="Int16" />
+    <Property Name="wc_00" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_00" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_00" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_01" Type="Int16" />
+    <Property Name="wc_01" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_01" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_01" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_02" Type="Int16" />
+    <Property Name="wc_02" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_02" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_02" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_03" Type="Int16" />
+    <Property Name="wc_03" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_03" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_03" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_04" Type="Int16" />
+    <Property Name="wc_04" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_04" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_04" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_05" Type="Int16" />
+    <Property Name="wc_05" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_05" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_05" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_06" Type="Int16" />
+    <Property Name="wc_06" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_06" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_06" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_07" Type="Int16" />
+    <Property Name="wc_07" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_07" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_07" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_08" Type="Int16" />
+    <Property Name="wc_08" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_08" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_08" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_09" Type="Int16" />
+    <Property Name="wc_09" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_09" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_09" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_10" Type="Int16" />
+    <Property Name="wc_10" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_10" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_10" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_11" Type="Int16" />
+    <Property Name="wc_11" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_11" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_11" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_12" Type="Int16" />
+    <Property Name="wc_12" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_12" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_12" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_13" Type="Int16" />
+    <Property Name="wc_13" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_13" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_13" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_14" Type="Int16" />
+    <Property Name="wc_14" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_14" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_14" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_15" Type="Int16" />
+    <Property Name="wc_15" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_15" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_15" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_16" Type="Int16" />
+    <Property Name="wc_16" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_16" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_16" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_17" Type="Int16" />
+    <Property Name="wc_17" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_17" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_17" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_18" Type="Int16" />
+    <Property Name="wc_18" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_18" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_18" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="oper_num_19" Type="Int16" />
+    <Property Name="wc_19" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="check_sign_19" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="result_sign_19" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="inspection_0" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="judge_0" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="inspection_1" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="judge_1" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="inspection_2" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="judge_2" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="inspection_3" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="judge_3" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="inspection_4" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="judge_4" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="tm_workcenter_bonding">
+    <Key>
+      <PropertyRef Name="wc" />
+    </Key>
+    <Property Name="wc" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="wc_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="location_cd" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="tm_workcenter_stamp">
+    <Key>
+      <PropertyRef Name="wc" />
+      <PropertyRef Name="machine_no" />
+    </Key>
+    <Property Name="wc" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="wc_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="location_cd" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="machine_no" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="scn_machine" Type="Int32" />
+    <Property Name="scn_job_part" Type="Int32" />
+    <Property Name="scn_spec" Type="Int32" />
+    <Property Name="scn_material" Type="Int32" />
+    <Property Name="entry_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="entry_time" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="entry_user" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+    <Property Name="update_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+    <Property Name="update_time" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+    <Property Name="update_user" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="tt_part_stat">
+    <Key>
+      <PropertyRef Name="job_order_no" />
+    </Key>
+    <Property Name="wc" Type="String" Nullable="false" MaxLength="7" Unicode="true" FixedLength="false" />
+    <Property Name="item" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="stat" Type="Int32" />
+    <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tncproductionliveModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 9.1.7" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="tncproductionliveModelStoreContainer">
+    <EntitySet Name="td_rubber_batch" EntityType="tncproductionliveModel.Store.td_rubber_batch" store:Type="Tables" Schema="public" />
+    <EntitySet Name="td_rubber_info" EntityType="tncproductionliveModel.Store.td_rubber_info" store:Type="Tables" Schema="public" />
+  </EntityContainer>
+  <EntityType Name="td_rubber_batch">
+    <Key>
+      <PropertyRef Name="parts_job_order_no" />
+    </Key>
+    <Property Name="entry_date" Type="char" MaxLength="8" />
+    <Property Name="entry_time" Type="char" MaxLength="6" />
+    <Property Name="entry_user" Type="char" MaxLength="50" />
+    <Property Name="update_date" Type="char" MaxLength="8" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+    <Property Name="update_user" Type="char" MaxLength="50" />
+    <Property Name="location_cd" Type="char" MaxLength="6" />
+    <Property Name="wc" Type="char" MaxLength="6" />
+    <Property Name="machine_no" Type="char" MaxLength="3" />
+    <Property Name="group_cd" Type="char" MaxLength="6" />
+    <Property Name="parts_job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="job_order_no" Type="char" MaxLength="12" />
+    <Property Name="lot_no" Type="char" MaxLength="5" />
+    <Property Name="parts_item" Type="char" MaxLength="30" />
+    <Property Name="finished_goods_code" Type="char" MaxLength="30" />
+    <Property Name="compound" Type="char" MaxLength="10" />
+    <Property Name="batch1" Type="char" MaxLength="20" />
+    <Property Name="batch2" Type="char" MaxLength="20" />
+    <Property Name="batch3" Type="char" MaxLength="20" />
+    <Property Name="batch4" Type="char" MaxLength="20" />
+    <Property Name="batch5" Type="char" MaxLength="20" />
+    <Property Name="batch6" Type="char" MaxLength="20" />
+    <Property Name="batch7" Type="char" MaxLength="20" />
+    <Property Name="batch8" Type="char" MaxLength="20" />
+    <Property Name="batch9" Type="char" MaxLength="20" />
+    <Property Name="batch10" Type="char" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="td_rubber_info">
+    <Key>
+      <PropertyRef Name="parts_job_order_no" />
+    </Key>
+    <Property Name="entry_date" Type="char" MaxLength="8" />
+    <Property Name="entry_time" Type="char" MaxLength="6" />
+    <Property Name="update_date" Type="char" MaxLength="8" />
+    <Property Name="update_time" Type="char" MaxLength="6" />
+    <Property Name="curing_date" Type="char" MaxLength="8" />
+    <Property Name="parts_job_order_no" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+    <Property Name="part_qty" Type="int" />
+    <Property Name="parts_item" Type="char" MaxLength="30" />
+    <Property Name="parent_item" Type="char" MaxLength="20" />
+    <Property Name="eng_code" Type="char" MaxLength="20" />
+    <Property Name="wc" Type="char" MaxLength="3" />
+    <Property Name="machine_no" Type="char" MaxLength="3" />
+    <Property Name="parts_tag_no" Type="char" MaxLength="5" />
+    <Property Name="description" Type="char" MaxLength="50" />
+    <Property Name="location_cd" Type="char" MaxLength="6" />
+    <Property Name="group_cd" Type="char" MaxLength="6" />
+    <Property Name="curing_job_order_no" Type="char" MaxLength="12" />
+    <Property Name="curing_qty" Type="int" />
+    <Property Name="cycle_time" Type="int" />
+    <Property Name="curing_tag_no" Type="char" MaxLength="5" />
+    <Property Name="status" Type="int" />
+    <Property Name="prepare_sign" Type="int" />
+    <Property Name="kanban_no" Type="char" MaxLength="10" />
+    <Property Name="buffer_date" Type="char" MaxLength="8" />
+    <Property Name="buffer_time" Type="char" MaxLength="6" />
+    <Property Name="buffer_user" Type="char" MaxLength="50" />
+    <Property Name="order_date" Type="char" MaxLength="8" />
+    <Property Name="order_time" Type="char" MaxLength="6" />
+    <Property Name="order_user" Type="char" MaxLength="50" />
+    <Property Name="rcv_date" Type="char" MaxLength="8" />
+    <Property Name="rcv_time" Type="char" MaxLength="6" />
+    <Property Name="rcv_user" Type="char" MaxLength="50" />
+    <Property Name="due_date" Type="char" MaxLength="8" />
+    <Property Name="due_time" Type="char" MaxLength="6" />
+    <Property Name="sent_date" Type="char" MaxLength="8" />
+    <Property Name="sent_time" Type="char" MaxLength="6" />
+    <Property Name="sent_user" Type="char" MaxLength="50" />
+    <Property Name="completed_date" Type="char" MaxLength="8" />
+    <Property Name="completed_time" Type="char" MaxLength="6" />
+    <Property Name="completed_user" Type="char" MaxLength="50" />
+    <Property Name="urgent_date" Type="char" MaxLength="8" />
+    <Property Name="urgent_time" Type="char" MaxLength="6" />
+    <Property Name="urgent_user" Type="char" MaxLength="50" />
+    <Property Name="delay_sign" Type="int" />
+    <Property Name="delay_date" Type="char" MaxLength="8" />
+    <Property Name="delay_time" Type="char" MaxLength="6" />
+    <Property Name="delay_user" Type="char" MaxLength="50" />
+    <Property Name="cancel_sign" Type="int" />
+    <Property Name="order_advance" Type="int" />
+    <Property Name="next_process" Type="char" MaxLength="100" />
+    <Property Name="program_name" Type="char" MaxLength="100" />
+    <Property Name="prepare_job_order_no" Type="char" MaxLength="12" />
+    <Property Name="order_type" Type="char" MaxLength="1" />
+    <Property Name="compound" Type="char" MaxLength="10" />
+    <Property Name="re_order_sign" Type="int" />
+    <Property Name="last_curing_job" Type="char" MaxLength="12" />
+    <Property Name="disp_re_order" Type="int" />
+  </EntityType>
+</Schema>

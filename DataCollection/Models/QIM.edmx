@@ -1,0 +1,1191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="qimnicsModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 9.1.7" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="qimnicsModelStoreContainer">
+          <EntitySet Name="tm_workcenter" EntityType="qimnicsModel.Store.tm_workcenter" store:Type="Tables" Schema="public" />
+          <EntitySet Name="tr_curing_nics" EntityType="qimnicsModel.Store.tr_curing_nics" store:Type="Tables" Schema="public" />
+          <EntitySet Name="tr_job_progress_nics" EntityType="qimnicsModel.Store.tr_job_progress_nics" store:Type="Tables" Schema="public" />
+          <EntitySet Name="tr_metal_job_nics" EntityType="qimnicsModel.Store.tr_metal_job_nics" store:Type="Tables" Schema="public" />
+          <EntitySet Name="tr_part_nics" EntityType="qimnicsModel.Store.tr_part_nics" store:Type="Tables" Schema="public" />
+        </EntityContainer>
+        <EntityType Name="tm_workcenter">
+          <Key>
+            <PropertyRef Name="wc" />
+          </Key>
+          <Property Name="file_sign" Type="char" MaxLength="3" />
+          <Property Name="active_sign" Type="char" MaxLength="1" />
+          <Property Name="entry_date" Type="char" MaxLength="8" />
+          <Property Name="update_date" Type="char" MaxLength="8" />
+          <Property Name="update_time" Type="char" MaxLength="6" />
+          <Property Name="update_wsid" Type="char" MaxLength="25" />
+          <Property Name="update_pgm" Type="char" MaxLength="10" />
+          <Property Name="update_sign" Type="char" MaxLength="1" />
+          <Property Name="wc" Type="char" Nullable="false" MaxLength="6" />
+          <Property Name="wc_name" Type="varchar" MaxLength="20" />
+          <Property Name="group_name" Type="char" MaxLength="6" />
+          <Property Name="product_code" Type="char" MaxLength="20" />
+          <Property Name="product_name" Type="char" MaxLength="40" />
+          <Property Name="cost_code" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="tr_curing_nics">
+          <Key>
+            <PropertyRef Name="job_order_no" />
+          </Key>
+          <Property Name="record_status" Type="char" MaxLength="1" />
+          <Property Name="entry_date" Type="int" />
+          <Property Name="entry_time" Type="int" />
+          <Property Name="update_date" Type="int" />
+          <Property Name="update_time" Type="int" />
+          <Property Name="entry_terminal_id" Type="char" MaxLength="10" />
+          <Property Name="program_id" Type="char" MaxLength="10" />
+          <Property Name="update_user_code" Type="char" MaxLength="10" />
+          <Property Name="company_code" Type="char" Nullable="false" MaxLength="5" />
+          <Property Name="plant_code" Type="char" Nullable="false" MaxLength="4" />
+          <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="data_transfer_complete_sign" Type="char" MaxLength="1" />
+          <Property Name="err_sign" Type="char" MaxLength="5" />
+          <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+          <Property Name="divide_sign" Type="char" MaxLength="1" />
+          <Property Name="manufactured_curing" Type="char" MaxLength="2" />
+          <Property Name="list_type_rubber" Type="char" MaxLength="2" />
+          <Property Name="list_type_parts" Type="char" MaxLength="2" />
+          <Property Name="purchase_order" Type="char" MaxLength="2" />
+          <Property Name="process_sign7" Type="char" MaxLength="1" />
+          <Property Name="process_sign8" Type="char" MaxLength="1" />
+          <Property Name="process_sign9" Type="char" MaxLength="1" />
+          <Property Name="process_sign10" Type="char" MaxLength="1" />
+          <Property Name="urgent_schedule_sign" Type="char" MaxLength="1" />
+          <Property Name="machine_set_up_sign" Type="char" MaxLength="1" />
+          <Property Name="final_sign" Type="char" MaxLength="1" />
+          <Property Name="jis_sign" Type="char" MaxLength="1" />
+          <Property Name="set_item_sign" Type="char" MaxLength="1" />
+          <Property Name="finished_goods_code" Type="char" MaxLength="20" />
+          <Property Name="customer_code" Type="char" MaxLength="5" />
+          <Property Name="limitation_item_sign" Type="char" MaxLength="1" />
+          <Property Name="mp_code" Type="char" MaxLength="1" />
+          <Property Name="enterprise_code" Type="char" MaxLength="1" />
+          <Property Name="line_group" Type="char" MaxLength="3" />
+          <Property Name="line_no" Type="char" MaxLength="4" />
+          <Property Name="press_no" Type="char" MaxLength="3" />
+          <Property Name="data_no" Type="char" MaxLength="3" />
+          <Property Name="mps_no" Type="char" MaxLength="9" />
+          <Property Name="co_qty" Type="double precision" />
+          <Property Name="co_due_date" Type="int" />
+          <Property Name="customer_order_no" Type="char" MaxLength="10" />
+          <Property Name="set_item_co_line_no" Type="char" MaxLength="2" />
+          <Property Name="round_unit" Type="char" MaxLength="1" />
+          <Property Name="packing_type" Type="char" MaxLength="1" />
+          <Property Name="packing_package_type" Type="char" MaxLength="1" />
+          <Property Name="packing_label_type" Type="char" MaxLength="1" />
+          <Property Name="packing_label_type_sign" Type="char" MaxLength="1" />
+          <Property Name="pack_qty" Type="double precision" />
+          <Property Name="box_label_type" Type="char" MaxLength="1" />
+          <Property Name="box_label_print_type" Type="char" MaxLength="1" />
+          <Property Name="box_qty" Type="double precision" />
+          <Property Name="vendor_code" Type="char" MaxLength="4" />
+          <Property Name="external_fabrication_po_no" Type="char" MaxLength="9" />
+          <Property Name="nickname_no" Type="char" MaxLength="12" />
+          <Property Name="material_mark1" Type="char" MaxLength="8" />
+          <Property Name="compound_mark1" Type="char" MaxLength="8" />
+          <Property Name="material_mark2" Type="char" MaxLength="8" />
+          <Property Name="compound_mark2" Type="char" MaxLength="8" />
+          <Property Name="metal_case_material_code" Type="char" MaxLength="8" />
+          <Property Name="spring_material_code" Type="char" MaxLength="8" />
+          <Property Name="other_material_type" Type="char" MaxLength="8" />
+          <Property Name="partial_shipment_sign" Type="char" MaxLength="1" />
+          <Property Name="delivery_type" Type="char" MaxLength="1" />
+          <Property Name="internal_order_from_plant_code" Type="char" MaxLength="4" />
+          <Property Name="cost_accounting_division" Type="char" MaxLength="2" />
+          <Property Name="internal_order_from_sector" Type="char" MaxLength="4" />
+          <Property Name="stock_item_sign" Type="char" MaxLength="1" />
+          <Property Name="cavity_qty" Type="int" />
+          <Property Name="mold_plate_qty" Type="int" />
+          <Property Name="rotation" Type="int" />
+          <Property Name="curing_qty" Type="double precision" />
+          <Property Name="good_item_qty" Type="double precision" />
+          <Property Name="carry_over_good_item_qty" Type="double precision" />
+          <Property Name="capability_sign" Type="char" MaxLength="1" />
+          <Property Name="curing_date" Type="int" />
+          <Property Name="order_type" Type="char" MaxLength="1" />
+          <Property Name="box_label_qty" Type="int" />
+          <Property Name="stock_in_order1" Type="double precision" />
+          <Property Name="inspection_card_print_qty" Type="int" />
+          <Property Name="latest_label_sign" Type="char" MaxLength="1" />
+          <Property Name="latest_stock_in_order" Type="double precision" />
+          <Property Name="re_schedule_sign" Type="char" MaxLength="1" />
+          <Property Name="parts_purchase_order_sign" Type="char" MaxLength="1" />
+          <Property Name="planned_stock_in_date" Type="int" />
+          <Property Name="stock_in_order_qty" Type="double precision" />
+          <Property Name="special_specification_sign" Type="char" MaxLength="1" />
+          <Property Name="internal_important_sign1" Type="char" MaxLength="1" />
+          <Property Name="first_mass_production_route" Type="char" MaxLength="1" />
+          <Property Name="coating_material_type" Type="char" MaxLength="8" />
+          <Property Name="mold" Type="char" MaxLength="30" />
+          <Property Name="pre_process_days" Type="double precision" />
+          <Property Name="post_process_day" Type="double precision" />
+          <Property Name="mold_divide_sign" Type="char" MaxLength="6" />
+          <Property Name="special_process_code" Type="char" MaxLength="5" />
+          <Property Name="job_tag_divide_qty" Type="int" />
+          <Property Name="extensive_job_scheduling_job_tag_qty" Type="int" />
+          <Property Name="good_item_control_sign" Type="char" MaxLength="1" />
+          <Property Name="press_no_2" Type="char" MaxLength="3" />
+          <Property Name="press_no_3" Type="char" MaxLength="3" />
+          <Property Name="press_no_4" Type="char" MaxLength="3" />
+          <Property Name="press_no_5" Type="char" MaxLength="3" />
+          <Property Name="press_no_6" Type="char" MaxLength="3" />
+          <Property Name="press_no_7" Type="char" MaxLength="3" />
+          <Property Name="press_no_8" Type="char" MaxLength="3" />
+          <Property Name="lot_no" Type="char" MaxLength="10" />
+          <Property Name="paper_verification_mark" Type="char" MaxLength="2" />
+          <Property Name="paper_verification_no" Type="int" />
+          <Property Name="update_request_sign" Type="char" MaxLength="1" />
+          <Property Name="disposal_sign" Type="char" MaxLength="1" />
+          <Property Name="tnc_tag_no" Type="char" MaxLength="2" />
+          <Property Name="tnc_total_tag_no" Type="char" MaxLength="2" />
+          <Property Name="stock_data_type" Type="char" MaxLength="1" />
+          <Property Name="unit" Type="char" MaxLength="3" />
+          <Property Name="eng_code" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tr_job_progress_nics">
+          <Key>
+            <PropertyRef Name="job_order_no" />
+          </Key>
+          <Property Name="job_order_no" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="parent_job_order_no" Type="char" MaxLength="12" />
+          <Property Name="finished_goods_code" Type="char" MaxLength="30" />
+          <Property Name="customer_code" Type="char" MaxLength="5" />
+          <Property Name="operation_sequence_00" Type="smallint" />
+          <Property Name="line_group_00" Type="char" MaxLength="3" />
+          <Property Name="line_no_00" Type="char" MaxLength="4" />
+          <Property Name="operation_code_00" Type="char" MaxLength="6" />
+          <Property Name="control_point_00" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_01" Type="smallint" />
+          <Property Name="line_group_01" Type="char" MaxLength="3" />
+          <Property Name="line_no_01" Type="char" MaxLength="4" />
+          <Property Name="operation_code_01" Type="char" MaxLength="6" />
+          <Property Name="control_point_01" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_02" Type="smallint" />
+          <Property Name="line_group_02" Type="char" MaxLength="3" />
+          <Property Name="line_no_02" Type="char" MaxLength="4" />
+          <Property Name="operation_code_02" Type="char" MaxLength="6" />
+          <Property Name="control_point_02" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_03" Type="smallint" />
+          <Property Name="line_group_03" Type="char" MaxLength="3" />
+          <Property Name="line_no_03" Type="char" MaxLength="4" />
+          <Property Name="operation_code_03" Type="char" MaxLength="6" />
+          <Property Name="control_point_03" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_04" Type="smallint" />
+          <Property Name="line_group_04" Type="char" MaxLength="3" />
+          <Property Name="line_no_04" Type="char" MaxLength="4" />
+          <Property Name="operation_code_04" Type="char" MaxLength="6" />
+          <Property Name="control_point_04" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_05" Type="smallint" />
+          <Property Name="line_group_05" Type="char" MaxLength="3" />
+          <Property Name="line_no_05" Type="char" MaxLength="4" />
+          <Property Name="operation_code_05" Type="char" MaxLength="6" />
+          <Property Name="control_point_05" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_06" Type="smallint" />
+          <Property Name="line_group_06" Type="char" MaxLength="3" />
+          <Property Name="line_no_06" Type="char" MaxLength="4" />
+          <Property Name="operation_code_06" Type="char" MaxLength="6" />
+          <Property Name="control_point_06" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_07" Type="smallint" />
+          <Property Name="line_group_07" Type="char" MaxLength="3" />
+          <Property Name="line_no_07" Type="char" MaxLength="4" />
+          <Property Name="operation_code_07" Type="char" MaxLength="6" />
+          <Property Name="control_point_07" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_08" Type="smallint" />
+          <Property Name="line_group_08" Type="char" MaxLength="3" />
+          <Property Name="line_no_08" Type="char" MaxLength="4" />
+          <Property Name="operation_code_08" Type="char" MaxLength="6" />
+          <Property Name="control_point_08" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_09" Type="smallint" />
+          <Property Name="line_group_09" Type="char" MaxLength="3" />
+          <Property Name="line_no_09" Type="char" MaxLength="4" />
+          <Property Name="operation_code_09" Type="char" MaxLength="6" />
+          <Property Name="control_point_09" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_10" Type="smallint" />
+          <Property Name="line_group_10" Type="char" MaxLength="3" />
+          <Property Name="line_no_10" Type="char" MaxLength="4" />
+          <Property Name="operation_code_10" Type="char" MaxLength="6" />
+          <Property Name="control_point_10" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_11" Type="smallint" />
+          <Property Name="line_group_11" Type="char" MaxLength="3" />
+          <Property Name="line_no_11" Type="char" MaxLength="4" />
+          <Property Name="operation_code_11" Type="char" MaxLength="6" />
+          <Property Name="control_point_11" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_12" Type="smallint" />
+          <Property Name="line_group_12" Type="char" MaxLength="3" />
+          <Property Name="line_no_12" Type="char" MaxLength="4" />
+          <Property Name="operation_code_12" Type="char" MaxLength="6" />
+          <Property Name="control_point_12" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_13" Type="smallint" />
+          <Property Name="line_group_13" Type="char" MaxLength="3" />
+          <Property Name="line_no_13" Type="char" MaxLength="4" />
+          <Property Name="operation_code_13" Type="char" MaxLength="6" />
+          <Property Name="control_point_13" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_14" Type="smallint" />
+          <Property Name="line_group_14" Type="char" MaxLength="3" />
+          <Property Name="line_no_14" Type="char" MaxLength="4" />
+          <Property Name="operation_code_14" Type="char" MaxLength="6" />
+          <Property Name="control_point_14" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_15" Type="smallint" />
+          <Property Name="line_group_15" Type="char" MaxLength="3" />
+          <Property Name="line_no_15" Type="char" MaxLength="4" />
+          <Property Name="operation_code_15" Type="char" MaxLength="6" />
+          <Property Name="control_point_15" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_16" Type="smallint" />
+          <Property Name="line_group_16" Type="char" MaxLength="3" />
+          <Property Name="line_no_16" Type="char" MaxLength="4" />
+          <Property Name="operation_code_16" Type="char" MaxLength="6" />
+          <Property Name="control_point_16" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_17" Type="smallint" />
+          <Property Name="line_group_17" Type="char" MaxLength="3" />
+          <Property Name="line_no_17" Type="char" MaxLength="4" />
+          <Property Name="operation_code_17" Type="char" MaxLength="6" />
+          <Property Name="control_point_17" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_18" Type="smallint" />
+          <Property Name="line_group_18" Type="char" MaxLength="3" />
+          <Property Name="line_no_18" Type="char" MaxLength="4" />
+          <Property Name="operation_code_18" Type="char" MaxLength="6" />
+          <Property Name="control_point_18" Type="char" MaxLength="1" />
+          <Property Name="operation_sequence_19" Type="smallint" />
+          <Property Name="line_group_19" Type="char" MaxLength="3" />
+          <Property Name="line_no_19" Type="char" MaxLength="4" />
+          <Property Name="operation_code_19" Type="char" MaxLength="6" />
+          <Property Name="control_point_19" Type="char" MaxLength="1" />
+          <Property Name="greasing_sign" Type="smallint" />
+          <Property Name="entry_day" Type="varchar" MaxLength="8" />
+          <Property Name="entry_time" Type="varchar" MaxLength="6" />
+          <Property Name="update_day" Type="varchar" MaxLength="8" />
+          <Property Name="update_time" Type="varchar" MaxLength="6" />
+          <Property Name="transaction_no" Type="char" MaxLength="10" />
+          <Property Name="disposal_sign" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tr_metal_job_nics">
+          <Key>
+            <PropertyRef Name="parts_job_order_no" />
+          </Key>
+          <Property Name="record_status" Type="char" MaxLength="1" />
+          <Property Name="entry_date" Type="int" />
+          <Property Name="entry_time" Type="int" />
+          <Property Name="update_date" Type="int" />
+          <Property Name="update_time" Type="int" />
+          <Property Name="entry_terminal_id" Type="char" MaxLength="10" />
+          <Property Name="program_id" Type="char" MaxLength="10" />
+          <Property Name="update_user_code" Type="char" MaxLength="10" />
+          <Property Name="company_code" Type="char" Nullable="false" MaxLength="5" />
+          <Property Name="plant_code" Type="char" Nullable="false" MaxLength="4" />
+          <Property Name="parts_job_order_no" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="data_transfer_complete_sign" Type="char" MaxLength="1" />
+          <Property Name="err_sign" Type="char" MaxLength="5" />
+          <Property Name="job_order_no" Type="char" MaxLength="12" />
+          <Property Name="divide_sign" Type="char" MaxLength="1" />
+          <Property Name="parts" Type="char" MaxLength="30" />
+          <Property Name="parts_specification_file_id" Type="char" MaxLength="2" />
+          <Property Name="finished_goods_code" Type="char" MaxLength="20" />
+          <Property Name="customer_code" Type="char" MaxLength="5" />
+          <Property Name="limitation_item_sign" Type="char" MaxLength="1" />
+          <Property Name="mps_no" Type="char" MaxLength="9" />
+          <Property Name="line_group" Type="char" MaxLength="3" />
+          <Property Name="line_no" Type="char" MaxLength="3" />
+          <Property Name="press_no" Type="char" MaxLength="3" />
+          <Property Name="vendor_code" Type="char" MaxLength="4" />
+          <Property Name="sector" Type="char" MaxLength="4" />
+          <Property Name="supply_type" Type="char" MaxLength="1" />
+          <Property Name="capability_sign" Type="char" MaxLength="1" />
+          <Property Name="curing_date" Type="int" />
+          <Property Name="order_type" Type="char" MaxLength="1" />
+          <Property Name="curing_qty" Type="double precision" />
+          <Property Name="good_item_qty" Type="double precision" />
+          <Property Name="final_sign" Type="char" MaxLength="1" />
+          <Property Name="planned_stockin_date" Type="int" />
+          <Property Name="parts_order_type" Type="char" MaxLength="1" />
+          <Property Name="parts_issue_type" Type="char" MaxLength="1" />
+          <Property Name="issue_place" Type="char" MaxLength="1" />
+          <Property Name="issue_order_date" Type="int" />
+          <Property Name="issue_qty" Type="double precision" />
+          <Property Name="issue_weight" Type="double precision" />
+          <Property Name="parts_line_group" Type="char" MaxLength="3" />
+          <Property Name="number_of_unit" Type="int" />
+          <Property Name="partsqty" Type="int" />
+          <Property Name="sub_job_tag_qty" Type="int" />
+          <Property Name="include_qty" Type="double precision" />
+          <Property Name="parts_material_code" Type="char" MaxLength="8" />
+          <Property Name="reschedule_sign" Type="char" MaxLength="1" />
+          <Property Name="parts_purchase_order_sign" Type="char" MaxLength="1" />
+          <Property Name="useful_limit" Type="int" />
+          <Property Name="remain_qty_before" Type="double precision" />
+          <Property Name="remain_qty_after" Type="double precision" />
+          <Property Name="purchase_order_type" Type="char" MaxLength="1" />
+          <Property Name="paper_type" Type="char" MaxLength="2" />
+          <Property Name="update_request_sign" Type="char" MaxLength="1" />
+          <Property Name="unit" Type="char" MaxLength="3" />
+          <Property Name="eng_code" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tr_part_nics">
+          <Key>
+            <PropertyRef Name="company_code" />
+            <PropertyRef Name="plant_code" />
+            <PropertyRef Name="parts_job_order_no" />
+          </Key>
+          <Property Name="record_status" Type="char" MaxLength="1" />
+          <Property Name="entry_date" Type="int" />
+          <Property Name="entry_time" Type="int" />
+          <Property Name="update_date" Type="int" />
+          <Property Name="update_time" Type="int" />
+          <Property Name="entry_terminal_id" Type="char" MaxLength="10" />
+          <Property Name="program_id" Type="char" MaxLength="10" />
+          <Property Name="update_user_code" Type="char" MaxLength="10" />
+          <Property Name="company_code" Type="char" Nullable="false" MaxLength="5" />
+          <Property Name="plant_code" Type="char" Nullable="false" MaxLength="4" />
+          <Property Name="parts_job_order_no" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="data_transfer_complete_sign" Type="char" MaxLength="1" />
+          <Property Name="err_sign" Type="char" MaxLength="5" />
+          <Property Name="job_order_no" Type="char" MaxLength="12" />
+          <Property Name="divide_sign" Type="char" MaxLength="1" />
+          <Property Name="parts" Type="char" MaxLength="30" />
+          <Property Name="parts_specification_file_id" Type="char" MaxLength="2" />
+          <Property Name="finished_goods_code" Type="char" MaxLength="20" />
+          <Property Name="customer_code" Type="char" MaxLength="5" />
+          <Property Name="limitation_item_sign" Type="char" MaxLength="1" />
+          <Property Name="mps_no" Type="char" MaxLength="9" />
+          <Property Name="line_group" Type="char" MaxLength="3" />
+          <Property Name="line_no" Type="char" MaxLength="3" />
+          <Property Name="press_no" Type="char" MaxLength="3" />
+          <Property Name="vendor_code" Type="char" MaxLength="4" />
+          <Property Name="sector" Type="char" MaxLength="4" />
+          <Property Name="supply_type" Type="char" MaxLength="1" />
+          <Property Name="capability_sign" Type="char" MaxLength="1" />
+          <Property Name="curing_date" Type="int" />
+          <Property Name="order_type" Type="char" MaxLength="1" />
+          <Property Name="curing_qty" Type="double precision" />
+          <Property Name="good_item_qty" Type="double precision" />
+          <Property Name="final_sign" Type="char" MaxLength="1" />
+          <Property Name="planned_stockin_date" Type="int" />
+          <Property Name="parts_order_type" Type="char" MaxLength="1" />
+          <Property Name="parts_issue_type" Type="char" MaxLength="1" />
+          <Property Name="issue_place" Type="char" MaxLength="1" />
+          <Property Name="issue_order_date" Type="int" />
+          <Property Name="issue_qty" Type="double precision" />
+          <Property Name="issue_weight" Type="double precision" />
+          <Property Name="parts_line_group" Type="char" MaxLength="3" />
+          <Property Name="number_of_unit" Type="int" />
+          <Property Name="partsqty" Type="int" />
+          <Property Name="sub_job_tag_qty" Type="int" />
+          <Property Name="include_qty" Type="double precision" />
+          <Property Name="parts_material_code" Type="char" MaxLength="8" />
+          <Property Name="reschedule_sign" Type="char" MaxLength="1" />
+          <Property Name="parts_purchase_order_sign" Type="char" MaxLength="1" />
+          <Property Name="useful_limit" Type="int" />
+          <Property Name="remain_qty_before" Type="double precision" />
+          <Property Name="remain_qty_after" Type="double precision" />
+          <Property Name="purchase_order_type" Type="char" MaxLength="1" />
+          <Property Name="paper_type" Type="char" MaxLength="2" />
+          <Property Name="update_request_sign" Type="char" MaxLength="1" />
+          <Property Name="unit" Type="char" MaxLength="3" />
+          <Property Name="eng_code" Type="char" MaxLength="20" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qimnicsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="qimnicsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tm_workcenter" EntityType="qimnicsModel.tm_workcenter" />
+          <EntitySet Name="tr_curing_nics" EntityType="qimnicsModel.tr_curing_nics" />
+          <EntitySet Name="tr_job_progress_nics" EntityType="qimnicsModel.tr_job_progress_nics" />
+          <EntitySet Name="tr_metal_job_nics" EntityType="qimnicsModel.tr_metal_job_nics" />
+          <EntitySet Name="tr_part_nics" EntityType="qimnicsModel.tr_part_nics" />
+        </EntityContainer>
+        <EntityType Name="tm_workcenter">
+          <Key>
+            <PropertyRef Name="wc" />
+          </Key>
+          <Property Name="file_sign" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="active_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="entry_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="update_date" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="update_time" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="update_wsid" Type="String" MaxLength="25" Unicode="false" FixedLength="true" />
+          <Property Name="update_pgm" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="update_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="wc" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="wc_name" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="group_name" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="product_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Type="String" Name="product_name" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="cost_code" MaxLength="5" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tr_curing_nics">
+          <Key>
+            <PropertyRef Name="job_order_no" />
+          </Key>
+          <Property Name="record_status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="entry_date" Type="Int32" />
+          <Property Name="entry_time" Type="Int32" />
+          <Property Name="update_date" Type="Int32" />
+          <Property Name="update_time" Type="Int32" />
+          <Property Name="entry_terminal_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="program_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="update_user_code" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="company_code" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="plant_code" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="data_transfer_complete_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="err_sign" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="parent_job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="divide_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="manufactured_curing" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="list_type_rubber" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="list_type_parts" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="purchase_order" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="process_sign7" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="process_sign8" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="process_sign9" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="process_sign10" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="urgent_schedule_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="machine_set_up_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="final_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="jis_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="set_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="finished_goods_code" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="customer_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="limitation_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="mp_code" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="enterprise_code" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="press_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="data_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="mps_no" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="co_qty" Type="Double" />
+          <Property Name="co_due_date" Type="Int32" />
+          <Property Name="customer_order_no" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="set_item_co_line_no" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="round_unit" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="packing_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="packing_package_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="packing_label_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="packing_label_type_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="pack_qty" Type="Double" />
+          <Property Name="box_label_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="box_label_print_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="box_qty" Type="Double" />
+          <Property Name="vendor_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="external_fabrication_po_no" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="nickname_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="material_mark1" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="compound_mark1" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="material_mark2" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="compound_mark2" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="metal_case_material_code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="spring_material_code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="other_material_type" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="partial_shipment_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="delivery_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="internal_order_from_plant_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="cost_accounting_division" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="internal_order_from_sector" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="stock_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="cavity_qty" Type="Int32" />
+          <Property Name="mold_plate_qty" Type="Int32" />
+          <Property Name="rotation" Type="Int32" />
+          <Property Name="curing_qty" Type="Double" />
+          <Property Name="good_item_qty" Type="Double" />
+          <Property Name="carry_over_good_item_qty" Type="Double" />
+          <Property Name="capability_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="curing_date" Type="Int32" />
+          <Property Name="order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="box_label_qty" Type="Int32" />
+          <Property Name="stock_in_order1" Type="Double" />
+          <Property Name="inspection_card_print_qty" Type="Int32" />
+          <Property Name="latest_label_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="latest_stock_in_order" Type="Double" />
+          <Property Name="re_schedule_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="parts_purchase_order_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="planned_stock_in_date" Type="Int32" />
+          <Property Name="stock_in_order_qty" Type="Double" />
+          <Property Name="special_specification_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="internal_important_sign1" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="first_mass_production_route" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="coating_material_type" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="mold" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+          <Property Name="pre_process_days" Type="Double" />
+          <Property Name="post_process_day" Type="Double" />
+          <Property Name="mold_divide_sign" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="special_process_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="job_tag_divide_qty" Type="Int32" />
+          <Property Name="extensive_job_scheduling_job_tag_qty" Type="Int32" />
+          <Property Name="good_item_control_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="press_no_2" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="press_no_3" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="press_no_4" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="press_no_5" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="press_no_6" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="press_no_7" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="press_no_8" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="lot_no" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="paper_verification_mark" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="paper_verification_no" Type="Int32" />
+          <Property Name="update_request_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="disposal_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="tnc_tag_no" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="tnc_total_tag_no" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="stock_data_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Type="String" Name="unit" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="eng_code" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tr_job_progress_nics">
+          <Key>
+            <PropertyRef Name="job_order_no" />
+          </Key>
+          <Property Name="job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="parent_job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="finished_goods_code" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+          <Property Name="customer_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_00" Type="Int16" />
+          <Property Name="line_group_00" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_00" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_00" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_00" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_01" Type="Int16" />
+          <Property Name="line_group_01" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_01" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_01" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_01" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_02" Type="Int16" />
+          <Property Name="line_group_02" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_02" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_02" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_02" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_03" Type="Int16" />
+          <Property Name="line_group_03" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_03" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_03" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_03" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_04" Type="Int16" />
+          <Property Name="line_group_04" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_04" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_04" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_04" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_05" Type="Int16" />
+          <Property Name="line_group_05" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_05" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_05" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_05" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_06" Type="Int16" />
+          <Property Name="line_group_06" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_06" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_06" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_06" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_07" Type="Int16" />
+          <Property Name="line_group_07" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_07" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_07" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_07" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_08" Type="Int16" />
+          <Property Name="line_group_08" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_08" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_08" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_08" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_09" Type="Int16" />
+          <Property Name="line_group_09" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_09" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_09" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_09" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_10" Type="Int16" />
+          <Property Name="line_group_10" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_10" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_10" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_10" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_11" Type="Int16" />
+          <Property Name="line_group_11" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_11" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_11" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_11" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_12" Type="Int16" />
+          <Property Name="line_group_12" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_12" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_12" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_12" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_13" Type="Int16" />
+          <Property Name="line_group_13" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_13" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_13" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_13" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_14" Type="Int16" />
+          <Property Name="line_group_14" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_14" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_14" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_14" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_15" Type="Int16" />
+          <Property Name="line_group_15" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_15" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_15" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_15" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_16" Type="Int16" />
+          <Property Name="line_group_16" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_16" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_16" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_16" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_17" Type="Int16" />
+          <Property Name="line_group_17" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_17" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_17" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_17" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_18" Type="Int16" />
+          <Property Name="line_group_18" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_18" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_18" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_18" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="operation_sequence_19" Type="Int16" />
+          <Property Name="line_group_19" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no_19" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="operation_code_19" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="control_point_19" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="greasing_sign" Type="Int16" />
+          <Property Name="entry_day" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="entry_time" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="update_day" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="update_time" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="transaction_no" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="disposal_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="tr_metal_job_nics">
+          <Key>
+            <PropertyRef Name="parts_job_order_no" />
+          </Key>
+          <Property Name="record_status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="entry_date" Type="Int32" />
+          <Property Name="entry_time" Type="Int32" />
+          <Property Name="update_date" Type="Int32" />
+          <Property Name="update_time" Type="Int32" />
+          <Property Name="entry_terminal_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="program_id" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="update_user_code" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="company_code" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="plant_code" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="parts_job_order_no" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="data_transfer_complete_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="err_sign" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="job_order_no" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="divide_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="parts" Type="String" MaxLength="30" Unicode="false" FixedLength="true" />
+          <Property Name="parts_specification_file_id" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="finished_goods_code" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="customer_code" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="limitation_item_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="mps_no" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="line_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="press_no" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="vendor_code" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="sector" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="supply_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="capability_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="curing_date" Type="Int32" />
+          <Property Name="order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="curing_qty" Type="Int32" />
+          <Property Name="good_item_qty" Type="Int32" />
+          <Property Name="final_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="planned_stockin_date" Type="Int32" />
+          <Property Name="parts_order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="parts_issue_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="issue_place" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="issue_order_date" Type="Int32" />
+          <Property Name="issue_qty" Type="Int32" />
+          <Property Name="issue_weight" Type="Int32" />
+          <Property Name="parts_line_group" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="number_of_unit" Type="Int32" />
+          <Property Name="partsqty" Type="Int32" />
+          <Property Name="sub_job_tag_qty" Type="Int32" />
+          <Property Name="include_qty" Type="Int32" />
+          <Property Name="parts_material_code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="reschedule_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="parts_purchase_order_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="useful_limit" Type="Int32" />
+          <Property Name="remain_qty_before" Type="Int32" />
+          <Property Name="remain_qty_after" Type="Int32" />
+          <Property Name="purchase_order_type" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="paper_type" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="update_request_sign" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Type="String" Name="unit" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="eng_code" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tr_part_nics">
+          <Key>
+            <PropertyRef Name="company_code" />
+            <PropertyRef Name="plant_code" />
+            <PropertyRef Name="parts_job_order_no" />
+          </Key>
+          <Property Type="String" Name="record_status" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="entry_date" />
+          <Property Type="Int32" Name="entry_time" />
+          <Property Type="Int32" Name="update_date" />
+          <Property Type="Int32" Name="update_time" />
+          <Property Type="String" Name="entry_terminal_id" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="program_id" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="update_user_code" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="company_code" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="plant_code" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="parts_job_order_no" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="data_transfer_complete_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="err_sign" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="job_order_no" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="divide_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="parts" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="parts_specification_file_id" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="finished_goods_code" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="customer_code" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="limitation_item_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="mps_no" MaxLength="9" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="line_group" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="line_no" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="press_no" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="vendor_code" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="sector" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="supply_type" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="capability_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="curing_date" />
+          <Property Type="String" Name="order_type" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="curing_qty" />
+          <Property Type="Double" Name="good_item_qty" />
+          <Property Type="String" Name="final_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="planned_stockin_date" />
+          <Property Type="String" Name="parts_order_type" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="parts_issue_type" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="issue_place" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="issue_order_date" />
+          <Property Type="Double" Name="issue_qty" />
+          <Property Type="Double" Name="issue_weight" />
+          <Property Type="String" Name="parts_line_group" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="number_of_unit" />
+          <Property Type="Int32" Name="partsqty" />
+          <Property Type="Int32" Name="sub_job_tag_qty" />
+          <Property Type="Double" Name="include_qty" />
+          <Property Type="String" Name="parts_material_code" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="reschedule_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="parts_purchase_order_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="useful_limit" />
+          <Property Type="Double" Name="remain_qty_before" />
+          <Property Type="Double" Name="remain_qty_after" />
+          <Property Type="String" Name="purchase_order_type" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="paper_type" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="update_request_sign" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="unit" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="eng_code" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qimnicsModelStoreContainer" CdmEntityContainer="qimnicsEntities">
+          <EntitySetMapping Name="tm_workcenter">
+            <EntityTypeMapping TypeName="qimnicsModel.tm_workcenter">
+              <MappingFragment StoreEntitySet="tm_workcenter">
+                <ScalarProperty Name="cost_code" ColumnName="cost_code" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="file_sign" ColumnName="file_sign" />
+                <ScalarProperty Name="active_sign" ColumnName="active_sign" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_wsid" ColumnName="update_wsid" />
+                <ScalarProperty Name="update_pgm" ColumnName="update_pgm" />
+                <ScalarProperty Name="update_sign" ColumnName="update_sign" />
+                <ScalarProperty Name="wc" ColumnName="wc" />
+                <ScalarProperty Name="wc_name" ColumnName="wc_name" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="product_code" ColumnName="product_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tr_curing_nics">
+            <EntityTypeMapping TypeName="qimnicsModel.tr_curing_nics">
+              <MappingFragment StoreEntitySet="tr_curing_nics">
+                <ScalarProperty Name="eng_code" ColumnName="eng_code" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="entry_terminal_id" ColumnName="entry_terminal_id" />
+                <ScalarProperty Name="program_id" ColumnName="program_id" />
+                <ScalarProperty Name="update_user_code" ColumnName="update_user_code" />
+                <ScalarProperty Name="company_code" ColumnName="company_code" />
+                <ScalarProperty Name="plant_code" ColumnName="plant_code" />
+                <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+                <ScalarProperty Name="data_transfer_complete_sign" ColumnName="data_transfer_complete_sign" />
+                <ScalarProperty Name="err_sign" ColumnName="err_sign" />
+                <ScalarProperty Name="parent_job_order_no" ColumnName="parent_job_order_no" />
+                <ScalarProperty Name="divide_sign" ColumnName="divide_sign" />
+                <ScalarProperty Name="manufactured_curing" ColumnName="manufactured_curing" />
+                <ScalarProperty Name="list_type_rubber" ColumnName="list_type_rubber" />
+                <ScalarProperty Name="list_type_parts" ColumnName="list_type_parts" />
+                <ScalarProperty Name="purchase_order" ColumnName="purchase_order" />
+                <ScalarProperty Name="process_sign7" ColumnName="process_sign7" />
+                <ScalarProperty Name="process_sign8" ColumnName="process_sign8" />
+                <ScalarProperty Name="process_sign9" ColumnName="process_sign9" />
+                <ScalarProperty Name="process_sign10" ColumnName="process_sign10" />
+                <ScalarProperty Name="urgent_schedule_sign" ColumnName="urgent_schedule_sign" />
+                <ScalarProperty Name="machine_set_up_sign" ColumnName="machine_set_up_sign" />
+                <ScalarProperty Name="final_sign" ColumnName="final_sign" />
+                <ScalarProperty Name="jis_sign" ColumnName="jis_sign" />
+                <ScalarProperty Name="set_item_sign" ColumnName="set_item_sign" />
+                <ScalarProperty Name="finished_goods_code" ColumnName="finished_goods_code" />
+                <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+                <ScalarProperty Name="limitation_item_sign" ColumnName="limitation_item_sign" />
+                <ScalarProperty Name="mp_code" ColumnName="mp_code" />
+                <ScalarProperty Name="enterprise_code" ColumnName="enterprise_code" />
+                <ScalarProperty Name="line_group" ColumnName="line_group" />
+                <ScalarProperty Name="line_no" ColumnName="line_no" />
+                <ScalarProperty Name="press_no" ColumnName="press_no" />
+                <ScalarProperty Name="data_no" ColumnName="data_no" />
+                <ScalarProperty Name="mps_no" ColumnName="mps_no" />
+                <ScalarProperty Name="co_qty" ColumnName="co_qty" />
+                <ScalarProperty Name="co_due_date" ColumnName="co_due_date" />
+                <ScalarProperty Name="customer_order_no" ColumnName="customer_order_no" />
+                <ScalarProperty Name="set_item_co_line_no" ColumnName="set_item_co_line_no" />
+                <ScalarProperty Name="round_unit" ColumnName="round_unit" />
+                <ScalarProperty Name="packing_type" ColumnName="packing_type" />
+                <ScalarProperty Name="packing_package_type" ColumnName="packing_package_type" />
+                <ScalarProperty Name="packing_label_type" ColumnName="packing_label_type" />
+                <ScalarProperty Name="packing_label_type_sign" ColumnName="packing_label_type_sign" />
+                <ScalarProperty Name="pack_qty" ColumnName="pack_qty" />
+                <ScalarProperty Name="box_label_type" ColumnName="box_label_type" />
+                <ScalarProperty Name="box_label_print_type" ColumnName="box_label_print_type" />
+                <ScalarProperty Name="box_qty" ColumnName="box_qty" />
+                <ScalarProperty Name="vendor_code" ColumnName="vendor_code" />
+                <ScalarProperty Name="external_fabrication_po_no" ColumnName="external_fabrication_po_no" />
+                <ScalarProperty Name="nickname_no" ColumnName="nickname_no" />
+                <ScalarProperty Name="material_mark1" ColumnName="material_mark1" />
+                <ScalarProperty Name="compound_mark1" ColumnName="compound_mark1" />
+                <ScalarProperty Name="material_mark2" ColumnName="material_mark2" />
+                <ScalarProperty Name="compound_mark2" ColumnName="compound_mark2" />
+                <ScalarProperty Name="metal_case_material_code" ColumnName="metal_case_material_code" />
+                <ScalarProperty Name="spring_material_code" ColumnName="spring_material_code" />
+                <ScalarProperty Name="other_material_type" ColumnName="other_material_type" />
+                <ScalarProperty Name="partial_shipment_sign" ColumnName="partial_shipment_sign" />
+                <ScalarProperty Name="delivery_type" ColumnName="delivery_type" />
+                <ScalarProperty Name="internal_order_from_plant_code" ColumnName="internal_order_from_plant_code" />
+                <ScalarProperty Name="cost_accounting_division" ColumnName="cost_accounting_division" />
+                <ScalarProperty Name="internal_order_from_sector" ColumnName="internal_order_from_sector" />
+                <ScalarProperty Name="stock_item_sign" ColumnName="stock_item_sign" />
+                <ScalarProperty Name="cavity_qty" ColumnName="cavity_qty" />
+                <ScalarProperty Name="mold_plate_qty" ColumnName="mold_plate_qty" />
+                <ScalarProperty Name="rotation" ColumnName="rotation" />
+                <ScalarProperty Name="curing_qty" ColumnName="curing_qty" />
+                <ScalarProperty Name="good_item_qty" ColumnName="good_item_qty" />
+                <ScalarProperty Name="carry_over_good_item_qty" ColumnName="carry_over_good_item_qty" />
+                <ScalarProperty Name="capability_sign" ColumnName="capability_sign" />
+                <ScalarProperty Name="curing_date" ColumnName="curing_date" />
+                <ScalarProperty Name="order_type" ColumnName="order_type" />
+                <ScalarProperty Name="box_label_qty" ColumnName="box_label_qty" />
+                <ScalarProperty Name="stock_in_order1" ColumnName="stock_in_order1" />
+                <ScalarProperty Name="inspection_card_print_qty" ColumnName="inspection_card_print_qty" />
+                <ScalarProperty Name="latest_label_sign" ColumnName="latest_label_sign" />
+                <ScalarProperty Name="latest_stock_in_order" ColumnName="latest_stock_in_order" />
+                <ScalarProperty Name="re_schedule_sign" ColumnName="re_schedule_sign" />
+                <ScalarProperty Name="parts_purchase_order_sign" ColumnName="parts_purchase_order_sign" />
+                <ScalarProperty Name="planned_stock_in_date" ColumnName="planned_stock_in_date" />
+                <ScalarProperty Name="stock_in_order_qty" ColumnName="stock_in_order_qty" />
+                <ScalarProperty Name="special_specification_sign" ColumnName="special_specification_sign" />
+                <ScalarProperty Name="internal_important_sign1" ColumnName="internal_important_sign1" />
+                <ScalarProperty Name="first_mass_production_route" ColumnName="first_mass_production_route" />
+                <ScalarProperty Name="coating_material_type" ColumnName="coating_material_type" />
+                <ScalarProperty Name="mold" ColumnName="mold" />
+                <ScalarProperty Name="pre_process_days" ColumnName="pre_process_days" />
+                <ScalarProperty Name="post_process_day" ColumnName="post_process_day" />
+                <ScalarProperty Name="mold_divide_sign" ColumnName="mold_divide_sign" />
+                <ScalarProperty Name="special_process_code" ColumnName="special_process_code" />
+                <ScalarProperty Name="job_tag_divide_qty" ColumnName="job_tag_divide_qty" />
+                <ScalarProperty Name="extensive_job_scheduling_job_tag_qty" ColumnName="extensive_job_scheduling_job_tag_qty" />
+                <ScalarProperty Name="good_item_control_sign" ColumnName="good_item_control_sign" />
+                <ScalarProperty Name="press_no_2" ColumnName="press_no_2" />
+                <ScalarProperty Name="press_no_3" ColumnName="press_no_3" />
+                <ScalarProperty Name="press_no_4" ColumnName="press_no_4" />
+                <ScalarProperty Name="press_no_5" ColumnName="press_no_5" />
+                <ScalarProperty Name="press_no_6" ColumnName="press_no_6" />
+                <ScalarProperty Name="press_no_7" ColumnName="press_no_7" />
+                <ScalarProperty Name="press_no_8" ColumnName="press_no_8" />
+                <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+                <ScalarProperty Name="paper_verification_mark" ColumnName="paper_verification_mark" />
+                <ScalarProperty Name="paper_verification_no" ColumnName="paper_verification_no" />
+                <ScalarProperty Name="update_request_sign" ColumnName="update_request_sign" />
+                <ScalarProperty Name="disposal_sign" ColumnName="disposal_sign" />
+                <ScalarProperty Name="tnc_tag_no" ColumnName="tnc_tag_no" />
+                <ScalarProperty Name="tnc_total_tag_no" ColumnName="tnc_total_tag_no" />
+                <ScalarProperty Name="stock_data_type" ColumnName="stock_data_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tr_job_progress_nics">
+            <EntityTypeMapping TypeName="qimnicsModel.tr_job_progress_nics">
+              <MappingFragment StoreEntitySet="tr_job_progress_nics">
+                <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+                <ScalarProperty Name="parent_job_order_no" ColumnName="parent_job_order_no" />
+                <ScalarProperty Name="finished_goods_code" ColumnName="finished_goods_code" />
+                <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+                <ScalarProperty Name="operation_sequence_00" ColumnName="operation_sequence_00" />
+                <ScalarProperty Name="line_group_00" ColumnName="line_group_00" />
+                <ScalarProperty Name="line_no_00" ColumnName="line_no_00" />
+                <ScalarProperty Name="operation_code_00" ColumnName="operation_code_00" />
+                <ScalarProperty Name="control_point_00" ColumnName="control_point_00" />
+                <ScalarProperty Name="operation_sequence_01" ColumnName="operation_sequence_01" />
+                <ScalarProperty Name="line_group_01" ColumnName="line_group_01" />
+                <ScalarProperty Name="line_no_01" ColumnName="line_no_01" />
+                <ScalarProperty Name="operation_code_01" ColumnName="operation_code_01" />
+                <ScalarProperty Name="control_point_01" ColumnName="control_point_01" />
+                <ScalarProperty Name="operation_sequence_02" ColumnName="operation_sequence_02" />
+                <ScalarProperty Name="line_group_02" ColumnName="line_group_02" />
+                <ScalarProperty Name="line_no_02" ColumnName="line_no_02" />
+                <ScalarProperty Name="operation_code_02" ColumnName="operation_code_02" />
+                <ScalarProperty Name="control_point_02" ColumnName="control_point_02" />
+                <ScalarProperty Name="operation_sequence_03" ColumnName="operation_sequence_03" />
+                <ScalarProperty Name="line_group_03" ColumnName="line_group_03" />
+                <ScalarProperty Name="line_no_03" ColumnName="line_no_03" />
+                <ScalarProperty Name="operation_code_03" ColumnName="operation_code_03" />
+                <ScalarProperty Name="control_point_03" ColumnName="control_point_03" />
+                <ScalarProperty Name="operation_sequence_04" ColumnName="operation_sequence_04" />
+                <ScalarProperty Name="line_group_04" ColumnName="line_group_04" />
+                <ScalarProperty Name="line_no_04" ColumnName="line_no_04" />
+                <ScalarProperty Name="operation_code_04" ColumnName="operation_code_04" />
+                <ScalarProperty Name="control_point_04" ColumnName="control_point_04" />
+                <ScalarProperty Name="operation_sequence_05" ColumnName="operation_sequence_05" />
+                <ScalarProperty Name="line_group_05" ColumnName="line_group_05" />
+                <ScalarProperty Name="line_no_05" ColumnName="line_no_05" />
+                <ScalarProperty Name="operation_code_05" ColumnName="operation_code_05" />
+                <ScalarProperty Name="control_point_05" ColumnName="control_point_05" />
+                <ScalarProperty Name="operation_sequence_06" ColumnName="operation_sequence_06" />
+                <ScalarProperty Name="line_group_06" ColumnName="line_group_06" />
+                <ScalarProperty Name="line_no_06" ColumnName="line_no_06" />
+                <ScalarProperty Name="operation_code_06" ColumnName="operation_code_06" />
+                <ScalarProperty Name="control_point_06" ColumnName="control_point_06" />
+                <ScalarProperty Name="operation_sequence_07" ColumnName="operation_sequence_07" />
+                <ScalarProperty Name="line_group_07" ColumnName="line_group_07" />
+                <ScalarProperty Name="line_no_07" ColumnName="line_no_07" />
+                <ScalarProperty Name="operation_code_07" ColumnName="operation_code_07" />
+                <ScalarProperty Name="control_point_07" ColumnName="control_point_07" />
+                <ScalarProperty Name="operation_sequence_08" ColumnName="operation_sequence_08" />
+                <ScalarProperty Name="line_group_08" ColumnName="line_group_08" />
+                <ScalarProperty Name="line_no_08" ColumnName="line_no_08" />
+                <ScalarProperty Name="operation_code_08" ColumnName="operation_code_08" />
+                <ScalarProperty Name="control_point_08" ColumnName="control_point_08" />
+                <ScalarProperty Name="operation_sequence_09" ColumnName="operation_sequence_09" />
+                <ScalarProperty Name="line_group_09" ColumnName="line_group_09" />
+                <ScalarProperty Name="line_no_09" ColumnName="line_no_09" />
+                <ScalarProperty Name="operation_code_09" ColumnName="operation_code_09" />
+                <ScalarProperty Name="control_point_09" ColumnName="control_point_09" />
+                <ScalarProperty Name="operation_sequence_10" ColumnName="operation_sequence_10" />
+                <ScalarProperty Name="line_group_10" ColumnName="line_group_10" />
+                <ScalarProperty Name="line_no_10" ColumnName="line_no_10" />
+                <ScalarProperty Name="operation_code_10" ColumnName="operation_code_10" />
+                <ScalarProperty Name="control_point_10" ColumnName="control_point_10" />
+                <ScalarProperty Name="operation_sequence_11" ColumnName="operation_sequence_11" />
+                <ScalarProperty Name="line_group_11" ColumnName="line_group_11" />
+                <ScalarProperty Name="line_no_11" ColumnName="line_no_11" />
+                <ScalarProperty Name="operation_code_11" ColumnName="operation_code_11" />
+                <ScalarProperty Name="control_point_11" ColumnName="control_point_11" />
+                <ScalarProperty Name="operation_sequence_12" ColumnName="operation_sequence_12" />
+                <ScalarProperty Name="line_group_12" ColumnName="line_group_12" />
+                <ScalarProperty Name="line_no_12" ColumnName="line_no_12" />
+                <ScalarProperty Name="operation_code_12" ColumnName="operation_code_12" />
+                <ScalarProperty Name="control_point_12" ColumnName="control_point_12" />
+                <ScalarProperty Name="operation_sequence_13" ColumnName="operation_sequence_13" />
+                <ScalarProperty Name="line_group_13" ColumnName="line_group_13" />
+                <ScalarProperty Name="line_no_13" ColumnName="line_no_13" />
+                <ScalarProperty Name="operation_code_13" ColumnName="operation_code_13" />
+                <ScalarProperty Name="control_point_13" ColumnName="control_point_13" />
+                <ScalarProperty Name="operation_sequence_14" ColumnName="operation_sequence_14" />
+                <ScalarProperty Name="line_group_14" ColumnName="line_group_14" />
+                <ScalarProperty Name="line_no_14" ColumnName="line_no_14" />
+                <ScalarProperty Name="operation_code_14" ColumnName="operation_code_14" />
+                <ScalarProperty Name="control_point_14" ColumnName="control_point_14" />
+                <ScalarProperty Name="operation_sequence_15" ColumnName="operation_sequence_15" />
+                <ScalarProperty Name="line_group_15" ColumnName="line_group_15" />
+                <ScalarProperty Name="line_no_15" ColumnName="line_no_15" />
+                <ScalarProperty Name="operation_code_15" ColumnName="operation_code_15" />
+                <ScalarProperty Name="control_point_15" ColumnName="control_point_15" />
+                <ScalarProperty Name="operation_sequence_16" ColumnName="operation_sequence_16" />
+                <ScalarProperty Name="line_group_16" ColumnName="line_group_16" />
+                <ScalarProperty Name="line_no_16" ColumnName="line_no_16" />
+                <ScalarProperty Name="operation_code_16" ColumnName="operation_code_16" />
+                <ScalarProperty Name="control_point_16" ColumnName="control_point_16" />
+                <ScalarProperty Name="operation_sequence_17" ColumnName="operation_sequence_17" />
+                <ScalarProperty Name="line_group_17" ColumnName="line_group_17" />
+                <ScalarProperty Name="line_no_17" ColumnName="line_no_17" />
+                <ScalarProperty Name="operation_code_17" ColumnName="operation_code_17" />
+                <ScalarProperty Name="control_point_17" ColumnName="control_point_17" />
+                <ScalarProperty Name="operation_sequence_18" ColumnName="operation_sequence_18" />
+                <ScalarProperty Name="line_group_18" ColumnName="line_group_18" />
+                <ScalarProperty Name="line_no_18" ColumnName="line_no_18" />
+                <ScalarProperty Name="operation_code_18" ColumnName="operation_code_18" />
+                <ScalarProperty Name="control_point_18" ColumnName="control_point_18" />
+                <ScalarProperty Name="operation_sequence_19" ColumnName="operation_sequence_19" />
+                <ScalarProperty Name="line_group_19" ColumnName="line_group_19" />
+                <ScalarProperty Name="line_no_19" ColumnName="line_no_19" />
+                <ScalarProperty Name="operation_code_19" ColumnName="operation_code_19" />
+                <ScalarProperty Name="control_point_19" ColumnName="control_point_19" />
+                <ScalarProperty Name="greasing_sign" ColumnName="greasing_sign" />
+                <ScalarProperty Name="entry_day" ColumnName="entry_day" />
+                <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+                <ScalarProperty Name="update_day" ColumnName="update_day" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="transaction_no" ColumnName="transaction_no" />
+                <ScalarProperty Name="disposal_sign" ColumnName="disposal_sign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tr_metal_job_nics">
+            <EntityTypeMapping TypeName="qimnicsModel.tr_metal_job_nics">
+              <MappingFragment StoreEntitySet="tr_metal_job_nics">
+                <ScalarProperty Name="eng_code" ColumnName="eng_code" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="entry_terminal_id" ColumnName="entry_terminal_id" />
+                <ScalarProperty Name="program_id" ColumnName="program_id" />
+                <ScalarProperty Name="update_user_code" ColumnName="update_user_code" />
+                <ScalarProperty Name="company_code" ColumnName="company_code" />
+                <ScalarProperty Name="plant_code" ColumnName="plant_code" />
+                <ScalarProperty Name="parts_job_order_no" ColumnName="parts_job_order_no" />
+                <ScalarProperty Name="data_transfer_complete_sign" ColumnName="data_transfer_complete_sign" />
+                <ScalarProperty Name="err_sign" ColumnName="err_sign" />
+                <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+                <ScalarProperty Name="divide_sign" ColumnName="divide_sign" />
+                <ScalarProperty Name="parts" ColumnName="parts" />
+                <ScalarProperty Name="parts_specification_file_id" ColumnName="parts_specification_file_id" />
+                <ScalarProperty Name="finished_goods_code" ColumnName="finished_goods_code" />
+                <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+                <ScalarProperty Name="limitation_item_sign" ColumnName="limitation_item_sign" />
+                <ScalarProperty Name="mps_no" ColumnName="mps_no" />
+                <ScalarProperty Name="line_group" ColumnName="line_group" />
+                <ScalarProperty Name="line_no" ColumnName="line_no" />
+                <ScalarProperty Name="press_no" ColumnName="press_no" />
+                <ScalarProperty Name="vendor_code" ColumnName="vendor_code" />
+                <ScalarProperty Name="sector" ColumnName="sector" />
+                <ScalarProperty Name="supply_type" ColumnName="supply_type" />
+                <ScalarProperty Name="capability_sign" ColumnName="capability_sign" />
+                <ScalarProperty Name="curing_date" ColumnName="curing_date" />
+                <ScalarProperty Name="order_type" ColumnName="order_type" />
+                <ScalarProperty Name="curing_qty" ColumnName="curing_qty" />
+                <ScalarProperty Name="good_item_qty" ColumnName="good_item_qty" />
+                <ScalarProperty Name="final_sign" ColumnName="final_sign" />
+                <ScalarProperty Name="planned_stockin_date" ColumnName="planned_stockin_date" />
+                <ScalarProperty Name="parts_order_type" ColumnName="parts_order_type" />
+                <ScalarProperty Name="parts_issue_type" ColumnName="parts_issue_type" />
+                <ScalarProperty Name="issue_place" ColumnName="issue_place" />
+                <ScalarProperty Name="issue_order_date" ColumnName="issue_order_date" />
+                <ScalarProperty Name="issue_qty" ColumnName="issue_qty" />
+                <ScalarProperty Name="issue_weight" ColumnName="issue_weight" />
+                <ScalarProperty Name="parts_line_group" ColumnName="parts_line_group" />
+                <ScalarProperty Name="number_of_unit" ColumnName="number_of_unit" />
+                <ScalarProperty Name="partsqty" ColumnName="partsqty" />
+                <ScalarProperty Name="sub_job_tag_qty" ColumnName="sub_job_tag_qty" />
+                <ScalarProperty Name="include_qty" ColumnName="include_qty" />
+                <ScalarProperty Name="parts_material_code" ColumnName="parts_material_code" />
+                <ScalarProperty Name="reschedule_sign" ColumnName="reschedule_sign" />
+                <ScalarProperty Name="parts_purchase_order_sign" ColumnName="parts_purchase_order_sign" />
+                <ScalarProperty Name="useful_limit" ColumnName="useful_limit" />
+                <ScalarProperty Name="remain_qty_before" ColumnName="remain_qty_before" />
+                <ScalarProperty Name="remain_qty_after" ColumnName="remain_qty_after" />
+                <ScalarProperty Name="purchase_order_type" ColumnName="purchase_order_type" />
+                <ScalarProperty Name="paper_type" ColumnName="paper_type" />
+                <ScalarProperty Name="update_request_sign" ColumnName="update_request_sign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tr_part_nics">
+            <EntityTypeMapping TypeName="qimnicsModel.tr_part_nics">
+              <MappingFragment StoreEntitySet="tr_part_nics">
+                <ScalarProperty Name="eng_code" ColumnName="eng_code" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="update_request_sign" ColumnName="update_request_sign" />
+                <ScalarProperty Name="paper_type" ColumnName="paper_type" />
+                <ScalarProperty Name="purchase_order_type" ColumnName="purchase_order_type" />
+                <ScalarProperty Name="remain_qty_after" ColumnName="remain_qty_after" />
+                <ScalarProperty Name="remain_qty_before" ColumnName="remain_qty_before" />
+                <ScalarProperty Name="useful_limit" ColumnName="useful_limit" />
+                <ScalarProperty Name="parts_purchase_order_sign" ColumnName="parts_purchase_order_sign" />
+                <ScalarProperty Name="reschedule_sign" ColumnName="reschedule_sign" />
+                <ScalarProperty Name="parts_material_code" ColumnName="parts_material_code" />
+                <ScalarProperty Name="include_qty" ColumnName="include_qty" />
+                <ScalarProperty Name="sub_job_tag_qty" ColumnName="sub_job_tag_qty" />
+                <ScalarProperty Name="partsqty" ColumnName="partsqty" />
+                <ScalarProperty Name="number_of_unit" ColumnName="number_of_unit" />
+                <ScalarProperty Name="parts_line_group" ColumnName="parts_line_group" />
+                <ScalarProperty Name="issue_weight" ColumnName="issue_weight" />
+                <ScalarProperty Name="issue_qty" ColumnName="issue_qty" />
+                <ScalarProperty Name="issue_order_date" ColumnName="issue_order_date" />
+                <ScalarProperty Name="issue_place" ColumnName="issue_place" />
+                <ScalarProperty Name="parts_issue_type" ColumnName="parts_issue_type" />
+                <ScalarProperty Name="parts_order_type" ColumnName="parts_order_type" />
+                <ScalarProperty Name="planned_stockin_date" ColumnName="planned_stockin_date" />
+                <ScalarProperty Name="final_sign" ColumnName="final_sign" />
+                <ScalarProperty Name="good_item_qty" ColumnName="good_item_qty" />
+                <ScalarProperty Name="curing_qty" ColumnName="curing_qty" />
+                <ScalarProperty Name="order_type" ColumnName="order_type" />
+                <ScalarProperty Name="curing_date" ColumnName="curing_date" />
+                <ScalarProperty Name="capability_sign" ColumnName="capability_sign" />
+                <ScalarProperty Name="supply_type" ColumnName="supply_type" />
+                <ScalarProperty Name="sector" ColumnName="sector" />
+                <ScalarProperty Name="vendor_code" ColumnName="vendor_code" />
+                <ScalarProperty Name="press_no" ColumnName="press_no" />
+                <ScalarProperty Name="line_no" ColumnName="line_no" />
+                <ScalarProperty Name="line_group" ColumnName="line_group" />
+                <ScalarProperty Name="mps_no" ColumnName="mps_no" />
+                <ScalarProperty Name="limitation_item_sign" ColumnName="limitation_item_sign" />
+                <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+                <ScalarProperty Name="finished_goods_code" ColumnName="finished_goods_code" />
+                <ScalarProperty Name="parts_specification_file_id" ColumnName="parts_specification_file_id" />
+                <ScalarProperty Name="parts" ColumnName="parts" />
+                <ScalarProperty Name="divide_sign" ColumnName="divide_sign" />
+                <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+                <ScalarProperty Name="err_sign" ColumnName="err_sign" />
+                <ScalarProperty Name="data_transfer_complete_sign" ColumnName="data_transfer_complete_sign" />
+                <ScalarProperty Name="parts_job_order_no" ColumnName="parts_job_order_no" />
+                <ScalarProperty Name="plant_code" ColumnName="plant_code" />
+                <ScalarProperty Name="company_code" ColumnName="company_code" />
+                <ScalarProperty Name="update_user_code" ColumnName="update_user_code" />
+                <ScalarProperty Name="program_id" ColumnName="program_id" />
+                <ScalarProperty Name="entry_terminal_id" ColumnName="entry_terminal_id" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

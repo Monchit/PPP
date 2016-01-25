@@ -1,0 +1,153 @@
+﻿@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#txtTODateFrom").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtTODateTo").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            $("#txtSPDateFrom").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+            $("#txtSPDateTo").datetimepicker({
+                dateFormat: 'dd/mm/yy',
+                showButtonPanel: true
+            });
+
+            // Submit Search
+            $("#btnSearch").click(function () {
+
+                // Check order date from > date to
+                var from = $.trim($("#txtTODateFrom").val()).split('/');
+                var dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                var to = $.trim($("#txtTODateTo").val()).split('/');
+                var dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณาเลือก Order Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Check supply date from > date to
+                from = $.trim($("#txtSPDateFrom").val()).split('/');
+                dateFrom = new Date(from[2], (from[1] - 1), from[0]);
+                to = $.trim($("#txtSPDateTo").val()).split('/');
+                dateTo = new Date(to[2], (to[1] - 1), to[0]);
+                if (dateFrom > dateTo) {
+                    alert("กรุณาเลือก Supply Date! ให้ถูกต้อง");
+                    return false;
+                }
+
+                // Prepare query string
+                var QString = "compound=" + $("#txtCompound").val() + "&wc=" + $("#txtWC").val() + "&jobno=" + $("#txtJobNo").val() + "&odatefrom=" + $("#txtTODateFrom").val() + "&odateto=" + $("#txtTODateTo").val() + "&sdatefrom=" + $("#txtSPDateFrom").val() + "&sdateto=" + $("#txtSPDateTo").val();
+
+                $("#divGrid").hide().fadeIn().html('<table id="DCGrid"></table><div id="pager"></div>');
+
+                $('#DCGrid').jqGrid({
+                    colNames: ['Shelf Box', 'Compound', 'Kanban No', 'Weight', 'Supply Date', 'Supply User', 'W/C', 'Item', 'Job no.', 'Lot no.', 'Take Out Date', 'Take Out User'],
+                    colModel: [
+                                { name: 'supply_box', index: 'supply_box', width: '70px' },
+                                { name: 'compound', index: 'compound', width: '70px' },
+                                { name: 'kanban_no', index: 'kanban_no', align: 'center', width: '70px' },
+                                { name: 'weight', index: 'weight', align: 'right', width: '60px' },
+                                { name: 'order', index: 'order', align: 'center', sortable: false, width: '150px' },
+                                { sortable: false, width: '90px' },
+                                { name: 'wc', index: 'wc', align: 'center', width: '50px' },
+                                { name: 'item', index: 'item', align: 'center', width: '50px' },
+                                { name: 'job_order_no', index: 'job_order_no', align: 'center', width: '100px' },
+                                { name: 'tag_no', index: 'tag_no', align: 'center', width: '50px' },
+                                { sortable: false, align: 'center', width: '150px' },
+                                { sortable: false, width: '90px' }
+                    ],
+
+                    sortname: 'kanban_no',
+                    pagerpos: 'left',
+                    autowidth: true,
+                    caption: 'Report',
+                    datatype: 'json',
+                    height: '100%',
+                    pager: '#pager',
+                    rowList: [15, 20, 30, 50, 100],
+                    rowNum: 15,
+                    url: '@Url.Action("GetRubberDailySupplyKanban", "Report")?' + QString,
+                    mtype: 'GET',
+                    rownumbers: true,
+                    rownumWidth: '50px',
+                    viewrecords: true,
+                    excel: true,
+                    loadtext: ''
+                });
+
+                $(".ui-pg-input").css("width", "40px");
+                $("#frmExport").css("display", "inline");
+
+                insertColumnGroupHeaders($('#DCGrid'), false, [
+                    { startColumnName: 'supply_box', numberOfColumns: 6, titleText: 'In' },
+                    { startColumnName: 'wc', numberOfColumns: 6, titleText: 'Out' }
+                ]);
+
+                return false;
+            });
+
+            $("#frmExport").submit(function () {
+                var grid = $('#DCGrid');
+                $('#sidx').val(grid.getGridParam('sortname'));
+                $('#sord').val(grid.getGridParam('sortorder'));
+                $('#compound').val($("#txtCompound").val());
+                $('#wc').val($("#txtWC").val());
+                $('#jobno').val($("#txtJobNo").val());
+                $('#odatefrom').val($("#txtTODateFrom").val());
+                $('#odateto').val($("#txtTODateTo").val());
+                $('#sdatefrom').val($("#txtSPDateFrom").val());
+                $('#sdateto').val($("#txtSPDateTo").val());
+
+                return true;
+            });
+        });
+    </script>
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="advanceSearch">
+    <li class="title">Compound</li>
+    <li><input type="text" id="txtCompound" name="txtCompound" /></li>
+    <li class="title">Supply Date</li>
+    <li><input type="text" id="txtSPDateFrom" name="txtSPDateFrom" /> - <input type="text" id="txtSPDateTo" name="txtSPDateTo" /></li>
+    <li class="title">Job No</li>
+    <li><input type="text" id="txtJobNo" name="txtJobNo" /></li>
+</ul>
+<ul class="advanceSearch">
+    <li class="title">WC</li>
+    <li><input type="text" id="txtWC" name="txtWC" /></li>
+    <li class="title">Take Out Date</li>
+    <li><input type="text" id="txtTODateFrom" name="txtTODateFrom" /> - <input type="text" id="txtTODateTo" name="txtTODateTo" /></li>
+    
+    <li class="title">
+        <br />
+        <button type="button" id="btnSearch">Search</button>
+        @using (Html.BeginForm("ExportToExcelRubberDailySupplyKanban", "Report", FormMethod.Post, new { id = "frmExport", style = "display:none" }))
+        {
+            @Html.Hidden("sidx")
+            @Html.Hidden("sord")
+            @Html.Hidden("compound")
+            @Html.Hidden("wc")
+            @Html.Hidden("jobno")
+            @Html.Hidden("odatefrom")
+            @Html.Hidden("odateto")
+            @Html.Hidden("sdatefrom")
+            @Html.Hidden("sdateto")
+
+            <text><button type='submit' id='btnExport'><img class='imgBtn' title='Export to Excel' src='@Url.Content("~/Images/led_icons/page_excel.png")' /> Export</button></text>
+        }
+    </li>
+</ul>
+<div style="clear: both"></div>
+
+<br /><br />
+
+<div id="divGrid"></div>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tncproductionliveModelStoreContainer" CdmEntityContainer="tncproductionliveEntities">
+    <EntitySetMapping Name="td_rubber_batch">
+      <EntityTypeMapping TypeName="tncproductionliveModel.td_rubber_batch">
+        <MappingFragment StoreEntitySet="td_rubber_batch">
+          <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+          <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+          <ScalarProperty Name="entry_user" ColumnName="entry_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+          <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+          <ScalarProperty Name="wc" ColumnName="wc" />
+          <ScalarProperty Name="machine_no" ColumnName="machine_no" />
+          <ScalarProperty Name="group_cd" ColumnName="group_cd" />
+          <ScalarProperty Name="parts_job_order_no" ColumnName="parts_job_order_no" />
+          <ScalarProperty Name="job_order_no" ColumnName="job_order_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="parts_item" ColumnName="parts_item" />
+          <ScalarProperty Name="finished_goods_code" ColumnName="finished_goods_code" />
+          <ScalarProperty Name="compound" ColumnName="compound" />
+          <ScalarProperty Name="batch1" ColumnName="batch1" />
+          <ScalarProperty Name="batch2" ColumnName="batch2" />
+          <ScalarProperty Name="batch3" ColumnName="batch3" />
+          <ScalarProperty Name="batch4" ColumnName="batch4" />
+          <ScalarProperty Name="batch5" ColumnName="batch5" />
+          <ScalarProperty Name="batch6" ColumnName="batch6" />
+          <ScalarProperty Name="batch7" ColumnName="batch7" />
+          <ScalarProperty Name="batch8" ColumnName="batch8" />
+          <ScalarProperty Name="batch9" ColumnName="batch9" />
+          <ScalarProperty Name="batch10" ColumnName="batch10" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="td_rubber_info">
+      <EntityTypeMapping TypeName="tncproductionliveModel.td_rubber_info">
+        <MappingFragment StoreEntitySet="td_rubber_info">
+          <ScalarProperty Name="disp_re_order" ColumnName="disp_re_order" />
+          <ScalarProperty Name="last_curing_job" ColumnName="last_curing_job" />
+          <ScalarProperty Name="re_order_sign" ColumnName="re_order_sign" />
+          <ScalarProperty Name="compound" ColumnName="compound" />
+          <ScalarProperty Name="order_type" ColumnName="order_type" />
+          <ScalarProperty Name="prepare_job_order_no" ColumnName="prepare_job_order_no" />
+          <ScalarProperty Name="program_name" ColumnName="program_name" />
+          <ScalarProperty Name="next_process" ColumnName="next_process" />
+          <ScalarProperty Name="order_advance" ColumnName="order_advance" />
+          <ScalarProperty Name="cancel_sign" ColumnName="cancel_sign" />
+          <ScalarProperty Name="delay_user" ColumnName="delay_user" />
+          <ScalarProperty Name="delay_time" ColumnName="delay_time" />
+          <ScalarProperty Name="delay_date" ColumnName="delay_date" />
+          <ScalarProperty Name="delay_sign" ColumnName="delay_sign" />
+          <ScalarProperty Name="urgent_user" ColumnName="urgent_user" />
+          <ScalarProperty Name="urgent_time" ColumnName="urgent_time" />
+          <ScalarProperty Name="urgent_date" ColumnName="urgent_date" />
+          <ScalarProperty Name="completed_user" ColumnName="completed_user" />
+          <ScalarProperty Name="completed_time" ColumnName="completed_time" />
+          <ScalarProperty Name="completed_date" ColumnName="completed_date" />
+          <ScalarProperty Name="sent_user" ColumnName="sent_user" />
+          <ScalarProperty Name="sent_time" ColumnName="sent_time" />
+          <ScalarProperty Name="sent_date" ColumnName="sent_date" />
+          <ScalarProperty Name="due_time" ColumnName="due_time" />
+          <ScalarProperty Name="due_date" ColumnName="due_date" />
+          <ScalarProperty Name="rcv_user" ColumnName="rcv_user" />
+          <ScalarProperty Name="rcv_time" ColumnName="rcv_time" />
+          <ScalarProperty Name="rcv_date" ColumnName="rcv_date" />
+          <ScalarProperty Name="order_user" ColumnName="order_user" />
+          <ScalarProperty Name="order_time" ColumnName="order_time" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="buffer_user" ColumnName="buffer_user" />
+          <ScalarProperty Name="buffer_time" ColumnName="buffer_time" />
+          <ScalarProperty Name="buffer_date" ColumnName="buffer_date" />
+          <ScalarProperty Name="kanban_no" ColumnName="kanban_no" />
+          <ScalarProperty Name="prepare_sign" ColumnName="prepare_sign" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="curing_tag_no" ColumnName="curing_tag_no" />
+          <ScalarProperty Name="cycle_time" ColumnName="cycle_time" />
+          <ScalarProperty Name="curing_qty" ColumnName="curing_qty" />
+          <ScalarProperty Name="curing_job_order_no" ColumnName="curing_job_order_no" />
+          <ScalarProperty Name="group_cd" ColumnName="group_cd" />
+          <ScalarProperty Name="location_cd" ColumnName="location_cd" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="parts_tag_no" ColumnName="parts_tag_no" />
+          <ScalarProperty Name="machine_no" ColumnName="machine_no" />
+          <ScalarProperty Name="wc" ColumnName="wc" />
+          <ScalarProperty Name="eng_code" ColumnName="eng_code" />
+          <ScalarProperty Name="parent_item" ColumnName="parent_item" />
+          <ScalarProperty Name="parts_item" ColumnName="parts_item" />
+          <ScalarProperty Name="part_qty" ColumnName="part_qty" />
+          <ScalarProperty Name="parent_job_order_no" ColumnName="parent_job_order_no" />
+          <ScalarProperty Name="parts_job_order_no" ColumnName="parts_job_order_no" />
+          <ScalarProperty Name="curing_date" ColumnName="curing_date" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="entry_time" ColumnName="entry_time" />
+          <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
